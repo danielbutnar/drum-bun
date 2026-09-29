@@ -38,7 +38,7 @@ SCREENSHOT_TRACE
 
 ## Code
 
-GITHUB_EMBED
+{% github danielbutnar/drum-bun %}
 
 ## How I Used Sanity
 
@@ -56,7 +56,7 @@ A pure, unit-tested planner walks that structure: it picks the price valid on ea
 
 ### 2. A Knowledge Base from official pages in four languages
 
-The Knowledge Base "Drum Bun road rules" is built from the dataset (a GROQ query that flattens each document into readable fields) plus 23 web pages: the toll operators, ministries and cities in Romanian, Hungarian, German and English, **and the blogs drivers actually read**. The first build filed 14 issues. I resolved them with `@sanity/client`'s `context` API instead of clicking through the Dashboard, so every decision is in the repo with its reason ([decisions.md](GITHUB/context/knowledge-bases/decisions.md)):
+The Knowledge Base "Drum Bun road rules" is built from the dataset (a GROQ query that flattens each document into readable fields) plus 23 web pages: the toll operators, ministries and cities in Romanian, Hungarian, German and English, **and the blogs drivers actually read**. The first build filed 14 issues; after all fixes and a full rebuild the Knowledge Base has 22 entries from 103 dataset documents and 24 web pages, 21 decided issues and 9 standing instructions. I resolved them with `@sanity/client`'s `context` API instead of clicking through the Dashboard, so every decision is in the repo with its reason ([decisions.md](https://github.com/danielbutnar/drum-bun/blob/main/context/knowledge-bases/decisions.md)):
 
 - Four "conflicts" came from **my own vocabulary**: the build read my enum value `carTrailer` as "a trailer" and concluded trailers must carry warning triangles. One standing instruction fixed the vocabulary for every future build.
 - It **invented** Hungarian purchase points (post offices, the automobile club) that no source names. An instruction limits entries to the channels the sources name.
@@ -70,20 +70,30 @@ One endpoint serves one mode, so there are two: `drum-bun-kb` (Knowledge Base mo
 
 ### 4. Does structure beat search?
 
-EVAL_TABLE
+Sixteen questions in Romanian, German and English, each with facts an answer must contain and outdated facts it must not ([questions](https://github.com/danielbutnar/drum-bun/blob/main/evals/questions.json)). The baseline gets the **same Sanity documents and the same model**, but retrieves with an any-word keyword search (what a site search box does) instead of the planner, the Knowledge Base and GROQ.
+
+| | correct |
+| --- | --- |
+| Drum Bun agent (planner + Knowledge Base + GROQ via Sanity Context) | **15 / 16** |
+| Keyword search over the same content | 11 / 16 |
+
+Search did fine on single facts: the dataset states them plainly, which is itself a point for structured content. It failed exactly where the answer has to be *computed*: it found the Munich zone rules but no vignette prices for the Christmas trip, found the rovinietă but could not pick the Euro-class price, named 2 of the 6 Hungarian counties and missed the M1 regional vignette, and found the surcharge rules but not the amount.
+
+Honest notes: the first run scored the agent **6 / 16**. It asked "which city?" for general questions, answered an English question in Romanian, returned empty answers when reasoning tokens ate the output budget, and hit the free model tier's 5-requests-a-minute limit. The fixes were a tool for single-product prices, language detection in code, a bigger output budget and a paced runner. After the final run I widened two patterns that rejected correct answers ("1, 10, 30, 60 de zile", a non-breaking hyphen in "60‑minute") and re-scored **both** systems; every run is in [`evals/runs`](https://github.com/danielbutnar/drum-bun/tree/main/evals/runs).
 
 ### What did not go smoothly
 
 - A dataset source query with `select()` made the ingest fail with a generic server error; plain projections work.
 - A website source crawls everything under the URL's path: the Munich city page pulled in 306 pages of a 150-source budget. Single deep URLs import one page.
 - GROQ mode needs a deployed Studio, not only a deployed schema.
-- The AI Gateway's free tier does not include Claude models, so the live agent runs on `gpt-5-mini`; the planner makes the model choice matter less.
+- The AI Gateway's free tier does not include Claude models and allows 5 requests a minute, so the live agent runs on `gpt-5-mini`, the example questions replay recorded answers (labelled as such, with an "ask it live" button), and a busy model says so instead of failing silently. The planner makes the model choice matter less.
+- The first eval run lost to keyword search (above). Measuring early is what made the agent good.
 
 ## Sanity Project Details
 
 - Project ID: **`pd5e7gez`**, dataset **`production`** (public). Try: `https://pd5e7gez.api.sanity.io/v2026-09-01/data/query/production?query=*[_type=="tollProduct" && country->code=="RO"][0]{name, prices}`
 - Organization `ob2cyckj9`, Knowledge Base `kbv1SRpT2A3t`, MCP endpoints `drum-bun-kb` and `drum-bun-rules`.
-- Studio: https://drum-bun.sanity.studio (members only; the schema is in [`studio/schemaTypes`](GITHUB/studio/schemaTypes)).
+- Studio: https://drum-bun.sanity.studio (members only; the schema is in [`studio/schemaTypes`](https://github.com/danielbutnar/drum-bun/blob/main/studio/schemaTypes)).
 
 ## Agent Session
 
