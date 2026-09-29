@@ -1,0 +1,8 @@
+packages:
+  - studio
+  - web
+
+allowBuilds:
+  esbuild: true
+  sharp: false
+  unrs-resolver: false

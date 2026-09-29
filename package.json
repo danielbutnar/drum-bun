@@ -1,0 +1,17 @@
+{
+  "name": "drum-bun",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev:studio": "pnpm --filter studio dev",
+    "dev:web": "pnpm --filter web dev",
+    "typecheck": "pnpm -r typecheck",
+    "lint": "pnpm -r lint",
+    "test": "pnpm -r test",
+    "check": "pnpm typecheck && pnpm lint && pnpm test"
+  },
+  "engines": {
+    "node": ">=22.12"
+  },
+  "packageManager": "pnpm@12.4.1"
+}

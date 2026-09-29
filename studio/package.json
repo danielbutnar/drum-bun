@@ -1,0 +1,27 @@
+{
+  "name": "studio",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "sanity dev",
+    "build": "sanity build",
+    "deploy": "sanity deploy",
+    "schema:deploy": "sanity schema deploy",
+    "seed": "sanity exec scripts/seed.ts --with-user-token",
+    "typecheck": "tsc --noEmit",
+    "lint": "echo \"studio: no lint step\"",
+    "test": "echo \"studio: no tests\""
+  },
+  "dependencies": {
+    "@sanity/vision": "^6.16.0",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "sanity": "^6.16.0",
+    "styled-components": "^6.5.3"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.0",
+    "typescript": "^5.9.3"
+  }
+}
