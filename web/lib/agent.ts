@@ -8,6 +8,9 @@ import {
   type UIMessage,
 } from 'ai'
 
+import {createClient} from '@sanity/client'
+import {sanityInsightsIntegration} from '@sanity/context/ai-sdk'
+
 import {connectMcp, fetchInitialContext, InitialContextError, type McpClient, mcpConfig, withoutInitialContext} from './mcp'
 import {planTripTool, today} from './plan-tool'
 
@@ -34,7 +37,23 @@ Rules:
 
 export type ChatError = {status: number; error: string}
 
-export async function runAgent(messages: UIMessage[], onDone?: () => void): Promise<Response | ChatError> {
+// Sanity Context Insights: every conversation is saved to the organization's
+// Context store, where a classifier scores it and lists content gaps. Off with
+// SANITY_INSIGHTS=0. A failed save never breaks an answer.
+function insights(threadId: string | undefined) {
+  const token = process.env.SANITY_ORGANIZATION_TOKEN
+  if (!token || !threadId || process.env.SANITY_INSIGHTS === '0') return []
+  const client = createClient({
+    apiVersion: 'v2025-11-27',
+    token,
+    context: {organizationId: process.env.SANITY_ORGANIZATION_ID ?? 'ob2cyckj9'},
+    useCdn: false,
+    useProjectHostname: false,
+  })
+  return [sanityInsightsIntegration({client, threadId, metadata: {mcpEndpoints: ['drum-bun-kb', 'drum-bun-rules']}})]
+}
+
+export async function runAgent(messages: UIMessage[], threadId?: string): Promise<Response | ChatError> {
   const {token, kb, groq} = mcpConfig()
   if (!token || (!kb && !groq)) {
     return {status: 503, error: 'The agent is not configured yet: the Sanity Context endpoints are missing.'}
@@ -44,7 +63,6 @@ export async function runAgent(messages: UIMessage[], onDone?: () => void): Prom
   let groqClient: McpClient | null = null
   const close = async () => {
     await Promise.allSettled([kbClient?.close(), groqClient?.close()])
-    onDone?.()
   }
 
   try {
@@ -87,6 +105,7 @@ export async function runAgent(messages: UIMessage[], onDone?: () => void): Prom
         // Cache the long instructions (outline + schema) between steps and turns.
         anthropic: {cacheControl: {type: 'ephemeral'}},
       },
+      telemetry: {integrations: insights(threadId)},
       onFinish: close,
       onError: close,
       onAbort: close,

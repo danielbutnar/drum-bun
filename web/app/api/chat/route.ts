@@ -11,8 +11,9 @@ export async function POST(req: Request) {
   if (!sameOrigin(req)) return Response.json({error: 'Cross-site requests are not allowed.'}, {status: 403})
 
   let messages: UIMessage[]
+  let id: string | undefined
   try {
-    ;({messages} = (await req.json()) as {messages: UIMessage[]})
+    ;({messages, id} = (await req.json()) as {messages: UIMessage[]; id?: string})
   } catch {
     return Response.json({error: 'The request body is not valid JSON.'}, {status: 400})
   }
@@ -28,7 +29,7 @@ export async function POST(req: Request) {
   const allowed = takeChatToken(clientIp(req))
   if (!allowed.ok) return Response.json({error: allowed.reason}, {status: 429})
 
-  const result = await runAgent(messages)
+  const result = await runAgent(messages, typeof id === 'string' ? id.slice(0, 64) : undefined)
   if (result instanceof Response) return result
   return Response.json({error: result.error}, {status: result.status})
 }

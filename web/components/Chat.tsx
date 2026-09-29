@@ -94,6 +94,9 @@ export function Chat() {
           </button>
         )}
       </form>
+      <p className="mt-2 text-sm text-ink-2">
+        Questions are stored in Sanity Context Insights to find gaps in the content. Do not enter personal data.
+      </p>
     </div>
   )
 }
