@@ -3,15 +3,24 @@
     "id": "christmas-munich",
     "lang": "en",
     "q": "I drive from Brașov to Munich on 20 December and back on 3 January, diesel Euro 5. What do I need to buy and what does it cost?",
-    "must": ["1-day|one-day|1 day", "green (sticker|Umweltplakette)|Umweltplakette"],
-    "mustNot": ["Germany (has|charges) a (car )?toll", "7-day rovinie"],
+    "must": [
+      "1-day|one-day|1 day",
+      "green (sticker|Umweltplakette)|Umweltplakette"
+    ],
+    "mustNot": [
+      "Germany (has|charges) a (car )?toll",
+      "7-day rovinie"
+    ],
     "why": "Route × dates × vehicle: 2 × 1-day in AT and HU, rovinietă by Euro class, Munich sticker."
   },
   {
     "id": "at-18-days",
     "lang": "en",
     "q": "Today I want to buy the Austrian 2-month vignette online for a trip starting on 5 October. Is that fine?",
-    "must": ["18", "(point of sale|petrol station|sales point|toll station|vending machine|10-day)"],
+    "must": [
+      "18",
+      "(point of sale|petrol station|sales point|toll station|vending machine|10-day)"
+    ],
     "mustNot": [],
     "why": "The 18-day online rule applies only to 2-month and annual vignettes."
   },
@@ -19,15 +28,22 @@
     "id": "ro-12m-euro5",
     "lang": "ro",
     "q": "Cât costă rovinieta de 12 luni pentru un diesel Euro 5 după 1 octombrie 2026?",
-    "must": ["292"],
-    "mustNot": ["28 (de )?euro", "50 (de )?euro pentru 12 luni după"],
+    "must": [
+      "292"
+    ],
+    "mustNot": [
+      "28 (de )?euro",
+      "50 (de )?euro pentru 12 luni după"
+    ],
     "why": "Order 888/2026 band Euro IV–V."
   },
   {
     "id": "ro-unknown-euro",
     "lang": "en",
     "q": "I don't know my car's Euro class. What does a 10-day rovinietă cost after 1 October 2026?",
-    "must": ["39"],
+    "must": [
+      "39"
+    ],
     "mustNot": [],
     "why": "Unknown class is charged the Euro 0–III band."
   },
@@ -35,23 +51,36 @@
     "id": "ro-7-day",
     "lang": "ro",
     "q": "Pot să cumpăr o rovinietă de 7 zile?",
-    "must": ["(nu|no)", "10 zile|10 days"],
-    "mustNot": ["da, (există|poți) .*7 zile"],
-    "why": "Durations are 1, 10, 30, 60 days and 12 months."
+    "must": [
+      "(nu|no)",
+      "10 zile|10 days|1, 10, 30"
+    ],
+    "mustNot": [
+      "da, (există|poți) .*7 zile"
+    ],
+    "why": "Durations are 1, 10, 30, 60 days and 12 months.",
+    "note": "Pattern widened after run 3 to accept the list form \"1, 10, 30, 60 de zile\"; re-scored for both systems."
   },
   {
     "id": "at-walserberg",
     "lang": "en",
     "q": "Do I need an Austrian vignette to drive from the German border at Walserberg to Salzburg Nord?",
-    "must": ["(no|not)"],
-    "mustNot": ["yes, you need"],
+    "must": [
+      "(no|not)"
+    ],
+    "mustNot": [
+      "yes, you need"
+    ],
     "why": "Vignette-free since 15 Dec 2019."
   },
   {
     "id": "hu-counties",
     "lang": "en",
     "q": "Which Hungarian county vignettes cover the whole drive from Nădlac to Hegyeshalom, and is there a cheaper option for a yearly driver?",
-    "must": ["Fejér", "M1 regional"],
+    "must": [
+      "Fejér",
+      "M1 regional"
+    ],
     "mustNot": [],
     "why": "Needs the Fejér-only stretch and the 2026 M1 regional product."
   },
@@ -59,15 +88,23 @@
     "id": "de-ms-tyres",
     "lang": "de",
     "q": "Reichen M+S-Reifen im Winter in Deutschland?",
-    "must": ["(Alpine|Schneeflocke|3PMSF|Bergpiktogramm)", "2024"],
-    "mustNot": ["ja, M\\+S (reicht|reichen)"],
+    "must": [
+      "(Alpine|Schneeflocke|3PMSF|Bergpiktogramm)",
+      "2024"
+    ],
+    "mustNot": [
+      "ja, M\\+S (reicht|reichen)"
+    ],
     "why": "Since 1 Oct 2024 only the alpine symbol counts."
   },
   {
     "id": "euro5-cities",
     "lang": "en",
     "q": "Can I drive my Euro 5 diesel into central Munich and central Stuttgart?",
-    "must": ["Munich.{0,200}(yes|allowed|may enter|can)", "Stuttgart.{0,300}(not|banned|no)"],
+    "must": [
+      "Munich.{0,200}(yes|allowed|may enter|can)",
+      "Stuttgart.{0,300}(not|banned|no)"
+    ],
     "mustNot": [],
     "why": "Munich bans only Euro 4; Stuttgart's small zone bans Euro 5."
   },
@@ -75,55 +112,82 @@
     "id": "berlin-fine",
     "lang": "en",
     "q": "What is the fine for driving into the Berlin low-emission zone without a sticker?",
-    "must": ["100"],
-    "mustNot": ["fine is 80"],
+    "must": [
+      "100"
+    ],
+    "mustNot": [
+      "fine is 80"
+    ],
     "why": "BKatV no. 153 says 100 euros; berlin.de still says 80."
   },
   {
     "id": "de-toll",
     "lang": "ro",
     "q": "Am citit că Germania a introdus taxă de autostradă pentru mașini. E adevărat?",
-    "must": ["(nu|no)"],
-    "mustNot": ["da, Germania"],
+    "must": [
+      "(nu|no)"
+    ],
+    "mustNot": [
+      "da, Germania"
+    ],
     "why": "Struck down by the ECJ in 2019."
   },
   {
     "id": "hu-surcharge",
     "lang": "en",
     "q": "What happens if I drive on a Hungarian motorway without an e-vignette?",
-    "must": ["27,?790|27 790", "60"],
-    "mustNot": ["75 days"],
+    "must": [
+      "27,?790|27 790",
+      "60"
+    ],
+    "mustNot": [
+      "75 days"
+    ],
     "why": "Surcharge 27,790 HUF within 60 days, 95,730 after."
   },
   {
     "id": "at-ersatzmaut",
     "lang": "de",
     "q": "Wie hoch ist die Ersatzmaut in Österreich 2026 für ein Auto?",
-    "must": ["200"],
-    "mustNot": ["(beträgt|ist) 120"],
+    "must": [
+      "200"
+    ],
+    "mustNot": [
+      "(beträgt|ist) 120"
+    ],
     "why": "200 euros for offences from 1 Jan 2026."
   },
   {
     "id": "hu-buy-after",
     "lang": "en",
     "q": "Can I buy the Hungarian vignette after I am already on the motorway?",
-    "must": ["60 minutes"],
+    "must": [
+      "60.minute"
+    ],
     "mustNot": [],
-    "why": "Only drivers who entered by mistake, and not if they refuse at a check."
+    "why": "Only drivers who entered by mistake, and not if they refuse at a check.",
+    "note": "Pattern widened after run 3 to accept \"60-minute\" with any hyphen; re-scored for both systems."
   },
   {
     "id": "ro-winter-dates",
     "lang": "en",
     "q": "Are winter tyres compulsory in Romania from 1 November?",
-    "must": ["(snow|ice|conditions)"],
-    "mustNot": ["compulsory from 1 November to 31 March"],
+    "must": [
+      "(snow|ice|conditions)"
+    ],
+    "mustNot": [
+      "compulsory from 1 November to 31 March"
+    ],
     "why": "Romania ties the rule to road conditions; a Hungarian agency page says otherwise."
   },
   {
     "id": "at-typo",
     "lang": "en",
     "q": "I made a typo in my plate number on the Austrian 10-day digital vignette, and it has already started. What now?",
-    "must": ["(annual|18)", "200"],
+    "must": [
+      "(annual|18)",
+      "200"
+    ],
     "mustNot": [],
     "why": "Only annual vignettes can be re-registered after the start; a wrong plate counts as no vignette."
   }

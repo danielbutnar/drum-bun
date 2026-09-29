@@ -1,0 +1,241 @@
+{
+  "base": "http://localhost:3000",
+  "agentPass": 5,
+  "basePass": 6,
+  "total": 10,
+  "results": [
+    {
+      "id": "christmas-munich",
+      "lang": "en",
+      "why": "Route × dates × vehicle: 2 × 1-day in AT and HU, rovinietă by Euro class, Munich sticker.",
+      "agent": {
+        "pass": false,
+        "missing": [
+          "1-day|one-day|1 day"
+        ],
+        "wrong": [],
+        "tools": [
+          "plan_trip"
+        ],
+        "text": "Pe scurt — ca să nu fiți amendat: 1) rovinietă valabilă pentru fiecare zi când circulați pe drumurile naţionale din RO; 2) e‑vigneta maghiară înainte de a intra pe autostradă (plata / număr de înmatriculare corect); 3) vigneta austriacă pentru zilele pe A‑utostrăzi; 4) WWF‑sticker (Umweltplakette verde) lipită înainte de intrarea în zona low‑emission a Münchenului. Mașina Euro 5 diesel este permisă în München.\n\nCe cumpărați (cheapest combo sugerat) și costuri estimate:\n- România: 2 × Rovinietă 1 zi (26 RON / zi) — 52 RON total. Cumpărați prin TollRo (CNAIR). [CNAIR / TollRo](https://portal.etoll.ro/)  \n- Ungaria: 2 × e‑vigneta D1 (napi) — 5.550 HUF / zi → 11.100 HUF total. Cumpărați înainte pe ematrica.nemzetiutdij.hu; introduceți corect plăcuţa și codul RO. [Nemzeti Útdíj](https://ematrica.nemzetiutdij.hu/)  \n- Austria: 2 × vigneta 1‑day (auto) — 9.60 EUR / zi → 19.20 EUR total. Cumpărați de la ASFINAG shop. [ASFINAG](https://shop.asfinag.at/en)  \n- Germania: niciun vignete/taxă pentru autoturisme ≤3.5 t.  \n- München: Umweltplakette (green sticker) — aprox. 19.90 EUR la furnizori (TÜV NORD etc.). Trebuie lipită înainte de a intra în zona semnalizată. [Stadt München](https://stadt.muenchen.de/infos/umweltzone-muenchen.html)\n\nSume (din plan): 52 RON + 11.100 HUF + 19.2 EUR ≈ 59.4 EUR (estimate; unele date pentru 2027 nu erau încă publicate la verificare). Verificaţi preţurile finale înainte de cumpărare și cumpărați vignetele ungare înainte de a urca pe autostradă. De asemenea: obligaţii de anvelope de iarnă în condiţii de carosabil cu zăpadă/ghiață în RO/AT/DE — verificați-le. [CNAIR](https://www.cnadnr.ro/en/node/15933), [Nemzeti Útdíj](https://nemzetiutdij.hu/en/e-vignette/tolls/e-vignette-rates), [ASFINAG](https://media.asfinag.at/media/xq0lud1b/asf_vignettenfolder_2026_en.pdf), [München](https://stadt.muenchen.de/infos/umweltzone-muenchen.html)."
+      },
+      "baseline": {
+        "pass": false,
+        "missing": [
+          "1-day|one-day|1 day"
+        ],
+        "wrong": [],
+        "hits": 6,
+        "text": "Trebuie să aveţi plăcuţa de mediu germană (Umweltplakette) verde pentru diesel Euro 5 — München permite Euro 5 cu autocolant verde.  \n\nDocumentele furnizate nu conţin preţuri pentru plăcuţă. În privinţa vignetei pentru Austria, informaţiile din documente sunt contradictorii (există menţiuni că A12 de la graniţă până la Kufstein‑Süd e fără vignetă din 15.12.2019, dar şi o afirmaţie că e nevoie de vignetă), aşa că preţul/obligaţia pentru vignetă nu poate fi confirmată din aceste surse."
+      }
+    },
+    {
+      "id": "at-18-days",
+      "lang": "en",
+      "why": "The 18-day online rule applies only to 2-month and annual vignettes.",
+      "agent": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "tools": [
+          "plan_trip",
+          "knowledge_base_read"
+        ],
+        "text": "No — if you buy a 2‑month vignette online today (2026‑09‑29) it will NOT be valid on 2026‑10‑05.\n\nWhy (short): online purchases of the 2‑month and annual digital vignette for private customers have an 18‑day delay before validity (14‑day withdrawal right + buffer). 1‑day and 10‑day vignettes are valid immediately when bought online; any vignette bought at a sales point, toll station or vending machine is also valid immediately. Driving without a valid vignette risks the substitute toll (Ersatzmaut) of €200 for cars.  \nSources: ASFINAG (purchase/validity) — https://www.asfinag.at/maut-vignette/vignette/ and ASFINAG FAQ / dataset summary.\n\nWhat to do before leaving\n- Buy a 1‑day or 10‑day vignette online for 2026‑10‑05 (immediate validity), or  \n- Buy the 2‑month vignette at an ASFINAG sales point / vending machine or at the border (these are valid immediately), or  \n- If you want the 2‑month digital product and keep it online, you would have needed to buy it by 2026‑09‑17 (18 days before 2026‑10‑05).  \n\nEnter your licence plate and country exactly when buying — a typo counts as no vignette."
+      },
+      "baseline": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "hits": 6,
+        "text": "Not fine. For private customers an online 2-month digital vignette only becomes valid 18 days after purchase, so buying on 29 Sep won’t cover 5 Oct. Either buy a vignette at a point of sale/vending machine (valid immediately) or buy the digital vignette at least 18 days before your start date. Also enter the plate exactly (you can fix typos for free before validity starts)."
+      }
+    },
+    {
+      "id": "ro-unknown-euro",
+      "lang": "en",
+      "why": "Unknown class is charged the Euro 0–III band.",
+      "agent": {
+        "pass": false,
+        "missing": [
+          "39"
+        ],
+        "wrong": [],
+        "tools": [],
+        "text": "I can fetch the official price — I just need one short detail: which of these start cities is your trip from: Brașov, Bucharest, Cluj‑Napoca or Timișoara?"
+      },
+      "baseline": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "hits": 6,
+        "text": "If you can’t show the Euro class, the 10‑day rovinietă costs 39 RON (rate for Euro 0–III or unknown) from 1 Oct 2026."
+      }
+    },
+    {
+      "id": "ro-7-day",
+      "lang": "ro",
+      "why": "Durations are 1, 10, 30, 60 days and 12 months.",
+      "agent": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "tools": [
+          "knowledge_base_read"
+        ],
+        "text": "Nu — rovinieta nu se vinde pe 7 zile. Duratele disponibile sunt 1, 10, 30, 60 de zile şi 12 luni; deci cea mai apropiată opţiune este rovinieta de 10 zile (o puteți cumpăra prin platforma TollRo: https://portal.etoll.ro/). Rovinieta intră în vigoare din momentul cumpărării în aceeaşi zi (sau de la 00:00 în funcţie de tip) — verificaţi la achiziţie ora exactă de start. Penalii pentru lipsa rovinietei sunt în aplicaţie (între 456–1.320 RON conform reglementării). [TollRo — portal](https://portal.etoll.ro/), [CNADNR (anunţ go‑live TollRo)](https://www.cnadnr.ro/en/node/15933)."
+      },
+      "baseline": {
+        "pass": false,
+        "missing": [
+          "10 zile|10 days"
+        ],
+        "wrong": [],
+        "hits": 6,
+        "text": "Nu. Cea mai scurtă rovinietă este de 7 zile."
+      }
+    },
+    {
+      "id": "de-ms-tyres",
+      "lang": "de",
+      "why": "Since 1 Oct 2024 only the alpine symbol counts.",
+      "agent": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "tools": [
+          "knowledge_base_search",
+          "knowledge_base_read"
+        ],
+        "text": "Kurz: Nein — in Deutschland genügen M+S‑Markierungen seit dem 1. Oktober 2024 nicht mehr. Bei winterlichen Straßenverhältnissen (Schnee, Schneematsch, Eis, Glätte) müssen alle vier Räder das Alpine‑Symbol (3PMSF / Schneeflocke im Berg) haben. Motorradfahrer sind ausgenommen.\n\nWichtig für die Praxis\n- Prüfen: bei winterlichen Verhältnissen gilt die Pflicht jederzeit (kein fester Saisonzeitraum).  \n- Strafe: 60 € + 1 Punkt (80 € bei Behinderung).  \n- Wenn Sie nur M+S‑Reifen haben, sollten Sie spätestens vor Fahrtantritt auf Reifen mit 3PMSF wechseln — sonst droht Bußgeld bei Kontrollen.\n\n(Die obigen Angaben stammen aus den aktuellen Länderregeln zu Winterausrüstung; bei Bedarf nenne ich die offiziellen Quellen.)"
+      },
+      "baseline": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "hits": 6,
+        "text": "Kurz: Nein. In Deutschland gelten bei winterlichen Straßenverhältnissen (Schnee, Eis, Schneematsch, Glätte) seit dem 1. Oktober 2024 nur noch Winterreifen mit dem Alpine‑Symbol (Bergpiktogramm mit Schneeflocke, 3PMSF). Rein mit M+S gekennzeichnete Reifen reichen nicht mehr. Motorräder sind ausgenommen."
+      }
+    },
+    {
+      "id": "euro5-cities",
+      "lang": "en",
+      "why": "Munich bans only Euro 4; Stuttgart's small zone bans Euro 5.",
+      "agent": {
+        "pass": false,
+        "missing": [
+          "Munich.{0,200}(yes|allowed|may enter|can)",
+          "Stuttgart.{0,300}(not|banned|no)"
+        ],
+        "wrong": [],
+        "tools": [
+          "knowledge_base_search"
+        ],
+        "text": ""
+      },
+      "baseline": {
+        "pass": false,
+        "missing": [
+          "Munich.{0,200}(yes|allowed|may enter|can)",
+          "Stuttgart.{0,300}(not|banned|no)"
+        ],
+        "wrong": [],
+        "hits": 0,
+        "text": "ERROR Error: baseline HTTP 500"
+      }
+    },
+    {
+      "id": "hu-surcharge",
+      "lang": "en",
+      "why": "Surcharge 27,790 HUF within 60 days, 95,730 after.",
+      "agent": {
+        "pass": false,
+        "missing": [
+          "27,?790|27 790",
+          "60"
+        ],
+        "wrong": [],
+        "tools": [
+          "knowledge_base_read"
+        ],
+        "text": ""
+      },
+      "baseline": {
+        "pass": false,
+        "missing": [
+          "27,?790|27 790"
+        ],
+        "wrong": [],
+        "hits": 6,
+        "text": "If you drive on a Hungarian tolled section without a valid e‑vignette it is treated as having no vignette. Note the key points:\n\n- If you entered by mistake you have 60 minutes to buy a vignette — unless you refused to buy when stopped at a check (then you lose that option).  \n- Enter the plate without spaces and choose the correct country code (use RO for Romania); a wrong country code counts as no vignette.  \n- If the plate was entered incorrectly you can correct it (fee 1,470 HUF) after paying a surcharge, only within 60 days and only if at most 3 characters were wrong.  \n- Checks compare plate, country code and vehicle category."
+      }
+    },
+    {
+      "id": "at-ersatzmaut",
+      "lang": "de",
+      "why": "200 euros for offences from 1 Jan 2026.",
+      "agent": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "tools": [
+          "knowledge_base_read"
+        ],
+        "text": "Ab 1. Januar 2026 beträgt die Ersatzmaut in Österreich für Pkw 200 € (für Motorräder 100 €). Wird nicht vor Ort bezahlt, kann zusätzlich ein Verwaltungs-/Gerichtsstrafverfahren mit einer Geldstrafe von 300–3.000 € folgen.  \nQuellen: [ASFINAG — Vignette / FAQ](https://www.asfinag.at/maut-vignette/vignette/) (siehe Angaben zu Ersatzmaut) und die hinterlegten Datensätze zur Mauttarif- und Strafstruktur."
+      },
+      "baseline": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "hits": 6,
+        "text": "Die Ersatzmaut in Österreich 2026 für ein Auto beträgt 200 Euro."
+      }
+    },
+    {
+      "id": "hu-buy-after",
+      "lang": "en",
+      "why": "Only drivers who entered by mistake, and not if they refuse at a check.",
+      "agent": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "tools": [
+          "knowledge_base_search",
+          "knowledge_base_read"
+        ],
+        "text": "No — you must have a valid Hungarian e‑vignette before driving on tolled motorways. Cameras enforce compliance across the network. However, if you enter a tolled section by mistake you have a 60‑minute grace window to buy one retrospectively; that option is lost if you refuse to buy at a roadside check. [Nemzeti Útdíj / e‑Matrica system](https://nemzetiutdij.hu/en/e-vignette/tolls/e-vignette-rates).\n\nKey practical points\n- Buy at ematrica.nemzetiutdij.hu or authorised resellers (apps, petrol stations, border shops).  \n- Enter plate without spaces and set the correct country code (RO for Romanian plates) — a wrong country code is treated as no vignette.  \n- If you genuinely entered by mistake, buy within 60 minutes to avoid immediate surcharge; otherwise penalties apply (27,790 HUF if paid within 60 days; 95,730 HUF after). [e‑matrica price/penalty sheet](https://nemzetiutdij.hu/api/uploads/e_matrica_arak_2026_pdf_611db0ecc1.pdf).\n\nIf you want, tell me your planned date and vehicle (or I’ll assume a car) and I’ll check the best vignette for your trip."
+      },
+      "baseline": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "hits": 6,
+        "text": "You must have the e‑vignette before driving on a tolled section. If you entered by mistake you have 60 minutes to buy it, but you lose that 60‑minute option if you refused to buy when checked."
+      }
+    },
+    {
+      "id": "ro-winter-dates",
+      "lang": "en",
+      "why": "Romania ties the rule to road conditions; a Hungarian agency page says otherwise.",
+      "agent": {
+        "pass": false,
+        "missing": [
+          "(snow|ice|conditions)"
+        ],
+        "wrong": [],
+        "tools": [
+          "knowledge_base_search",
+          "knowledge_base_read"
+        ],
+        "text": ""
+      },
+      "baseline": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "hits": 6,
+        "text": "No. In Romania winter tyres are required whenever the road is covered with snow, ice or black ice (on any date); there is no fixed 1 Nov–31 Mar calendar. Tyres marked M+S count; tyres marked only “all seasons” do not."
+      }
+    }
+  ]
+}

@@ -7,7 +7,7 @@ dist/
 .vercel/
 *.log
 .DS_Store
-evals/runs/
+
 
 .vercel
 .env*

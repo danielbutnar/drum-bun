@@ -1,0 +1,368 @@
+{
+  "base": "http://localhost:3000",
+  "agentPass": 6,
+  "basePass": 9,
+  "total": 16,
+  "results": [
+    {
+      "id": "christmas-munich",
+      "lang": "en",
+      "why": "Route × dates × vehicle: 2 × 1-day in AT and HU, rovinietă by Euro class, Munich sticker.",
+      "agent": {
+        "pass": false,
+        "missing": [
+          "1-day|one-day|1 day"
+        ],
+        "wrong": [],
+        "tools": [
+          "plan_trip"
+        ],
+        "text": "Pe scurt — ca să nu fiți amendat:\n\n- România: rovinietă 1 zi pentru 20.12.2026 și pentru 03.01.2027 — 26 RON/zi (2×26 = 52 RON). [CNAIR (RO)](https://portal.etoll.ro/) / [Ordin MTI 888/2026 (RO)](https://lege5.ro/Gratuit/ge4tqnzthazti/ordinul-nr-888-2026-pentru-aprobarea-categoriilor-de-vehicule-si-a-nivelului-rovinietei)  \n- Ungaria: e‑vignette D1 (daily) pentru 20.12.2026 și 03.01.2027 — 5.550 HUF/zi (2×5.550 = 11.100 HUF). Cumpărați înainte de a intra pe autostradă, introduceți corect numărul și codul țării. [Nemzetiutdij (HU)](https://nemzetiutdij.hu/en/e-vignette/tolls/e-vignette-rates)  \n- Austria: vignetă digitală 1‑zi pentru 20.12.2026 și 03.01.2027 — 9,60 EUR/zi (2×9,60 = 19,20 EUR). Introduceți exact numărul de înmatriculare; o greșeală = lipsa vinietei. [ASFINAG (AT)](https://shop.asfinag.at/en)  \n- Germania / München: în zonă cu restricţii de emisii aveți nevoie de autocolantul verde (Umweltplakette). Mașina Euro 5 diesel se califică; lipsește stickerul = amendă (~100 EUR). Comandă online din timp (ex.: TÜV NORD ~19,90 EUR pentru străini). [Stadt München (DE)](https://stadt.muenchen.de/infos/umweltzone-muenchen.html)\n\nTotaluri (planificate): 52 RON + 11.100 HUF + 19,20 EUR ≈ 59,36 EUR (include estimări pentru unele date). Atenție: pentru 03.01.2027 unele prețuri sunt estimate — verifică înainte de cumpărare. De asemenea, în condiţii de drum cu zăpadă/ polei sunt obligatorii anvelope de iarnă (RO/AT/DE). [MAI (RO)](https://www.mai.gov.ro/precizari-privind-anvelopele-de-iarna/)"
+      },
+      "baseline": {
+        "pass": false,
+        "missing": [
+          "1-day|one-day|1 day"
+        ],
+        "wrong": [],
+        "hits": 6,
+        "text": "You must have the German green environmental sticker (Euro‑4/5 petrol/diesel rules: Euro‑5 diesel with the green sticker may enter Munich’s low‑emission zone including the Mittlerer Ring). If you will go into central Stuttgart beware: some Stuttgart zones (the “small environmental zone”) ban Euro‑5 diesels — there you must park outside and use public transport.\n\nThe documents do not give a price for the sticker."
+      }
+    },
+    {
+      "id": "at-18-days",
+      "lang": "en",
+      "why": "The 18-day online rule applies only to 2-month and annual vignettes.",
+      "agent": {
+        "pass": false,
+        "missing": [
+          "18",
+          "(point of sale|petrol station|sales point|toll station|vending machine|10-day)"
+        ],
+        "wrong": [],
+        "tools": [],
+        "text": "Which Romanian start city are you leaving from — Brașov, Bucharest, Cluj‑Napoca or Timișoara?"
+      },
+      "baseline": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "hits": 6,
+        "text": "No — if you buy a 2‑month vignette online now it won’t be valid immediately: for private customers annual and 2‑month digital vignettes bought online have an 18‑day wait. To be valid for 5 Oct either buy a physical vignette at a point of sale/toll machine (those are valid at once) or buy the digital vignette at least 18 days before the start date. Also enter your plate and country code exactly (you can correct typos free only before validity starts)."
+      }
+    },
+    {
+      "id": "ro-12m-euro5",
+      "lang": "ro",
+      "why": "Order 888/2026 band Euro IV–V.",
+      "agent": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "tools": [
+          "plan_trip"
+        ],
+        "text": "Rovinieta 12 luni (autoturism, diesel Euro 5) — 292 RON (≈55,32 EUR) pentru o pornire după 1 octombrie 2026. [Ordinul MTI 888/2026 (Monitorul Oficial)](https://lege5.ro/Gratuit/ge4tqnzthazti/ordinul-nr-888-2026-pentru-aprobarea-categoriilor-de-vehicule-si-a-nivelului-rovinietei). \n\nNotă scurtă: un proiect de amânare era în Senat (verificat 29.09.2026); CNAIR a confirmat aplicarea din 1 octombrie. Verificați CNAIR înainte de plecare dacă plecați foarte aproape de dată: https://www.cnadnr.ro/en/node/15933."
+      },
+      "baseline": {
+        "pass": false,
+        "missing": [
+          "292"
+        ],
+        "wrong": [],
+        "hits": 6,
+        "text": "Documentele furnizate nu menţionează explicit tariful pentru un diesel Euro 5. Ele spun doar că rovinieta pe 12 luni va fi tarifată după clasa Euro şi dau exemplul: maşinile electrice 228 lei/12 luni (Ordinul 888/2026). Verificaţi lista oficială CNAIR pentru preţul exact."
+      }
+    },
+    {
+      "id": "ro-unknown-euro",
+      "lang": "en",
+      "why": "Unknown class is charged the Euro 0–III band.",
+      "agent": {
+        "pass": false,
+        "missing": [
+          "39"
+        ],
+        "wrong": [],
+        "tools": [],
+        "text": "Which exact travel date do you mean? (give one YYYY‑MM‑DD date after 2026-10-01)"
+      },
+      "baseline": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "hits": 6,
+        "text": "If unknown, you pay the Euro 0 rate: 39 RON for a 10‑day rovinietă (from 1 Oct 2026)."
+      }
+    },
+    {
+      "id": "ro-7-day",
+      "lang": "ro",
+      "why": "Durations are 1, 10, 30, 60 days and 12 months.",
+      "agent": {
+        "pass": false,
+        "missing": [
+          "(nu|no)",
+          "10 zile|10 days"
+        ],
+        "wrong": [],
+        "tools": [],
+        "text": "Te referi la rovinieta pentru România? Pot presupune că ești cu o mașină privată (car) sau vrei să-mi spui alt tip de vehicul?"
+      },
+      "baseline": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "hits": 6,
+        "text": "Nu — nu există rovinietă de 7 zile. Disponibile în documente: 1 zi, 10 zile, 30 zile, 60 zile şi 12 luni."
+      }
+    },
+    {
+      "id": "at-walserberg",
+      "lang": "en",
+      "why": "Vignette-free since 15 Dec 2019.",
+      "agent": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "tools": [
+          "knowledge_base_search",
+          "knowledge_base_read"
+        ],
+        "text": "No — the A1 section from the German state border at Walserberg to the Salzburg‑Nord junction is exempt from the Austrian vignette (exemption in force since 15 Dec 2019). If you only drive between Walserberg and Salzburg‑Nord you do not need a vignette [oesterreich.gv.at](https://www.oesterreich.gv.at/en/themen/mobilitaet/kfz/10/Vignette-und-Maut/streckenbezogene_Ausnahmen-von-der-Vignettenpflicht).\n\nImportant caveats:\n- If you continue past Salzburg‑Nord toward Salzburg city or further east on the A1 (or use other tolled stretches), a valid vignette is required.  \n- If you accidentally drive on a tolled stretch without a vignette you face the substitute toll and enforcement — buy at ASFINAG before you travel to be safe [ASFINAG](https://www.asfinag.at/maut-vignette/vignette/digitale-vignette/)."
+      },
+      "baseline": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "hits": 6,
+        "text": "No — that 12 km stretch from the German border at Walserberg to Salzburg Nord is vignette‑free. Note the rest of the A1 beyond Salzburg Nord does require a vignette."
+      }
+    },
+    {
+      "id": "hu-counties",
+      "lang": "en",
+      "why": "Needs the Fejér-only stretch and the 2026 M1 regional product.",
+      "agent": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "tools": [
+          "knowledge_base_read"
+        ],
+        "text": "Must-have to avoid a fine\n- You need county coverage for every tolled county you cross: Csongrád‑Csanád, Bács‑Kiskun, Pest, Fejér, Komárom‑Esztergom and Győr‑Moson‑Sopron. Missing any = automatic camera detection and surcharge. (Route A: Nădlac → M43 → M5 → M0 → M1 → Hegyeshalom.) [nemzetiutdij.hu rates](https://nemzetiutdij.hu/en/e-vignette/tolls/e-vignette-rates)\n\nCheaper yearly option\n- Instead of six separate county vignettes (6 × 7,190 HUF = 43,140 HUF), buy:\n  - the M1 regional annual e‑vignette (covers Pest, Fejér, Komárom‑Esztergom, Győr‑Moson‑Sopron) — 15,000 HUF (2026), plus\n  - county annual vignettes for Csongrád‑Csanád and Bács‑Kiskun (2 × 7,190 HUF = 14,380 HUF).\n  - Total = 29,380 HUF, cheaper than buying all six. (National annual D1 is 61,760 HUF.) [M1 regional & county info / official shop](https://ematrica.nemzetiutdij.hu/)\n\nBefore you leave\n- Buy the M1 regional + the two county vignettes on ematrica.nemzetiutdij.hu (or authorised resellers). Enter plate and country correctly — wrong plate = treated as no vignette."
+      },
+      "baseline": {
+        "pass": false,
+        "missing": [
+          "M1 regional"
+        ],
+        "wrong": [],
+        "hits": 6,
+        "text": "Pe baza documentelor: traseul este acoperit de vignetă judeţeană pentru Pest şi de vignetă judeţeană pentru Fejér. Preţ anual (2026): 7.190 HUF pentru fiecare. Opţiunea mai ieftină pentru cine rulează anual este să cumpere vignetă judeţeană anuală (în loc de o vinietă naţională)."
+      }
+    },
+    {
+      "id": "de-ms-tyres",
+      "lang": "de",
+      "why": "Since 1 Oct 2024 only the alpine symbol counts.",
+      "agent": {
+        "pass": false,
+        "missing": [
+          "(Alpine|Schneeflocke|3PMSF|Bergpiktogramm)",
+          "2024"
+        ],
+        "wrong": [],
+        "tools": [],
+        "text": "Kurzfrage: Von welcher rumänischen Stadt starten Sie, welches Ziel in Deutschland und an welchen Datum(en) fahren Sie?"
+      },
+      "baseline": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "hits": 6,
+        "text": "Kurz: Nein. Bei Glätte durch Schnee, Eis, Schneematsch oder Reifglanz müssen in Deutschland alle Räder Winterreifen mit dem Alpine-Symbol (Bergpiktogramm mit Schneeflocke, 3PMSF) haben. M+S-Markierung gilt seit 1.10.2024 nicht mehr. Motorräder sind ausgenommen."
+      }
+    },
+    {
+      "id": "euro5-cities",
+      "lang": "en",
+      "why": "Munich bans only Euro 4; Stuttgart's small zone bans Euro 5.",
+      "agent": {
+        "pass": false,
+        "missing": [
+          "Munich.{0,200}(yes|allowed|may enter|can)",
+          "Stuttgart.{0,300}(not|banned|no)"
+        ],
+        "wrong": [],
+        "tools": [],
+        "text": "What date will you travel (YYYY-MM-DD)?"
+      },
+      "baseline": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "hits": 6,
+        "text": "Munich — Yes. Euro‑5 diesels may enter the Munich low‑emission zone (including the Mittlerer Ring). You must display a green Umweltplakette.\n\nStuttgart — It depends on exactly where: the whole city rule only bans diesel Euro‑4 or older (so Euro‑5 can enter), but the smaller central “environmental zone” covering the Stuttgart basin and parts of Bad Cannstatt, Feuerbach and Zuffenhausen currently bans Euro‑5 and older. For central Stuttgart (the basin) you cannot drive a Euro‑5 in — park outside and use public transport. You also need a green Umweltplakette for signed zones."
+      }
+    },
+    {
+      "id": "berlin-fine",
+      "lang": "en",
+      "why": "BKatV no. 153 says 100 euros; berlin.de still says 80.",
+      "agent": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "tools": [
+          "plan_trip"
+        ],
+        "text": "The fine is 100 € (no points). Some older pages still say €80, but the federal penalty catalogue sets €100 for entering a German LEZ without the required green sticker (BKatV no. 153). See Berlin’s info and the Umweltbundesamt list: [Senatsverwaltung Berlin (DE)](https://www.berlin.de/sen/uvk/umwelt/luft/luftreinhaltung/umweltzone/fahrzeuge-aus-dem-ausland/) and [Umweltbundesamt (DE)](https://gis.uba.de/website/umweltzonen/)."
+      },
+      "baseline": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "hits": 6,
+        "text": "The federal fine catalogue (BKatV no. 153) sets the fine at €100. Berlin's page saying €80 is outdated; the law (€100) applies."
+      }
+    },
+    {
+      "id": "de-toll",
+      "lang": "ro",
+      "why": "Struck down by the ECJ in 2019.",
+      "agent": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "tools": [
+          "knowledge_base_read",
+          "knowledge_base_search",
+          "knowledge_base_read"
+        ],
+        "text": "Nu — e fals. Germania nu are taxă de autostradă pentru autoturisme (vehicule ≤ 3,5 t). Propunerea de \"Pkw‑Maut\" a fost anulată de Curtea de Justiție a UE la 18 iunie 2019 (caz C‑591/17) și, conform stării din 2026, nu există niciun plan de a introduce o taxă pentru mașini. Legea (BFStrMG §1) limitează momentan taxa la vehicule de marfă >3,5 t. [Germany — Dataset]"
+      },
+      "baseline": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "hits": 0,
+        "text": "Nu pot confirma — nu am documente disponibile pentru a verifica această informație. Verifică surse oficiale (Ministerul Transporturilor din Germania, Bundestag) sau site‑uri de știri reputabile/ADAC pentru informații actualizate."
+      }
+    },
+    {
+      "id": "hu-surcharge",
+      "lang": "en",
+      "why": "Surcharge 27,790 HUF within 60 days, 95,730 after.",
+      "agent": {
+        "pass": false,
+        "missing": [
+          "27,?790|27 790",
+          "60"
+        ],
+        "wrong": [],
+        "tools": [],
+        "text": "I can check that precisely, but I need your trip details first. What is your Romanian start city (Brașov, Bucharest, Cluj-Napoca or Timișoara), destination (Vienna, Munich, Stuttgart, Frankfurt or Berlin) and travel date(s)?"
+      },
+      "baseline": {
+        "pass": false,
+        "missing": [
+          "27,?790|27 790"
+        ],
+        "wrong": [],
+        "hits": 6,
+        "text": "You must hold a valid e‑vignette before driving on tolled sections. If you drive without one it is treated as no vignette — you only have a 60‑minute grace to buy one if you entered by mistake (but you lose that chance if you refuse to buy when checked). Enter the plate without spaces and the correct country code (RO): a wrong country code counts as no vignette. Plate errors can be corrected later for 1,470 HUF (after a surcharge, within 60 days, and only if at most 3 characters were wrong)."
+      }
+    },
+    {
+      "id": "at-ersatzmaut",
+      "lang": "de",
+      "why": "200 euros for offences from 1 Jan 2026.",
+      "agent": {
+        "pass": false,
+        "missing": [
+          "200"
+        ],
+        "wrong": [],
+        "tools": [],
+        "text": "Für welches Datum 2026 soll ich die Ersatzmaut prüfen?"
+      },
+      "baseline": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "hits": 6,
+        "text": "Die Ersatzmaut beträgt 200 Euro (für Verstöße ab 1. Januar 2026)."
+      }
+    },
+    {
+      "id": "hu-buy-after",
+      "lang": "en",
+      "why": "Only drivers who entered by mistake, and not if they refuse at a check.",
+      "agent": {
+        "pass": false,
+        "missing": [
+          "60 minutes"
+        ],
+        "wrong": [],
+        "tools": [],
+        "text": ""
+      },
+      "baseline": {
+        "pass": false,
+        "missing": [
+          "60 minutes"
+        ],
+        "wrong": [],
+        "hits": 0,
+        "text": "ERROR Error: baseline HTTP 500"
+      }
+    },
+    {
+      "id": "ro-winter-dates",
+      "lang": "en",
+      "why": "Romania ties the rule to road conditions; a Hungarian agency page says otherwise.",
+      "agent": {
+        "pass": false,
+        "missing": [
+          "(snow|ice|conditions)"
+        ],
+        "wrong": [],
+        "tools": [],
+        "text": ""
+      },
+      "baseline": {
+        "pass": false,
+        "missing": [
+          "(snow|ice|conditions)"
+        ],
+        "wrong": [],
+        "hits": 0,
+        "text": "ERROR Error: baseline HTTP 500"
+      }
+    },
+    {
+      "id": "at-typo",
+      "lang": "en",
+      "why": "Only annual vignettes can be re-registered after the start; a wrong plate counts as no vignette.",
+      "agent": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "tools": [
+          "plan_trip"
+        ],
+        "text": "Short answer — you risk being treated as having no vignette and owing the substitute toll (€200 for cars). A quick checklist:\n\n- What decides a fine: (1) a digital vignette only counts for the exact licence plate and country you entered; (2) typos can be corrected free only before the vignette’s validity starts; (3) after start, 1‑day / 10‑day / 2‑month vignettes cannot be changed — only annual vignettes can (for €18). Source: ASFINAG tolling rules and licence‑plate info.  \n  [ASFINAG Tolling Regulations v87 (ENG)](https://media.asfinag.at/media/00sbusiu/00_mo_v87_tolling-regulations_en.pdf) · [ASFINAG toll shop — licence plate changes](https://shop.asfinag.at/en/info-pages/license-plate/)\n\nWhat to do now (immediately):\n1. Buy a new digital vignette right away with the correct plate (ASFINAG shop or app) so you have legal cover for the correct plate for your travel day. [ASFINAG shop](https://shop.asfinag.at/en)  \n2. Keep the purchase confirmation (screenshot/email) as proof.  \n3. If you cannot buy a correct vignette before you drive, expect the substitute toll (Ersatzmaut) of €200 for a car; if unpaid, higher administrative fines may follow (see the tolling regulation).  \n\nIf your original was an annual vignette, contact ASFINAG to request the plate change (€18)."
+      },
+      "baseline": {
+        "pass": false,
+        "missing": [
+          "200"
+        ],
+        "wrong": [],
+        "hits": 6,
+        "text": "Unfortunately, once a 10‑day digital vignette’s validity has started you cannot correct the plate. The vignette only counts for the exact plate/country entered, so the typo means it’s not valid for your actual plate. Annual vignettes can be changed for €18, but 1‑day, 10‑day and 2‑month vignettes cannot. Buy a new 10‑day vignette with the correct plate to be legal (or switch to an annual if that suits you)."
+      }
+    }
+  ]
+}
