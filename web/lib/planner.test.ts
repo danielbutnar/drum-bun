@@ -194,7 +194,7 @@ describe('planTrip', () => {
     if (!plan.ok) throw new Error(plan.error)
     const hu = plan.countries[0]
     expect(hu.purchases.map((p) => p.productId)).toEqual(['hu-county-csongrad'])
-    expect(hu.alternatives.find((a) => a.chosen)?.label).toContain('County')
+    expect(hu.alternatives.find((a) => a.chosen)?.label).toContain('county')
   })
 
   it('warns about the online delay when the trip is too close', () => {
@@ -243,5 +243,91 @@ describe('planTrip', () => {
       purchaseDate: '2026-09-29',
     })
     expect(plan.ok).toBe(false)
+  })
+})
+
+describe('emission bands (Romania from 1 Oct 2026)', () => {
+  const bands = [
+    {amount: 228, currency: 'RON', validFrom: '2026-10-01', validTo: '2026-12-31', band: {label: 'Electric', electric: true}},
+    {amount: 254, currency: 'RON', validFrom: '2026-10-01', validTo: '2026-12-31', band: {label: 'Euro VI', euroMin: 6, euroMax: 6}},
+    {amount: 292, currency: 'RON', validFrom: '2026-10-01', validTo: '2026-12-31', band: {label: 'Euro IV–V', euroMin: 4, euroMax: 5}},
+    {
+      amount: 330,
+      currency: 'RON',
+      validFrom: '2026-10-01',
+      validTo: '2026-12-31',
+      band: {label: 'Euro 0–III', euroMin: 0, euroMax: 3, appliesWhenUnknown: true},
+    },
+    {amount: 50, currency: 'EUR', validFrom: '2025-09-01', validTo: '2026-09-30'},
+  ]
+  it('uses the old flat price before the switch', () => {
+    expect(priceOn(bands, '2026-09-30', {fuel: 'diesel', euroNorm: 5})?.price.amount).toBe(50)
+  })
+  it('picks the band for the car after the switch', () => {
+    expect(priceOn(bands, '2026-10-01', {fuel: 'diesel', euroNorm: 5})?.price.amount).toBe(292)
+    expect(priceOn(bands, '2026-10-01', {fuel: 'electric'})?.price.amount).toBe(228)
+  })
+  it('charges the Euro 0 band when the class is unknown, and says so', () => {
+    const hit = priceOn(bands, '2026-11-01', {})
+    expect(hit?.price.amount).toBe(330)
+    expect(hit?.bandNote).toContain('Euro 0–III')
+  })
+  it('estimates next year from the latest band prices', () => {
+    const hit = priceOn(bands, '2027-02-01', {fuel: 'petrol', euroNorm: 6})
+    expect(hit?.price.amount).toBe(254)
+    expect(hit?.estimate).toBe(true)
+  })
+})
+
+describe('territorial set cover (Hungary M1 corridor)', () => {
+  const county = (id: string, amount: number) =>
+    product(`hu-county-${id}`, {
+      kind: 'countyVignette',
+      county: id,
+      validity: {unit: 'calendarYear', yearEndsNext: '01-31'},
+      prices: [{amount, currency: 'HUF', validFrom: '2026-01-01', validTo: '2026-12-31'}],
+    })
+  const pest = county('pest', 7190)
+  const fejer = county('fejer', 7190)
+  const ke = county('komarom', 7190)
+  const m1 = product('hu-m1-regional', {
+    kind: 'countyVignette',
+    validity: {unit: 'calendarYear', yearEndsNext: '01-31'},
+    prices: [{amount: 15000, currency: 'HUF', validFrom: '2026-01-01', validTo: '2026-12-31'}],
+  })
+  const monthly = product('hu-monthly', {
+    validity: {unit: 'months', count: 1},
+    prices: [{amount: 40000, currency: 'HUF', validFrom: '2026-01-01', validTo: '2026-12-31'}],
+  })
+  const sec = (id: string, cov: TollProduct[]): RoadSection => ({_id: id, road: 'M1', from: id, to: id, tolled: true, coveredBy: cov, sources: [src]})
+  const data: PlannerData = {
+    route: {
+      _id: 'r',
+      title: 'M1',
+      origin: {_id: 'o', name: {en: 'A'}, slug: 'a', kind: 'city'},
+      destination: {_id: 'd', name: {en: 'B'}, slug: 'b', kind: 'city'},
+      legs: [
+        {
+          country: {_id: 'hu', code: 'HU', name: {en: 'Hungary'}, currency: 'HUF'},
+          sections: [sec('pest', [monthly, pest, m1]), sec('fejer-only', [monthly, fejer, m1]), sec('ke', [monthly, ke, m1])],
+        },
+      ],
+    },
+    rules: [],
+    zones: [],
+    claims: [],
+    rates,
+  }
+  it('never leaves the Fejér-only stretch uncovered and prefers the regional product when cheaper', () => {
+    const plan = planTrip(data, {origin: 'a', destination: 'b', outDate: '2026-11-02', vehicle: 'car', purchaseDate: '2026-09-29'})
+    if (!plan.ok) throw new Error(plan.error)
+    // 3 counties = 21,570 HUF > M1 regional 15,000 HUF.
+    expect(plan.countries[0].purchases.map((p) => p.productId)).toEqual(['hu-m1-regional'])
+  })
+  it('uses single counties when only one county is crossed', () => {
+    const one = {...data, route: {...data.route!, legs: [{...data.route!.legs[0], sections: [sec('fejer-only', [monthly, fejer, m1])]}]}}
+    const plan = planTrip(one, {origin: 'a', destination: 'b', outDate: '2026-11-02', vehicle: 'car', purchaseDate: '2026-09-29'})
+    if (!plan.ok) throw new Error(plan.error)
+    expect(plan.countries[0].purchases.map((p) => p.productId)).toEqual(['hu-county-fejer'])
   })
 })

@@ -28,6 +28,20 @@ export interface DatedPrice {
   validFrom: string
   validTo?: string | null
   status?: 'official' | 'announced' | null
+  band?: {
+    label?: string | null
+    electric?: boolean | null
+    euroMin?: number | null
+    euroMax?: number | null
+    appliesWhenUnknown?: boolean | null
+  } | null
+  source?: SourceRef | null
+}
+
+export interface PendingChange {
+  summary: string
+  wouldTakeEffect?: string | null
+  checkAgainBy?: string | null
   source?: SourceRef | null
 }
 
@@ -69,6 +83,7 @@ export interface TollProduct {
   plateBound?: boolean | null
   summary?: string | null
   penalty?: Penalty | null
+  pendingChanges?: PendingChange[] | null
   sources: SourceRef[]
 }
 
@@ -96,6 +111,8 @@ export interface RoadSection {
   tolled: boolean
   coveredBy?: TollProduct[] | null
   counties?: string[] | null
+  exemptVehicles?: Vehicle[] | null
+  exemptNote?: string | null
   note?: string | null
   sources: SourceRef[]
 }

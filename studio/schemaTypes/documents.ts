@@ -141,6 +141,14 @@ export const roadSection = defineType({
       of: [{type: 'string'}],
       description: 'Hungary only: the counties this section runs through (for county vignettes).',
     }),
+    defineField({
+      name: 'exemptVehicles',
+      type: 'array',
+      of: [{type: 'string'}],
+      options: {list: VEHICLES},
+      description: 'Vehicle classes that owe nothing on this section (e.g. motorcycles on Romanian national roads).',
+    }),
+    defineField({name: 'exemptNote', type: 'text', rows: 2, hidden: ({parent}) => !parent?.exemptVehicles?.length}),
     defineField({name: 'note', type: 'text', rows: 2}),
     sourcesField,
   ],
@@ -319,6 +327,12 @@ export const tollProduct = defineType({
     defineField({name: 'plateBound', type: 'boolean', description: 'Tied to the licence plate (digital).'}),
     defineField({name: 'summary', type: 'text', rows: 3, description: 'Plain-language summary for people and agents.'}),
     defineField({name: 'penalty', type: 'penalty', description: 'What happens without it.'}),
+    defineField({
+      name: 'pendingChanges',
+      type: 'array',
+      of: [defineArrayMember({type: 'pendingChange'})],
+      description: 'Proposals that are not law yet. Shown as a caveat, never used for a price.',
+    }),
     sourcesField,
   ],
   preview: {
@@ -383,6 +397,12 @@ export const rule = defineType({
       validation: (r) => r.required(),
     }),
     defineField({name: 'penalty', type: 'penalty'}),
+    defineField({
+      name: 'pendingChanges',
+      type: 'array',
+      of: [defineArrayMember({type: 'pendingChange'})],
+      description: 'Proposals that are not law yet. Shown as a caveat, never used for a price.',
+    }),
     sourcesField,
   ],
   preview: {
@@ -440,6 +460,12 @@ export const zone = defineType({
       description: 'Where a foreign driver gets the sticker, what it costs, how long delivery takes.',
     }),
     defineField({name: 'penalty', type: 'penalty'}),
+    defineField({
+      name: 'pendingChanges',
+      type: 'array',
+      of: [defineArrayMember({type: 'pendingChange'})],
+      description: 'Proposals that are not law yet. Shown as a caveat, never used for a price.',
+    }),
     sourcesField,
   ],
 })

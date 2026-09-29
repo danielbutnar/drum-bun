@@ -98,15 +98,48 @@ export const datedPrice = defineType({
       },
       initialValue: 'official',
     }),
+    defineField({
+      name: 'band',
+      title: 'Emission band',
+      type: 'object',
+      description:
+        'Only for prices that depend on the car’s emissions (Romania from 1 Oct 2026). Leave empty when one price fits every car.',
+      options: {collapsible: true, collapsed: true},
+      fields: [
+        defineField({name: 'label', type: 'string', description: 'e.g. "Euro IV–V".'}),
+        defineField({name: 'electric', type: 'boolean', description: 'This band is for electric cars only.'}),
+        defineField({name: 'euroMin', type: 'number', description: 'Lowest Euro class in the band (0–6).'}),
+        defineField({name: 'euroMax', type: 'number', description: 'Highest Euro class in the band (0–6).'}),
+        defineField({
+          name: 'appliesWhenUnknown',
+          type: 'boolean',
+          description: 'The issuer charges this band when the Euro class cannot be shown.',
+        }),
+      ],
+    }),
     defineField({name: 'source', type: 'reference', to: [{type: 'source'}]}),
   ],
   preview: {
-    select: {amount: 'amount', currency: 'currency', from: 'validFrom', to: 'validTo'},
-    prepare: ({amount, currency, from, to}) => ({
-      title: `${amount} ${currency}`,
+    select: {amount: 'amount', currency: 'currency', from: 'validFrom', to: 'validTo', band: 'band.label'},
+    prepare: ({amount, currency, from, to, band}) => ({
+      title: `${amount} ${currency}${band ? ` (${band})` : ''}`,
       subtitle: `${from ?? '?'} → ${to ?? 'open'}`,
     }),
   },
+})
+
+export const pendingChange = defineType({
+  name: 'pendingChange',
+  title: 'Pending change',
+  type: 'object',
+  description:
+    'A proposal that could change this fact but is not law yet (e.g. a bill in parliament). The agent mentions it; the planner ignores it.',
+  fields: [
+    defineField({name: 'summary', type: 'text', rows: 2, validation: (r) => r.required()}),
+    defineField({name: 'wouldTakeEffect', type: 'date'}),
+    defineField({name: 'checkAgainBy', type: 'date', description: 'When an editor should look again.'}),
+    defineField({name: 'source', type: 'reference', to: [{type: 'source'}]}),
+  ],
 })
 
 export const penalty = defineType({

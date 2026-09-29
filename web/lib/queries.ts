@@ -19,8 +19,9 @@ const SOURCE = `{_id, title, url, publisher, language, trust, pageDate, checkedA
 
 const PRODUCT = `{
   _id, name, kind, vehicles, localCategory, county, validity,
-  prices[]{amount, currency, validFrom, validTo, status, "source": source->${SOURCE}},
+  prices[]{amount, currency, validFrom, validTo, status, band, "source": source->${SOURCE}},
   activation, purchase[]{channel, label, url}, plateBound, summary, penalty,
+  pendingChanges[]{summary, wouldTakeEffect, checkAgainBy, "source": source->${SOURCE}},
   "sources": sources[]->${SOURCE}
 }`
 
@@ -36,7 +37,7 @@ export const PLANNER_QUERY = `{
       "country": country->{_id, code, name, currency, carTollSummary},
       "exitBorder": exitBorder->{_id, name, "slug": slug.current, kind},
       "sections": sections[]->{
-        _id, road, from, to, lengthKm, tolled, counties, note,
+        _id, road, from, to, lengthKm, tolled, counties, exemptVehicles, exemptNote, note,
         "coveredBy": coveredBy[]->${PRODUCT},
         "sources": sources[]->${SOURCE}
       }

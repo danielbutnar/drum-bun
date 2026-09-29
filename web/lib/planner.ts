@@ -10,8 +10,10 @@ import type {
   ExchangeRate,
   Fuel,
   Leg,
+  PendingChange,
   PlannerData,
   PurchaseChannel,
+  RoadSection,
   Rule,
   SourceRef,
   TollProduct,
@@ -33,9 +35,17 @@ export interface TripInput {
   purchaseDate: IsoDate
 }
 
+export interface CarProfile {
+  fuel?: Fuel | null
+  euroNorm?: number | null
+}
+
 export interface PriceQuote {
   amount: number
   currency: string
+  /** Emission band the price was picked from, when the issuer prices by Euro class. */
+  band?: string | null
+  bandNote?: string | null
   approxEur: number | null
   /** No published price covers this date; the latest known price is shown. */
   estimate: boolean
@@ -59,6 +69,7 @@ export interface Purchase {
   buyOnlineBy?: IsoDate | null
   activationWarning?: string | null
   validityWording?: string | null
+  pendingChanges: PendingChange[]
   sources: SourceRef[]
 }
 
@@ -77,6 +88,7 @@ export interface RuleHit {
   why: string
   conditional: boolean
   condition?: string | null
+  topicIsWinter: boolean
   penalty?: Rule['penalty']
   sources: SourceRef[]
 }
@@ -99,6 +111,8 @@ export interface CountryPlan {
   exitBorder: string | null
   travelDates: IsoDate[]
   tollFree: boolean
+  /** Why nothing is due when the road is tolled for other vehicles. */
+  exemptNotes: string[]
   tollSummary?: string | null
   purchases: Purchase[]
   alternatives: Alternative[]
@@ -180,26 +194,56 @@ export function calendarYearStart(product: TollProduct, vYear: number): IsoDate 
   return startsPrev ? `${vYear - 1}-${startsPrev}` : `${vYear}-01-01`
 }
 
-export function priceOn(prices: DatedPrice[], date: IsoDate): {price: DatedPrice; estimate: boolean} | null {
-  const exact = prices.find((p) => inRange(date, p.validFrom, p.validTo))
-  if (exact) return {price: exact, estimate: false}
+export function priceOn(
+  prices: DatedPrice[],
+  date: IsoDate,
+  car: CarProfile = {},
+): {price: DatedPrice; estimate: boolean; bandNote: string | null} | null {
+  const exact = prices.filter((p) => inRange(date, p.validFrom, p.validTo))
+  if (exact.length) return {...pickBand(exact, car), estimate: false}
   // No published price for that date (e.g. next year's tariff is not out yet):
-  // fall back to the most recent known price and say so.
-  const earlier = prices.filter((p) => p.validFrom <= date).sort((a, b) => b.validFrom.localeCompare(a.validFrom))
-  if (earlier[0]) return {price: earlier[0], estimate: true}
-  return null
+  // fall back to the most recent known prices and say so.
+  const earlier = prices.filter((p) => p.validFrom <= date)
+  if (!earlier.length) return null
+  const latest = earlier.reduce((a, b) => (a.validFrom > b.validFrom ? a : b)).validFrom
+  return {...pickBand(earlier.filter((p) => p.validFrom === latest), car), estimate: true}
 }
 
-function productPrice(product: TollProduct, start: IsoDate, rates: ExchangeRate[]): PriceQuote | null {
+/** Among prices valid on the same day, pick the one for this car's emission band. */
+function pickBand(prices: DatedPrice[], car: CarProfile): {price: DatedPrice; bandNote: string | null} {
+  const banded = prices.filter((p) => p.band)
+  if (!banded.length) return {price: prices[0], bandNote: null}
+  if (car.fuel === 'electric') {
+    const electric = banded.find((p) => p.band?.electric)
+    if (electric) return {price: electric, bandNote: null}
+  }
+  if (car.euroNorm != null && car.fuel !== 'electric') {
+    const e = car.euroNorm
+    const match = banded.find((p) => !p.band?.electric && (p.band?.euroMin ?? 0) <= e && e <= (p.band?.euroMax ?? 6))
+    if (match) return {price: match, bandNote: null}
+  }
+  // Unknown Euro class: use the band the issuer charges in that case, or the
+  // most expensive one, and tell the driver how to pay less.
+  const fallback =
+    banded.find((p) => p.band?.appliesWhenUnknown) ?? banded.reduce((a, b) => (a.amount > b.amount ? a : b))
+  return {
+    price: fallback,
+    bandNote: `Priced for ${fallback.band?.label ?? 'the highest band'}: the Euro class was not given. Enter it to see your price.`,
+  }
+}
+
+function productPrice(product: TollProduct, start: IsoDate, rates: ExchangeRate[], car: CarProfile = {}): PriceQuote | null {
   // Annual products are priced by their vignette year, the others by the day they start.
   const lookupDate =
     product.validity.unit === 'calendarYear' ? `${vignetteYear(product, start)}-07-01` : start
-  const hit = priceOn(product.prices ?? [], lookupDate)
+  const hit = priceOn(product.prices ?? [], lookupDate, car)
   if (!hit) return null
-  const {price, estimate} = hit
+  const {price, estimate, bandNote} = hit
   return {
     amount: price.amount,
     currency: price.currency,
+    band: price.band?.label ?? null,
+    bandNote,
     approxEur: toEur(price.amount, price.currency, rates),
     estimate,
     status: estimate ? 'estimate' : price.status === 'announced' ? 'announced' : 'official',
@@ -223,13 +267,18 @@ interface Candidate {
   price: PriceQuote | null
 }
 
-function candidatesFor(product: TollProduct, date: IsoDate, rates: ExchangeRate[]): Candidate[] {
+function candidatesFor(product: TollProduct, date: IsoDate, rates: ExchangeRate[], car: CarProfile): Candidate[] {
   if (product.validity.unit === 'calendarYear') {
-    const vYear = vignetteYear(product, date)
-    const start = calendarYearStart(product, vYear)
-    return [{product, start, end: validityEnd(product, start), price: productPrice(product, start, rates)}]
+    // Two annual products can cover a date around New Year (Austria's 2026
+    // vignette runs to 31 Jan 2027, the 2027 one starts 1 Dec 2026).
+    return [year(date), year(date) + 1].flatMap((vYear) => {
+      const start = calendarYearStart(product, vYear)
+      const end = validityEnd(product, start)
+      if (date < start || date > end) return []
+      return [{product, start, end, price: productPrice(product, start, rates, car)}]
+    })
   }
-  return [{product, start: date, end: validityEnd(product, date), price: productPrice(product, date, rates)}]
+  return [{product, start: date, end: validityEnd(product, date), price: productPrice(product, date, rates, car)}]
 }
 
 function cost(c: Candidate): number {
@@ -239,14 +288,19 @@ function cost(c: Candidate): number {
 }
 
 /** Minimum-cost cover of sorted unique `dates` by products, via dynamic programming. */
-export function cheapestCover(products: TollProduct[], dates: IsoDate[], rates: ExchangeRate[]): Candidate[] {
+export function cheapestCover(
+  products: TollProduct[],
+  dates: IsoDate[],
+  rates: ExchangeRate[],
+  car: CarProfile = {},
+): Candidate[] {
   const n = dates.length
   const best: {cost: number; pick: Candidate[]}[] = Array(n + 1)
   best[n] = {cost: 0, pick: []}
   for (let i = n - 1; i >= 0; i--) {
     best[i] = {cost: Infinity, pick: []}
     for (const product of products) {
-      for (const c of candidatesFor(product, dates[i], rates)) {
+      for (const c of candidatesFor(product, dates[i], rates, car)) {
         let j = i
         while (j < n && dates[j] <= c.end && dates[j] >= c.start) j++
         if (j === i) continue
@@ -284,6 +338,7 @@ function toPurchase(c: Candidate, dates: IsoDate[], purchaseDate: IsoDate): Purc
     buyOnlineBy,
     activationWarning,
     validityWording: p.validity.wording,
+    pendingChanges: p.pendingChanges ?? [],
     sources: p.sources ?? [],
   }
 }
@@ -327,8 +382,10 @@ function planLeg(
   backDates: IsoDate[],
 ): CountryPlan {
   const dates = datesInCountry(index, data.route!.legs.length, outDates, backDates)
+  const car: CarProfile = {fuel: trip.fuel, euroNorm: trip.euroNorm}
   const sections = leg.sections ?? []
-  const tolled = sections.filter((s) => s.tolled)
+  const exempt = sections.filter((s) => s.tolled && s.exemptVehicles?.includes(trip.vehicle))
+  const tolled = sections.filter((s) => s.tolled && !exempt.includes(s))
   const vehicleOk = (p: TollProduct) => p.vehicles?.includes(trip.vehicle)
 
   const purchases: Purchase[] = []
@@ -345,31 +402,22 @@ function planLeg(
       .filter(vehicleOk)
       .filter((p) => p.kind === 'vignette')
       .filter((p) => needsVignette.every((s) => (s.coveredBy ?? []).some((q) => q._id === p._id)))
-    const planA = network.length ? cheapestCover(network, dates, data.rates) : []
+    const planA = network.length ? cheapestCover(network, dates, data.rates, car) : []
 
-    // Option B: one county vignette per county crossed (Hungary). Annual only.
-    let planB: Candidate[] = []
-    const countyOk = needsVignette.every((s) =>
-      (s.coveredBy ?? []).some((p) => p.kind === 'countyVignette' && vehicleOk(p)),
-    )
-    if (countyOk) {
-      const counties = uniqueProducts(
-        needsVignette.map(
-          (s) => (s.coveredBy ?? []).find((p) => p.kind === 'countyVignette' && vehicleOk(p)) as TollProduct,
-        ),
-      )
-      planB = counties.flatMap((p) => cheapestCover([p], dates, data.rates))
-    }
+    // Option B: territorial annual products (Hungary's county vignettes and
+    // the M1 regional vignette). Pick the cheapest set that leaves no
+    // section uncovered: an exact set cover, small enough to brute-force.
+    const planB = cheapestTerritorialCover(needsVignette, vehicleOk, dates, data.rates, car)
 
     const options = [
       {label: describe(planA), plan: planA},
-      {label: `County vignettes: ${describe(planB)}`, plan: planB},
+      {label: `Annual county vignettes: ${describe(planB)}`, plan: planB},
     ].filter((o) => o.plan.length)
     options.sort((a, b) => (sumEur(a.plan) ?? Infinity) - (sumEur(b.plan) ?? Infinity))
 
     // Show what else the planner considered, so "why this one?" has an answer.
     for (const product of network) {
-      const single = cheapestCover([product], dates, data.rates)
+      const single = cheapestCover([product], dates, data.rates, car)
       if (!single.length) continue
       const label = describe(single)
       if (options.some((o) => o.label === label)) continue
@@ -402,7 +450,7 @@ function planLeg(
     }
     for (const d of [outDates[0], backDates[0]].filter(Boolean)) {
       purchases.push(
-        toPurchase({product, start: d, end: d, price: productPrice(product, d, data.rates)}, [d], trip.purchaseDate),
+        toPurchase({product, start: d, end: d, price: productPrice(product, d, data.rates, car)}, [d], trip.purchaseDate),
       )
     }
   }
@@ -414,12 +462,38 @@ function planLeg(
     exitBorder: leg.exitBorder?.name.en ?? null,
     travelDates: dates,
     tollFree: tolled.length === 0,
+    exemptNotes: exempt.map((s) => s.exemptNote ?? `No charge for this vehicle on ${s.road}.`),
     tollSummary: leg.country.carTollSummary,
     purchases,
     alternatives: alternatives.length > 1 ? alternatives : [],
     rules: rulesFor(leg.country._id, data.rules, trip.vehicle, dates),
     unpricedSections,
   }
+}
+
+function cheapestTerritorialCover(
+  sections: RoadSection[],
+  vehicleOk: (p: TollProduct) => boolean,
+  dates: IsoDate[],
+  rates: ExchangeRate[],
+  car: CarProfile,
+): Candidate[] {
+  const territorial = uniqueProducts(sections.flatMap((s) => s.coveredBy ?? [])).filter(
+    (p) => p.kind === 'countyVignette' && vehicleOk(p),
+  )
+  if (!territorial.length || territorial.length > 14) return []
+  const plans = territorial.map((p) => cheapestCover([p], dates, rates, car))
+  const covers = territorial.map((p) => sections.map((s) => (s.coveredBy ?? []).some((q) => q._id === p._id)))
+  let best: {cost: number; pick: Candidate[]} | null = null
+  for (let mask = 1; mask < 1 << territorial.length; mask++) {
+    const chosen = territorial.map((_, i) => i).filter((i) => mask & (1 << i))
+    if (chosen.some((i) => !plans[i].length)) continue
+    if (!sections.every((_, si) => chosen.some((i) => covers[i][si]))) continue
+    const pick = chosen.flatMap((i) => plans[i])
+    const total = pick.reduce((sum, c) => sum + cost(c), 0)
+    if (!best || total < best.cost) best = {cost: total, pick}
+  }
+  return best?.pick ?? []
 }
 
 function uniqueProducts(products: TollProduct[]): TollProduct[] {
@@ -440,6 +514,7 @@ export function rulesFor(countryId: string, rules: Rule[], vehicle: Vehicle, dat
         if (!hits.length) return []
         return [hit(r, `Applies between ${r.season.from} and ${r.season.to} (MM-DD); your travel days ${hits.join(', ')} fall inside.`)]
       }
+      if (r.conditional && r.condition) return [hit(r, r.condition)]
       return [hit(r, 'Applies all year.')]
     })
     .sort((a, b) => order[a.severity] - order[b.severity])
@@ -454,6 +529,7 @@ function hit(r: Rule, why: string): RuleHit {
     why,
     conditional: Boolean(r.conditional),
     condition: r.condition,
+    topicIsWinter: r.topic === 'winterTyres' || r.topic === 'snowChains',
     penalty: r.penalty,
     sources: r.sources ?? [],
   }
@@ -536,19 +612,29 @@ export function planTrip(data: PlannerData, trip: TripInput): Plan | PlanError {
   for (const c of countries) {
     for (const p of c.purchases) {
       if (p.activationWarning) warnings.push({severity: 'critical', country: c.code, text: `${p.name}: ${p.activationWarning}`})
-      if (p.price?.estimate) {
-        warnings.push({
-          severity: 'important',
-          country: c.code,
-          text: `${p.name}: no published price covers ${p.startDate} yet; the latest known price is shown.`,
-        })
+      if (p.price?.bandNote) warnings.push({severity: 'important', country: c.code, text: `${p.name}: ${p.price.bandNote}`})
+      for (const change of p.pendingChanges) {
+        warnings.push({severity: 'info', country: c.code, text: `${p.name}: pending, not law yet. ${change.summary}`})
       }
+    }
+    const estimated = c.purchases.filter((p) => p.price?.estimate)
+    if (estimated.length) {
+      const days = [...new Set(estimated.map((p) => p.startDate))].join(', ')
+      warnings.push({
+        severity: 'important',
+        country: c.code,
+        text: `${c.name}: prices for ${days} are not published yet, so the latest official price is shown. Check again before you buy.`,
+      })
     }
     if (c.unpricedSections.length) {
       warnings.push({severity: 'important', country: c.code, text: `No product found for: ${c.unpricedSections.join(', ')}.`})
     }
-    for (const r of c.rules.filter((r) => r.severity === 'critical')) {
-      warnings.push({severity: 'critical', country: c.code, text: `${r.title}. ${r.why}`})
+    // Only rules that depend on the travel dates make the top list; the rest
+    // stay in the country section. Winter rules without a calendar window
+    // (Romania, Germany) count when the trip falls in the winter half-year.
+    const wintry = c.travelDates.some((d) => inSeason(d, '11-01', '04-15'))
+    for (const r of c.rules.filter((r) => r.severity === 'critical' && r.topicIsWinter)) {
+      if (wintry) warnings.push({severity: 'critical', country: c.code, text: `${r.title}. ${r.requirement}`})
     }
   }
   for (const z of zones) {

@@ -1,6 +1,6 @@
 import {claim, country, place, roadSection, route, rule, source, tollProduct, zone} from './documents'
 import {exchangeRate} from './exchangeRate'
-import {datedPrice, localeString, money, penalty, seasonWindow} from './shared'
+import {datedPrice, localeString, money, pendingChange, penalty, seasonWindow} from './shared'
 
 export const schemaTypes = [
   // objects
@@ -9,6 +9,7 @@ export const schemaTypes = [
   datedPrice,
   penalty,
   seasonWindow,
+  pendingChange,
   // documents
   country,
   place,
