@@ -236,7 +236,7 @@ function Claims({plan}: {plan: Plan}) {
       </h3>
       <p className="mt-1 text-ink-2">Pages drivers find that say something else. Each one is linked to the fact that corrects it.</p>
       <ul className="mt-3 grid gap-3 md:grid-cols-2">
-        {plan.claims.slice(0, 8).map((c) => (
+        {plan.claims.slice(0, 6).map((c) => (
           <li key={c.claimId} className="rounded-md bg-paper p-3">
             <p className="text-ink-2 line-through decoration-road/60">“{c.quote ?? c.statement}”</p>
             <p className="type-condensed mt-1 text-sm text-ink-2">

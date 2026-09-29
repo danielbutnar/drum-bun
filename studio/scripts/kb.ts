@@ -59,7 +59,12 @@ async function snapshot(client: any) {
     takenAt: new Date().toISOString(),
     knowledgeBaseId: KB,
     sourceCounts: {dataset, web},
-    entries: entries.map((e: any) => ({_key: key(), path: e.path, title: e.title, tldr: e.tldr ?? ''})),
+    entries: entries.map((e: any) => ({
+      _key: key(),
+      path: e.path,
+      title: e.title,
+      tldr: typeof e.tldr === 'string' ? e.tldr : (e.tldr?.scope ?? ''),
+    })),
     issues: issues.map((i: any) => ({
       _key: key(),
       issueId: i._id,
@@ -140,6 +145,10 @@ async function main() {
   } else if (cmd === 'rescope') {
     const res = await client.context.instructions.edit({instructionId: arg, scopeSourceIds: args[2].split(',')})
     console.log('rescoped', res.id, res.scopeSourceIds)
+  } else if (cmd === 'rebuild') {
+    for (const path of arg.split(',')) console.log(path, JSON.stringify(await client.context.entries.rebuild({path})))
+  } else if (cmd === 'endpoints') {
+    for (const m of await client.context.mcpEndpoints.list()) console.log(JSON.stringify(m).slice(0, 400))
   } else if (cmd === 'instructions') {
     for (const i of await client.context.instructions.list()) console.log(`${i._id} [${i.origin}/${i.status}] ${i.statement}`)
   }

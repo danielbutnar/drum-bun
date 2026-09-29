@@ -643,7 +643,7 @@ export function planTrip(data: PlannerData, trip: TripInput): Plan | PlanError {
     // (Romania, Germany) count when the trip falls in the winter half-year.
     const wintry = c.travelDates.some((d) => inSeason(d, '11-01', '04-15'))
     for (const r of c.rules.filter((r) => r.severity === 'critical' && r.topicIsWinter)) {
-      if (wintry) warnings.push({severity: 'critical', country: c.code, text: `${r.title}. ${r.requirement}`})
+      if (wintry) warnings.push({severity: 'critical', country: c.code, text: `${r.title}. Details under ${c.name}.`})
     }
   }
   for (const z of zones) {
@@ -664,8 +664,24 @@ export function planTrip(data: PlannerData, trip: TripInput): Plan | PlanError {
     // the planner chose something else.
     ...route.legs.flatMap((l) => (l.sections ?? []).flatMap((s) => (s.coveredBy ?? []).map((p) => p._id))),
   ])
-  const claims: ClaimHit[] = data.claims
-    .filter((c) => c.verdict !== 'current' && c.correctedBy?.some((id) => usedIds.has(id)))
+  // Claims about what the driver actually buys or must follow come first,
+  // then one country at a time, so the list is not all about one border.
+  const chosen = new Set<string>([
+    ...countries.flatMap((c) => [...c.purchases.map((p) => p.productId), ...c.rules.map((r) => r.ruleId)]),
+    ...zones.map((z) => z.zoneId),
+  ])
+  const relevant = data.claims.filter((c) => c.verdict !== 'current' && c.correctedBy?.some((id) => usedIds.has(id)))
+  const rank = (c: Claim) => (c.correctedBy.some((id) => chosen.has(id)) ? 0 : 1)
+  const byCountry = new Map<string, Claim[]>()
+  for (const c of [...relevant].sort((a, b) => rank(a) - rank(b))) {
+    const k = c.correctedBy[0]?.split('-')[1] ?? ''
+    byCountry.set(k, [...(byCountry.get(k) ?? []), c])
+  }
+  const interleaved: Claim[] = []
+  for (let round = 0; interleaved.length < relevant.length; round++) {
+    for (const list of byCountry.values()) if (list[round]) interleaved.push(list[round])
+  }
+  const claims: ClaimHit[] = interleaved
     .map((c) => ({
       claimId: c._id,
       statement: c.statement,

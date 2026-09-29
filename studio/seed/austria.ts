@@ -240,16 +240,18 @@ const ONLINE_18 = {
     'Buy it at a point of sale, an ASFINAG toll station or a vending machine, where it is valid at once. Or buy 1-day or 10-day vignettes, which are valid immediately online.',
 }
 
+// min/max describe one penalty: the substitute toll you pay on the spot.
+// The court fine for not paying it is a different penalty, so it lives in the note.
 const carPenalty = penalty({
   min: 200,
-  max: 3000,
+  max: 200,
   currency: 'EUR',
   note: 'Substitute toll (Ersatzmaut) 200 euros for a car from 1 Jan 2026 (was 120). If it is not paid: fine of 300–3,000 euros. A wrong plate on a digital vignette counts as no vignette.',
   source: 'at-mautordnung-v87-en',
 })
 const motoPenalty = penalty({
   min: 100,
-  max: 3000,
+  max: 100,
   currency: 'EUR',
   note: 'Substitute toll 100 euros for a motorcycle from 1 Jan 2026 (was 65). If it is not paid: fine of 300–3,000 euros.',
   source: 'at-mautordnung-v87-en',
