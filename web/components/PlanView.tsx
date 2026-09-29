@@ -80,7 +80,7 @@ export function PlanView({plan}: {plan: Plan}) {
 function Total({plan}: {plan: Plan}) {
   const parts = Object.entries(plan.totals.byCurrency).map(([cur, amt]) => money(amt, cur))
   return (
-    <div className="text-right">
+    <div className="sm:text-right">
       <p className="type-condensed text-sm text-ink-2">Tolls for this trip</p>
       <p className="type-expanded tabular text-3xl font-bold">
         {plan.totals.approxEur != null ? `€${plan.totals.approxEur.toFixed(2)}` : '—'}

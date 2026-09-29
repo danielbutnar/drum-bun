@@ -626,15 +626,7 @@ export function planTrip(data: PlannerData, trip: TripInput): Plan | PlanError {
         warnings.push({severity: 'info', country: c.code, text: `${p.name}: pending, not law yet. ${change.summary}`})
       }
     }
-    const estimated = c.purchases.filter((p) => p.price?.estimate)
-    if (estimated.length) {
-      const days = [...new Set(estimated.map((p) => p.startDate))].join(', ')
-      warnings.push({
-        severity: 'important',
-        country: c.code,
-        text: `${c.name}: prices for ${days} are not published yet, so the latest official price is shown. Check again before you buy.`,
-      })
-    }
+
     if (c.unpricedSections.length) {
       warnings.push({severity: 'important', country: c.code, text: `No product found for: ${c.unpricedSections.join(', ')}.`})
     }
@@ -645,6 +637,16 @@ export function planTrip(data: PlannerData, trip: TripInput): Plan | PlanError {
     for (const r of c.rules.filter((r) => r.severity === 'critical' && r.topicIsWinter)) {
       if (wintry) warnings.push({severity: 'critical', country: c.code, text: `${r.title}. Details under ${c.name}.`})
     }
+  }
+  // One line for every price that is not published yet, instead of one per country.
+  const estimated = countries.filter((c) => c.purchases.some((p) => p.price?.estimate))
+  if (estimated.length) {
+    warnings.push({
+      severity: 'important',
+      text: `Not published yet: ${estimated
+        .map((c) => `${c.name} for ${[...new Set(c.purchases.filter((p) => p.price?.estimate).map((p) => p.startDate))].join(' and ')}`)
+        .join(', ')}. The latest official price is shown (*); check again before you buy.`,
+    })
   }
   for (const z of zones) {
     if (z.verdict === 'banned' || z.verdict === 'needsSticker' || z.verdict === 'unknown') {
