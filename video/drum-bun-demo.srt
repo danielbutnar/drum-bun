@@ -1,0 +1,118 @@
+1
+00:00:00,000 --> 00:00:06,784
+Every December, hundreds of thousands of cars
+drive home from Germany and Austria to Romania.
+
+2
+00:00:06,784 --> 00:00:12,301
+Before the border, everyone asks the same thing:
+what do I need to buy?
+
+3
+00:00:12,301 --> 00:00:20,566
+The answer is spread over four toll operators,
+four languages and a lot of old blog posts. And
+this year it changed.
+
+4
+00:00:20,566 --> 00:00:25,143
+Romania rewrote its vignette on the first of
+October.
+
+5
+00:00:27,008 --> 00:00:36,339
+This is Drum Bun. Brașov to Munich on the
+twentieth of December, back on the third of
+January, in a Euro 5 diesel.
+
+6
+00:00:37,750 --> 00:00:44,002
+The planner walks the route stored in Sanity:
+every road section, the products that cover it,
+
+7
+00:00:44,002 --> 00:00:47,625
+and the price valid on each day you drive.
+
+8
+00:00:48,973 --> 00:00:56,259
+In Austria, two one-day vignettes beat a ten-day
+one, because the drive home is two weeks later.
+
+9
+00:00:56,259 --> 00:01:01,082
+The 2027 prices aren't published yet, and it
+says so.
+
+10
+00:01:01,243 --> 00:01:08,370
+In Romania the price now depends on the Euro
+class. A Euro 5 diesel pays 26 lei a day.
+
+11
+00:01:08,370 --> 00:01:13,066
+Without a known class, you pay the Euro 0 rate.
+
+12
+00:01:14,463 --> 00:01:21,152
+Before you go: winter tyres in three countries,
+and in Germany M plus S no longer counts.
+
+13
+00:01:21,152 --> 00:01:25,935
+Munich needs a green sticker, and this car
+qualifies.
+
+14
+00:01:27,250 --> 00:01:33,106
+And the claims you probably read online, each
+linked to the fact that corrects it.
+
+15
+00:01:35,388 --> 00:01:44,195
+You can also ask the agent, in Romanian, German,
+Hungarian or English. Here it plans a trip in
+Romanian.
+
+16
+00:01:44,792 --> 00:01:52,551
+It runs the same planner, reads the Knowledge
+Base through Sanity Context, and shows every
+step it took.
+
+17
+00:01:52,665 --> 00:02:00,668
+The Knowledge Base is built from official pages
+in four languages, plus the blogs drivers
+actually read.
+
+18
+00:02:01,947 --> 00:02:05,348
+When sources disagree, the build files an issue.
+
+19
+00:02:05,348 --> 00:02:12,242
+I resolved them in code, and each decision
+becomes a standing rule for the next build.
+
+20
+00:02:13,329 --> 00:02:21,182
+It caught mistakes in my own data model. And
+when a ministry page still quoted an old fine,
+it flagged that too.
+
+21
+00:02:21,182 --> 00:02:28,206
+Against keyword search over the same content,
+the agent gets fifteen of sixteen test questions
+right.
+
+22
+00:02:28,206 --> 00:02:33,551
+Search gets eleven. It finds the documents, but
+it can't compute a trip.
+
+23
+00:02:33,551 --> 00:02:41,070
+Drum Bun. Structured content in Sanity, so the
+answer is computed, not guessed. Drum bun!

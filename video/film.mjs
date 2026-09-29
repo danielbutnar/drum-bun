@@ -23,7 +23,8 @@ const now = () => Date.now() / 1000;
 const markers = [];
 const frames = [];
 
-const browser = await chromium.launch({ channel: "chrome", headless: DRY, args: ["--window-position=0,0", "--lang=en-US"] });
+// Headless: nothing on the desktop (a stray mouse wheel) can scroll the page mid-take.
+const browser = await chromium.launch({ channel: "chrome", headless: true, args: ["--lang=en-US"] });
 const ctx = await browser.newContext({ viewport: { width: 1280, height: 600 }, deviceScaleFactor: 1.5, locale: "en-US" });
 const page = await ctx.newPage();
 const wait = (ms) => page.waitForTimeout(ms);
@@ -149,6 +150,7 @@ await showCard(card(`<div style="font-weight:850;font-size:120px;letter-spacing:
   <div style="font-size:30px;max-width:820px;line-height:1.3">What your car needs between Romania and Germany or Austria</div>`));
 await say("hook");
 await done();
+await page.evaluate(() => window.scrollTo(0, 0));
 await hideCard();
 await say("mess");
 await wait(2500);
