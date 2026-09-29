@@ -57,3 +57,13 @@ About 71 Path One entries existed on 29 Sep; most are "an agent that refuses to 
 
 - 2026-09-29: challenge researched (rules, 128 competing entries, Sanity Context/KB/App SDK/Workflows docs). Concept, Path One only and Vercel AI Gateway free credit picked by the owner. Sanity org and project created, schema deployed. Planner written with 15 unit tests passing. Country research running.
 - 2026-09-29 evening: KB built (19 entries, 103 dataset + 23 web sources), 15 issues resolved, 9 standing instructions; site live at https://drum-bun-agent.vercel.app; Studio at https://drum-bun.sanity.studio; agent answers end to end locally (RO/DE/EN). First eval run: agent 6/16 vs keyword 9/16, caused by over-asking, wrong reply language, empty answers from the reasoning budget and the 5 req/min limit. Fixed: instructions, language detection in code, country_products tool, maxOutputTokens 5000, paced eval.
+- 2026-09-29 late: final eval run agent 15/16 vs keyword baseline 11/16 (evals/RESULTS.md). Full KB rebuild: no new conflicts (decisions carried), 4 naming gaps applied, 22 entries; all stale phrases gone (checked by script). Live URL now https://drum-bun-agent.vercel.app (project domain). Example answers re-recorded after the rebuild. Demo video cut 1: video/drum-bun-demo.mp4 (2:41, 1080p, Kokoro voice am_michael, captions, synthesized pad), filmed headless from the live site with video/film.mjs; rebuild with build.mjs + mix.mjs (ffmpeg from imageio-ffmpeg via uv). Post draft post/drum-bun.md (1,400 words); placeholders left: cover URL, video embed, two screenshots, agent session.
+
+## Next (Wed 30 Sep)
+
+1. Owner watches the video; changes if any.
+2. Screenshots for the post (plan + trace) into post/, referenced by raw GitHub URLs; cover from post/cover.png.
+3. Owner uploads the video (YouTube, unlisted or public) → embed.
+4. Curate the Claude Code agent session (exclude HQ/business content and anything personal), owner uploads at dev.to/agent_sessions/new and presses Make Public.
+5. web-qa on the live site (375/1440, axe, links), README check.
+6. Owner publishes the post with #sanitychallenge (target Sun 4 Oct evening at the latest; the deadline is Mon 5 Oct 09:59 Brașov).
