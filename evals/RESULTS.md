@@ -1,6 +1,6 @@
 # Eval results
 
-Run `2026-09-29T18-59-38` (agent: `openai/gpt-5-mini`, low reasoning; baseline: same model, any-word keyword search over the same Sanity documents, top 6). Patterns for `ro-7-day` and `hu-buy-after` were widened after the run to accept equivalent phrasing ("1, 10, 30, 60 de zile", "60‑minute" with a non-breaking hyphen) and **both systems were re-scored** with `evals/score.mts`. `at-typo` stays strict: the agent omitted that only annual vignettes can be re-registered.
+Run `2026-09-29T18-59-38` (agent: `openai/gpt-5-mini`, low reasoning; baseline: same model, any-word keyword search over the same Sanity documents, top 6). Patterns for `ro-7-day` and `hu-buy-after` were widened after the run to accept equivalent phrasing ("1, 10, 30, 60 de zile", "60‑minute" with a non-breaking hyphen) and **both systems were re-scored** with `evals/score.mts`. `at-typo` stays strict: the agent's answer was correct for a 10-day vignette (cannot be changed after the start, a wrong plate counts as no vignette, 200 euros) but omitted that annual vignettes can be re-registered for 18 euros, which the test requires. Kept as a miss rather than tuning the prompt to the test.
 
 | question | lang | agent | keyword search | agent tools |
 | --- | --- | --- | --- | --- |
