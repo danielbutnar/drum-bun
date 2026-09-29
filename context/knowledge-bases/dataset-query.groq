@@ -1,0 +1,22 @@
+*[_type in ["country", "tollProduct", "roadSection", "rule", "zone", "claim"]]{
+  "kind": _type,
+  "title": coalesce(name.en, title, "Claim seen online: " + statement, road + ": " + from + " to " + to),
+  "country": coalesce(country->name.en, city->country->name.en),
+  "localName": coalesce(name.hu, name.de, name.ro),
+  carTollSummary, summary, requirement, condition, area, howToComply, note, exemptNote,
+  statement, quote, verdict, explanation,
+  vehicles, exemptVehicles, "category": localCategory, county,
+  "validity": validity.wording,
+  "prices": prices[]{amount, currency, validFrom, validTo, "emissionBand": band.label},
+  "onlinePurchaseDelayDays": activation.onlineDelayDays,
+  "delayRule": activation.delayAppliesTo,
+  "howToGetImmediateValidity": activation.immediateOptions,
+  "whereToBuy": purchase[]{label, url},
+  "penalty": penalty{min, max, currency, points, note},
+  season, effectiveFrom, effectiveTo, severity, status, requiredSticker, dieselMinEuro,
+  tolled, "coveredBy": coveredBy[]->name.en, counties,
+  "pendingChanges": pendingChanges[].summary,
+  "seenOn": seenOn->{title, url, publisher, trust, language, pageDate},
+  "correctedBy": correctedBy[]->{"product": name.en, title, road, from, to},
+  "sources": sources[]->{title, url, publisher, trust, language, pageDate}
+}
