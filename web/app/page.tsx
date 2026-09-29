@@ -1,69 +1,88 @@
-import Image from "next/image";
+import {Chat} from '@/components/Chat'
+import {PlanView} from '@/components/PlanView'
+import {TripForm} from '@/components/TripForm'
+import {runPlan, type TripArgs, tripSchema} from '@/lib/plan-tool'
 
-export default function Home() {
+// The example most drivers on this route care about: home for Christmas.
+const EXAMPLE: TripArgs = {
+  origin: 'brasov',
+  destination: 'munich',
+  outDate: '2026-12-20',
+  returnDate: '2027-01-03',
+  vehicle: 'car',
+  fuel: 'diesel',
+  euroNorm: 5,
+  twoDayDrive: false,
+}
+
+function tripFrom(params: Record<string, string | string[] | undefined>): {trip: TripArgs; invalid: boolean} {
+  const one = (k: string) => {
+    const v = params[k]
+    return (Array.isArray(v) ? v[0] : v) || null
+  }
+  if (!one('from')) return {trip: EXAMPLE, invalid: false}
+  const parsed = tripSchema.safeParse({
+    origin: one('from'),
+    destination: one('to'),
+    outDate: one('out'),
+    returnDate: one('back'),
+    vehicle: one('vehicle') ?? 'car',
+    fuel: one('fuel'),
+    euroNorm: one('euro') == null ? null : Number(one('euro')),
+    twoDayDrive: one('twoDay') === '1',
+  })
+  return parsed.success ? {trip: parsed.data, invalid: false} : {trip: EXAMPLE, invalid: true}
+}
+
+export default async function Home(props: PageProps<'/'>) {
+  const {trip, invalid} = tripFrom(await props.searchParams)
+  const plan = await runPlan(trip)
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <>
+      <section className="border-b border-land-2">
+        <div className="mx-auto max-w-6xl px-4 pb-8 pt-10 sm:pt-14">
+          <h1 className="type-expanded text-5xl font-extrabold tracking-tight sm:text-7xl">Drum bun!</h1>
+          <p className="mt-4 max-w-2xl text-lg sm:text-xl">
+            What your car needs on the road between Romania and Germany or Austria: vignettes, tolls, winter tyres and emission
+            zones, priced for your dates and traced to the official source.
+          </p>
+          <p className="mt-3 max-w-2xl text-ink-2">
+            Romania replaced its rovinietă on 1 October 2026. Hungary added an M1 regional vignette this year, and Austria sells
+            only digital vignettes from 1 December. Blogs have not caught up. This has.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      <div id="plan" className="mx-auto max-w-6xl scroll-mt-4 space-y-8 px-4 py-8">
+        <TripForm trip={trip} />
+        {invalid && (
+          <p role="alert" className="rounded-md bg-paper p-3 text-road-dark">
+            Some trip details were not valid, so the example trip is shown. Check the dates (the return must be after the
+            departure).
+          </p>
+        )}
+        {plan.ok ? (
+          <PlanView plan={plan} />
+        ) : (
+          <p role="alert" className="rounded-md bg-paper p-4">
+            {plan.error}
+          </p>
+        )}
+      </div>
+
+      <section id="ask" aria-labelledby="ask-title" className="scroll-mt-4 border-t border-land-2 bg-paper/60">
+        <div className="mx-auto max-w-4xl px-4 py-10">
+          <h2 id="ask-title" className="type-expanded text-3xl font-bold tracking-tight">
+            Ask the agent
+          </h2>
+          <p className="mt-2 max-w-2xl text-ink-2">
+            In Romanian, German, Hungarian or English. It plans with the same planner, reads the Sanity Knowledge Base built from
+            official pages in four languages, and shows which entries and queries it used.
+          </p>
+          <Chat />
         </div>
-      </main>
-    </div>
-  );
+      </section>
+    </>
+  )
 }

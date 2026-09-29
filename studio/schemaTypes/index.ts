@@ -1,5 +1,6 @@
 import {claim, country, place, roadSection, route, rule, source, tollProduct, zone} from './documents'
 import {exchangeRate} from './exchangeRate'
+import {kbSnapshot} from './kbSnapshot'
 import {datedPrice, localeString, money, pendingChange, penalty, seasonWindow} from './shared'
 
 export const schemaTypes = [
@@ -21,4 +22,5 @@ export const schemaTypes = [
   claim,
   source,
   exchangeRate,
+  kbSnapshot,
 ]

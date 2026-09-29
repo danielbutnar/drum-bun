@@ -111,6 +111,8 @@ export interface CountryPlan {
   exitBorder: string | null
   travelDates: IsoDate[]
   tollFree: boolean
+  /** The route's sections in this country, for drawing the strip map. */
+  segments: {road: string; from: string; to: string; km: number | null; charged: boolean}[]
   /** Why nothing is due when the road is tolled for other vehicles. */
   exemptNotes: string[]
   tollSummary?: string | null
@@ -462,6 +464,13 @@ function planLeg(
     exitBorder: leg.exitBorder?.name.en ?? null,
     travelDates: dates,
     tollFree: tolled.length === 0,
+    segments: sections.map((s) => ({
+      road: s.road,
+      from: s.from,
+      to: s.to,
+      km: s.lengthKm ?? null,
+      charged: tolled.includes(s),
+    })),
     exemptNotes: exempt.map((s) => s.exemptNote ?? `No charge for this vehicle on ${s.road}.`),
     tollSummary: leg.country.carTollSummary,
     purchases,
