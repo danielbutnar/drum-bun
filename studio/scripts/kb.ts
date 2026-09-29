@@ -148,7 +148,7 @@ async function main() {
   } else if (cmd === 'rebuild') {
     for (const path of arg.split(',')) console.log(path, JSON.stringify(await client.context.entries.rebuild({path})))
   } else if (cmd === 'endpoints') {
-    for (const m of await client.context.mcpEndpoints.list()) console.log(JSON.stringify(m).slice(0, 400))
+    for (const m of await client.context.mcpEndpoints.list()) console.log(m.name, "|", m.title, "|", JSON.stringify(m.sources))
   } else if (cmd === 'instructions') {
     for (const i of await client.context.instructions.list()) console.log(`${i._id} [${i.origin}/${i.status}] ${i.statement}`)
   }
