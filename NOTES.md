@@ -30,9 +30,11 @@ About 71 Path One entries existed on 29 Sep; most are "an agent that refuses to 
 ## Only the owner can do these
 
 - [x] Sign in to Sanity (GitHub, 29 Sep).
-- [ ] Enable Context Knowledge Bases in Manage → Labs.
-- [ ] Create an organization token with Context Viewer and add it to Vercel as `SANITY_ORGANIZATION_TOKEN`.
-- [ ] Resolve the Knowledge Base Issues in the Dashboard (Claude says which claim to keep and why).
+- [x] Knowledge Bases usable (KB created by CLI on 29 Sep).
+- [x] MCP endpoints `drum-bun-kb` and `drum-bun-rules` created in the Dashboard (29 Sep; GROQ mode needed a deployed Studio).
+- [x] Org token `drum-bun-agent` (Context Viewer) → Vercel `SANITY_ORGANIZATION_TOKEN`; token `drum-bun-insights` (Context Editor) → `SANITY_INSIGHTS_TOKEN`.
+- [x] Card on file at Vercel to unlock the AI Gateway free credit (no credits bought; owner chose to stay free, 29 Sep).
+- [x] Public repo https://github.com/danielbutnar/drum-bun (29 Sep).
 - [ ] Publish the DEV post, upload the agent session and press Make Public.
 
 ## Schedule (Brașov time)
@@ -46,6 +48,12 @@ About 71 Path One entries existed on 29 Sep; most are "an agent that refuses to 
 | Sat 3 Oct | Video, cover image, post draft, agent session curated | Draft complete |
 | Sun 4 Oct | QA, owner publishes | Post live with the tag #sanitychallenge |
 
+## Decisions
+
+- 29 Sep: live model `openai/gpt-5-mini` (low reasoning effort) because the AI Gateway free tier blocks all Claude models and Gemini 2.5 Flash returned empty answers. Free tier limit: 5 requests per minute for the whole team, so example answers are recorded (`web/data/examples.json`) and a clear "busy" message replaces empty answers.
+- 29 Sep: Knowledge Base issues resolved via the context API; reasons in `context/knowledge-bases/decisions.md`.
+
 ## Progress
 
 - 2026-09-29: challenge researched (rules, 128 competing entries, Sanity Context/KB/App SDK/Workflows docs). Concept, Path One only and Vercel AI Gateway free credit picked by the owner. Sanity org and project created, schema deployed. Planner written with 15 unit tests passing. Country research running.
+- 2026-09-29 evening: KB built (19 entries, 103 dataset + 23 web sources), 15 issues resolved, 9 standing instructions; site live at https://drum-bun-khaki.vercel.app; Studio at https://drum-bun.sanity.studio; agent answers end to end locally (RO/DE/EN). First eval run: agent 6/16 vs keyword 9/16, caused by over-asking, wrong reply language, empty answers from the reasoning budget and the 5 req/min limit. Fixed: instructions, language detection in code, country_products tool, maxOutputTokens 5000, paced eval.

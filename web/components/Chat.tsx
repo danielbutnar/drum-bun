@@ -6,12 +6,11 @@ import {useState} from 'react'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 
-const EXAMPLES = [
-  {lang: 'ro', text: 'Plec din Cluj la Viena pe 10 octombrie cu un Logan pe benzină, Euro 4, și mă întorc pe 18. Ce trebuie să cumpăr?'},
-  {lang: 'de', text: 'Ich fahre am 20. Dezember mit meinem Diesel (Euro 5) von Brașov nach München und am 3. Januar zurück. Reichen M+S-Reifen?'},
-  {lang: 'en', text: 'A blog says Germany now has a car toll and the Austrian vignette is only valid 18 days after buying. True?'},
-  {lang: 'en', text: 'Which Hungarian county vignettes cover the M1 from Budapest to Hegyeshalom, and is there a cheaper option?'},
-]
+import recorded from '@/data/examples.json'
+import {EXAMPLES} from '@/lib/examples'
+
+type Recording = {recordedAt: string; messages: UIMessage[]}
+const RECORDINGS = recorded as Record<string, Recording>
 
 function errorText(error: Error): string {
   try {
@@ -22,16 +21,30 @@ function errorText(error: Error): string {
 }
 
 export function Chat() {
-  const {messages, sendMessage, status, error, stop} = useChat({
+  const {messages, sendMessage, setMessages, status, error, stop} = useChat({
     transport: new DefaultChatTransport({api: '/api/chat'}),
   })
   const [input, setInput] = useState('')
+  // A recorded answer being shown: example questions replay instantly, and the
+  // visitor can ask the same question live.
+  const [replay, setReplay] = useState<{text: string; recordedAt: string} | null>(null)
   const busy = status === 'submitted' || status === 'streaming'
 
   const send = (text: string) => {
     if (!text.trim() || busy) return
+    if (replay) {
+      setMessages([])
+      setReplay(null)
+    }
     sendMessage({text})
     setInput('')
+  }
+
+  const showExample = (id: string, text: string) => {
+    const rec = RECORDINGS[id]
+    if (!rec?.messages?.length) return send(text)
+    setMessages(rec.messages)
+    setReplay({text, recordedAt: rec.recordedAt})
   }
 
   return (
@@ -43,7 +56,7 @@ export function Chat() {
               <button
                 type="button"
                 lang={e.lang}
-                onClick={() => send(e.text)}
+                onClick={() => showExample(e.id, e.text)}
                 className="h-full w-full rounded-md border border-ink/15 bg-paper p-3 text-left hover:border-road"
               >
                 {e.text}
@@ -51,6 +64,25 @@ export function Chat() {
             </li>
           ))}
         </ul>
+      )}
+
+      {replay && (
+        <p className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-2 rounded-md bg-land px-3 py-2 text-sm">
+          <span>Recorded answer from {replay.recordedAt}, shown instantly.</span>
+          <button type="button" onClick={() => send(replay.text)} className="font-semibold text-road-dark underline underline-offset-2">
+            Ask it live
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              setMessages([])
+              setReplay(null)
+            }}
+            className="text-ink-2 underline underline-offset-2"
+          >
+            Back to examples
+          </button>
+        </p>
       )}
 
       <div className="mt-4 space-y-5" aria-live="polite">
