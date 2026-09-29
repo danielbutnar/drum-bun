@@ -1,51 +1,74 @@
 # Drum Bun
 
-An agent that tells a driver exactly what their car needs on the road between Romania and Germany or Austria: which vignettes and tolls to buy for their dates (and the cheapest combination), which winter-tyre and emission-zone rules apply, and which claims they read online are out of date. Every answer is traced to an official source.
+**What your car needs on the road between Romania and Germany or Austria**: vignettes and tolls for your dates (the cheapest combination), winter-tyre and emission-zone rules, and which claims you read online are out of date. Every answer is traced to an official source.
 
-Entry for the [DEV.to Sanity Challenge](https://dev.to/challenges/sanity-2026-09-16), **Path One: Ship an Agent That Queries Real Content**.
+Live: https://drum-bun-khaki.vercel.app · Sanity project `pd5e7gez`, dataset `production` (public) · Built for the [DEV Sanity Challenge](https://dev.to/challenges/sanity-2026-09-16), Path One.
 
-- Deadline: Sun 4 Oct 2026, 23:59 PDT = **Mon 5 Oct, 09:59 Brașov**. Target: publish Sunday evening.
-- Prizes: 3 × $500 in Path One (2 more in Path Two). Judging: meaningful use of Sanity Context and structured content, technical implementation and code quality, use of Knowledge Bases, usability. Tiebreak: reactions.
-- Rules that matter: built from scratch inside the entry period (started 29 Sep), English post, Sanity project ID in the post, test credentials if a login is needed (none planned).
+> "Drum bun!" is what Romanians say before a journey, and what the sign says when you leave a town.
 
-## Why it wins (the bet)
+## Why this needs structure
 
-About 71 Path One entries existed on 29 Sep; most are "an agent that refuses to answer without receipts" on docs or errata. Gaps nobody covers, which this entry aims at:
+"What does Brașov → Munich on 20 December, back 3 January, cost in a Euro 5 diesel?" has no page that answers it. The answer is computed from:
 
-1. **Multilingual official sources** (RO, HU, DE, EN) whose language versions and dates disagree. No other entry uses Romanian content.
-2. **A deterministic planner over structured content**: route × dates × vehicle → cheapest set of products, prices valid on the travel date, Austria's 18-day online rule, seasonal winter rules. A keyword search cannot compute this.
-3. **Contradictions as data**: outdated claims drivers read online are `claim` documents linked to the facts that correct them; the Knowledge Base built from official sites plus those pages surfaces the same conflicts as Issues, and the decisions carry into the next build.
-4. **Public, no-login demo** that works without the model (planner only) and with it (chat that reads the Knowledge Base through Context MCP).
+- the **route**: which road sections, in which Hungarian counties, which are tolled (the Salzburg Nord → Walserberg stretch is free, the M1 between Bicske and Szárliget is only covered by the Fejér county vignette);
+- the **dates**: every price is dated (`validFrom`/`validTo`); Austria's vignette year starts on 1 December, so a Christmas trip needs 2027 products whose prices are not published yet;
+- the **car**: from 1 October 2026 Romania prices the rovinietă by Euro class, and an unknown class pays the Euro 0 rate;
+- the **cheapest cover**: two 1-day vignettes, one 10-day, a monthly, or annual county vignettes plus the new M1 regional one.
+
+A keyword search finds documents about each of these. It cannot combine them.
+
+## How it works
+
+```
+official pages, laws, blogs (RO, HU, DE, EN)
+        │  research/ (sourced notes)  →  studio/seed/ (typed documents)
+        ▼
+Sanity dataset ── 20 routes · 22 road sections · 28 toll products with dated prices
+        │         16 rules · 7 zones · 26 claims seen online · 85 sources
+        ├──► GROQ ──► planner (web/lib/planner.ts): pure, unit-tested, no model
+        │
+        ├──► Knowledge Base "Drum Bun road rules" (dataset + 23 web pages)
+        │      issues resolved and standing instructions written via @sanity/client context API
+        ▼
+Sanity Context MCP: drum-bun-kb (Knowledge Base mode) + drum-bun-rules (GROQ mode, embeddings)
+        ▼
+agent (web/lib/agent.ts, AI SDK 7 + AI Gateway): calls plan_trip, reads KB entries, runs GROQ;
+the UI shows the plan as a strip map and every step the agent took
+```
+
+- **The planner decides, the model explains.** `plan_trip` is a tool the agent calls; prices, coverage and validity are never generated.
+- **Contradictions are data.** Outdated statements drivers find online are `claim` documents linked to the facts that correct them. The planner surfaces the ones relevant to your trip.
+- **The Knowledge Base is reconciled in code.** `studio/scripts/kb.ts` lists issues, resolves conflicts, writes standing instructions scoped to sources, rebuilds entries, and snapshots the result into the dataset for the public [How it knows](https://drum-bun-khaki.vercel.app/knowledge) page. Decisions and reasons: [`context/knowledge-bases/decisions.md`](context/knowledge-bases/decisions.md).
 
 ## Layout
 
-| Folder | What |
+| Path | What |
 | --- | --- |
-| `studio/` | Sanity Studio: schema, desk structure, seed script. Project `pd5e7gez`, dataset `production` (public), org `ob2cyckj9`. |
-| `web/` | Next.js app on Vercel: planner (`lib/planner.ts`, pure and unit-tested), chat agent (AI SDK + Context MCP), pages. |
-| `context/` | Everything pasted into the Sanity Context app: Knowledge Base purpose and sources, MCP instructions. |
-| `research/` | Sourced facts per country, gathered 29 Sep 2026. The seed data is built from these files. |
-| `evals/` | Question set and runner: agent vs keyword baseline. |
+| `research/` | Sourced facts per country (checked 29 Sep 2026), incl. outdated pages found online |
+| `studio/` | Sanity Studio 6: schema (`schemaTypes/`), desk structure, seed data (`seed/`), scripts (`scripts/seed.ts`, `scripts/kb.ts`) |
+| `context/` | Everything configured in Sanity Context: Knowledge Base purpose, dataset query, web sources, MCP endpoint instructions, decisions |
+| `web/` | Next.js 16 app: planner + tests (`lib/`), agent and MCP client, pages, components |
+| `evals/` | 16 questions in RO/DE/EN with checkable facts; agent vs any-word keyword baseline over the same content |
 
-## Only the owner can do these
+## Run it
 
-- [x] Sign in to Sanity (GitHub, 29 Sep).
-- [ ] Enable Context Knowledge Bases in Manage → Labs.
-- [ ] Create an organization token with Context Viewer and add it to Vercel as `SANITY_ORGANIZATION_TOKEN`.
-- [ ] Resolve the Knowledge Base Issues in the Dashboard (Claude says which claim to keep and why).
-- [ ] Publish the DEV post, upload the agent session and press Make Public.
+```bash
+pnpm install
+pnpm --filter web test          # planner unit tests
+pnpm --filter web dev           # http://localhost:3000 (planner works without any secret)
+```
 
-## Schedule (Brașov time)
+The chat needs a Sanity organization token with Context Viewer (`SANITY_ORGANIZATION_TOKEN`), the two MCP URLs (`SANITY_MCP_KB_URL`, `SANITY_MCP_GROQ_URL`) and AI Gateway access (on Vercel via OIDC; locally `vercel env pull web/.env.local`).
 
-| Day | Build | Done when |
-| --- | --- | --- |
-| Tue 29 Sep | Research, Sanity project, schema, planner + tests | Planner tests green, schema deployed |
-| Wed 30 Sep | Seed data from research, Knowledge Base build, two MCP endpoints, chat agent | Agent answers the Christmas-trip question locally with citations |
-| Thu 1 Oct | UI (design direction picked by owner), Vercel deploy, rate limits, cached examples | Live URL works at 375 and 1440 px without a login |
-| Fri 2 Oct | Resolve KB Issues, evals vs keyword baseline, Insights | Eval table ready for the post |
-| Sat 3 Oct | Video, cover image, post draft, agent session curated | Draft complete |
-| Sun 4 Oct | QA, owner publishes | Post live with the tag #sanitychallenge |
+Re-seed and inspect the Knowledge Base (uses your Sanity CLI login):
 
-## Progress
+```bash
+pnpm --filter studio exec sanity exec scripts/seed.ts --with-user-token
+pnpm --filter studio exec sanity exec scripts/kb.ts --with-user-token -- issues
+```
 
-- 2026-09-29: challenge researched (rules, 128 competing entries, Sanity Context/KB/App SDK/Workflows docs). Concept, Path One only and Vercel AI Gateway free credit picked by the owner. Sanity org and project created, schema deployed. Planner written with 15 unit tests passing. Country research running.
+## Limits
+
+- Private cars, campers up to 3.5 t, cars with trailers and motorcycles; 4 Romanian start cities × 5 destinations via Hungary and Austria. No Czech/Slovak routes yet.
+- Facts were checked on 29 September 2026. Prices not published yet are shown as estimates; pending laws (a Senate bill could postpone Romania's new system) are shown as pending, never applied.
+- Distances are approximate. Not legal advice.
