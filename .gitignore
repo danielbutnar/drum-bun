@@ -11,3 +11,9 @@ dist/
 
 .vercel
 .env*
+
+# regenerable video artefacts
+video/voice/**/*.wav
+video/takes/
+video/*.wav
+video/*.mp4
