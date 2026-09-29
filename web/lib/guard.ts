@@ -27,6 +27,7 @@ export function sameOrigin(req: Request): boolean {
 }
 
 export function takeChatToken(ip: string): {ok: true} | {ok: false; reason: string} {
+  if (process.env.NODE_ENV === 'development') return {ok: true}
   const now = Date.now()
   const today = new Date(now).toISOString().slice(0, 10)
   if (today !== day) {

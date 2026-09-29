@@ -10,7 +10,7 @@ export async function GET(req: Request) {
   if (!secret || req.headers.get('authorization') !== `Bearer ${secret}`) {
     return Response.json({error: 'Not allowed.'}, {status: 401})
   }
-  const token = process.env.SANITY_ORGANIZATION_TOKEN
+  const token = process.env.SANITY_INSIGHTS_TOKEN
   if (!token) return Response.json({error: 'Not configured.'}, {status: 503})
   const client = createClient({
     apiVersion: 'v2025-11-27',
@@ -21,7 +21,7 @@ export async function GET(req: Request) {
   })
   const result = await classifyConversations({
     client,
-    model: 'anthropic/claude-haiku-4.5',
+    model: 'openai/gpt-5-mini',
     mcpEndpoint: 'drum-bun-kb',
     limit: 50,
     concurrency: 3,

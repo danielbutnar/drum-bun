@@ -29,7 +29,9 @@ export async function POST(req: Request) {
   const allowed = takeChatToken(clientIp(req))
   if (!allowed.ok) return Response.json({error: allowed.reason}, {status: 429})
 
-  const result = await runAgent(messages, typeof id === 'string' ? id.slice(0, 64) : undefined)
+  // Development only: compare models with an x-model header.
+  const model = process.env.NODE_ENV === 'development' ? (req.headers.get('x-model') ?? undefined) : undefined
+  const result = await runAgent(messages, typeof id === 'string' ? id.slice(0, 64) : undefined, model)
   if (result instanceof Response) return result
   return Response.json({error: result.error}, {status: result.status})
 }

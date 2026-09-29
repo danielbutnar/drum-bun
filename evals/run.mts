@@ -8,25 +8,20 @@
 // Writes evals/runs/<timestamp>.json and prints a table.
 
 import {mkdirSync, readFileSync, writeFileSync} from 'node:fs'
-import {createRequire} from 'node:module'
 
-const require = createRequire(new URL('../web/package.json', import.meta.url))
-const {generateText} = require('ai') as typeof import('ai')
-const {createClient} = require('@sanity/client') as typeof import('@sanity/client')
 
 type Q = {id: string; lang: string; q: string; must: string[]; mustNot: string[]; why: string}
 const questions: Q[] = JSON.parse(readFileSync(new URL('./questions.json', import.meta.url), 'utf8'))
 const base = process.argv[2] ?? 'http://localhost:3000'
-const MODEL = process.env.AGENT_MODEL ?? 'anthropic/claude-sonnet-5.5'
 const only = process.argv[3]?.split(',')
-
-const sanity = createClient({projectId: 'pd5e7gez', dataset: 'production', apiVersion: '2026-09-01', useCdn: true})
+const PAUSE_MS = Number(process.env.EVAL_PAUSE_MS ?? 45_000)
+const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms))
 
 async function askAgent(q: string): Promise<{text: string; tools: string[]}> {
   const res = await fetch(`${base}/api/chat`, {
     method: 'POST',
-    headers: {'content-type': 'application/json'},
-    body: JSON.stringify({messages: [{id: 'u1', role: 'user', parts: [{type: 'text', text: q}]}]}),
+    headers: {'content-type': 'application/json', origin: base},
+    body: JSON.stringify({id: `eval-${Date.now()}`, messages: [{id: 'u1', role: 'user', parts: [{type: 'text', text: q}]}]}),
   })
   if (!res.ok) throw new Error(`agent HTTP ${res.status}: ${await res.text()}`)
   const body = await res.text()
@@ -40,34 +35,17 @@ async function askAgent(q: string): Promise<{text: string; tools: string[]}> {
       const ev = JSON.parse(payload)
       if (ev.type === 'text-delta') text += ev.delta ?? ''
       if (ev.type === 'tool-input-available') tools.push(ev.toolName)
+      if (ev.type === 'error') text += `
+[ERROR] ${ev.errorText}`
     } catch {}
   }
   return {text, tools}
 }
 
-// Any-word keyword search, the way a site search box behaves: a document
-// matches if any term appears in its text fields, ranked by how many do.
-const FIELDS = '[name.en, title, statement, road, summary, requirement, condition, explanation, note, carTollSummary, area, howToComply]'
-function keywordQuery(n: number) {
-  const any = Array.from({length: n}, (_, i) => `${FIELDS} match $t${i}`)
-  return `*[_type in ["tollProduct", "rule", "zone", "claim", "roadSection", "country"] && (${any.join(' || ')})]
-  | score(${any.join(', ')}) | order(_score desc)[0...6]{_type, "title": coalesce(name.en, title, statement, road), summary,
-    requirement, condition, explanation, note, carTollSummary, area, howToComply,
-    "prices": prices[]{amount, currency, validFrom, validTo, "band": band.label}}`
-}
-
 async function askBaseline(q: string): Promise<{text: string; hits: number}> {
-  // Keyword search the way a site search box would: the question's words.
-  const terms = [...new Set(q.replace(/[^\p{L}\p{N}+\s-]/gu, ' ').split(/\s+/).filter((w) => w.length > 3))].slice(0, 12)
-  const params = Object.fromEntries(terms.map((t, i) => [`t${i}`, t]))
-  const hits = await sanity.fetch<unknown[]>(keywordQuery(terms.length), params)
-  const {text} = await generateText({
-    model: MODEL,
-    instructions: `Answer the driver's question using only the documents below. Today is ${new Date().toISOString().slice(0, 10)}. Answer in the question's language, briefly.\n\n${JSON.stringify(hits, null, 1)}`,
-    prompt: q,
-    maxOutputTokens: 700,
-  })
-  return {text, hits: hits.length}
+  const res = await fetch(`${base}/api/dev-baseline`, {method: 'POST', headers: {'content-type': 'application/json'}, body: JSON.stringify({q})})
+  if (!res.ok) throw new Error(`baseline HTTP ${res.status}`)
+  return res.json()
 }
 
 function score(q: Q, text: string) {
@@ -79,7 +57,12 @@ function score(q: Q, text: string) {
 
 const results = []
 for (const q of questions.filter((x) => !only || only.includes(x.id))) {
-  const [agent, baseline] = await Promise.allSettled([askAgent(q.q), askBaseline(q.q)])
+  // The free AI Gateway tier allows 5 requests a minute: run one system at a
+  // time and pause, so a rate limit never counts as a wrong answer.
+  const [agent] = await Promise.allSettled([askAgent(q.q)])
+  await sleep(PAUSE_MS)
+  const [baseline] = await Promise.allSettled([askBaseline(q.q)])
+  await sleep(PAUSE_MS / 3)
   const a = agent.status === 'fulfilled' ? agent.value : {text: `ERROR ${agent.reason}`, tools: []}
   const b = baseline.status === 'fulfilled' ? baseline.value : {text: `ERROR ${baseline.reason}`, hits: 0}
   const row = {id: q.id, lang: q.lang, why: q.why, agent: {...score(q, a.text), tools: a.tools, text: a.text}, baseline: {...score(q, b.text), hits: b.hits, text: b.text}}
@@ -92,5 +75,5 @@ const basePass = results.filter((r) => r.baseline.pass).length
 console.log(`\nagent ${agentPass}/${results.length}, keyword baseline ${basePass}/${results.length}`)
 mkdirSync(new URL('./runs/', import.meta.url), {recursive: true})
 const file = new URL(`./runs/${new Date().toISOString().replace(/[:.]/g, '-')}.json`, import.meta.url)
-writeFileSync(file, JSON.stringify({model: MODEL, base, agentPass, basePass, total: results.length, results}, null, 2))
+writeFileSync(file, JSON.stringify({base, agentPass, basePass, total: results.length, results}, null, 2))
 console.log(`written ${file.pathname}`)
