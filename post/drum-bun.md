@@ -26,7 +26,7 @@ This year they changed under everyone's feet:
 
 ## Demo
 
-**Live:** https://drum-bun-khaki.vercel.app (no login; the planner works without the model, the chat is rate-limited)
+**Live:** https://drum-bun-agent.vercel.app (no login; the planner works without the model, the chat is rate-limited)
 
 VIDEO_EMBED
 
@@ -62,7 +62,7 @@ The Knowledge Base "Drum Bun road rules" is built from the dataset (a GROQ query
 - It **invented** Hungarian purchase points (post offices, the automobile club) that no source names. An instruction limits entries to the channels the sources name.
 - It **missed** one: an entry quoted the Romanian Interior Ministry page's winter-tyre fine, computed with an old penalty-point value. I wrote an instruction scoped to that page; the background contradiction check then filed an issue against the stale entry by itself, and applying it fixed the number. That loop, human instruction → automatic check → issue → rebuild, is the part I would not want to build myself.
 
-The public [How it knows](https://drum-bun-khaki.vercel.app/knowledge) page shows every issue with both sides, what was kept, the standing instructions and the outline, from a snapshot the script writes into the dataset.
+The public [How it knows](https://drum-bun-agent.vercel.app/knowledge) page shows every issue with both sides, what was kept, the standing instructions and the outline, from a snapshot the script writes into the dataset.
 
 ### 3. Sanity Context MCP, two endpoints
 

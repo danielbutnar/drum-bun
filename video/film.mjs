@@ -8,7 +8,7 @@ import { chromium } from "file:///C:/Users/danie/.claude/skills/web-qa/scripts/n
 import fs from "node:fs";
 import path from "node:path";
 
-const BASE = "https://drum-bun-khaki.vercel.app";
+const BASE = "https://drum-bun-agent.vercel.app";
 const OUT = process.argv[2];
 const DRY = process.argv.includes("--dry");
 if (!OUT) throw new Error("usage: node film.mjs <outDir> [--dry]");
@@ -267,7 +267,7 @@ await say("eval");
 log("scene 14: end");
 await done();
 await showCard(card(`<div style="font-weight:850;font-size:110px;letter-spacing:-3px;font-variation-settings:'wdth' 125">Drum bun!</div>
-  <div style="font-size:28px">drum-bun-khaki.vercel.app</div>
+  <div style="font-size:28px">drum-bun-agent.vercel.app</div>
   <div style="font-size:20px;line-height:1.5;color:#4a5a66">Sanity project pd5e7gez · github.com/danielbutnar/drum-bun<br>Facts checked on 29 September 2026. Not legal advice.</div>`));
 await say("end");
 await done();

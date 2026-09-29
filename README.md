@@ -2,7 +2,7 @@
 
 **What your car needs on the road between Romania and Germany or Austria**: vignettes and tolls for your dates (the cheapest combination), winter-tyre and emission-zone rules, and which claims you read online are out of date. Every answer is traced to an official source.
 
-Live: https://drum-bun-khaki.vercel.app · Sanity project `pd5e7gez`, dataset `production` (public) · Built for the [DEV Sanity Challenge](https://dev.to/challenges/sanity-2026-09-16), Path One.
+Live: https://drum-bun-agent.vercel.app · Sanity project `pd5e7gez`, dataset `production` (public) · Built for the [DEV Sanity Challenge](https://dev.to/challenges/sanity-2026-09-16), Path One.
 
 > "Drum bun!" is what Romanians say before a journey, and what the sign says when you leave a town.
 
@@ -38,7 +38,7 @@ the UI shows the plan as a strip map and every step the agent took
 
 - **The planner decides, the model explains.** `plan_trip` is a tool the agent calls; prices, coverage and validity are never generated.
 - **Contradictions are data.** Outdated statements drivers find online are `claim` documents linked to the facts that correct them. The planner surfaces the ones relevant to your trip.
-- **The Knowledge Base is reconciled in code.** `studio/scripts/kb.ts` lists issues, resolves conflicts, writes standing instructions scoped to sources, rebuilds entries, and snapshots the result into the dataset for the public [How it knows](https://drum-bun-khaki.vercel.app/knowledge) page. Decisions and reasons: [`context/knowledge-bases/decisions.md`](context/knowledge-bases/decisions.md).
+- **The Knowledge Base is reconciled in code.** `studio/scripts/kb.ts` lists issues, resolves conflicts, writes standing instructions scoped to sources, rebuilds entries, and snapshots the result into the dataset for the public [How it knows](https://drum-bun-agent.vercel.app/knowledge) page. Decisions and reasons: [`context/knowledge-bases/decisions.md`](context/knowledge-bases/decisions.md).
 
 ## Layout
 
