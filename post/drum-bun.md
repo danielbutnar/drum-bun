@@ -104,4 +104,4 @@ Honest notes: the first run scored the agent **6 / 16**. It asked "which city?" 
 
 The whole build ran as one Claude Code session over two days: the research into four countries' toll rules, the schema, the planner and its tests, the Knowledge Base decisions, the eval run that lost to keyword search, and the video. Steps that touched my unrelated private notes are removed.
 
-{% agent_session AGENT_SESSION_SLUG %}
+{% agent_session building-drum-bun-with-claude-code-sgjo1z %}
