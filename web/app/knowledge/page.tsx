@@ -185,7 +185,7 @@ export default async function Knowledge() {
           <ul className="mt-3 divide-y divide-land-2 rounded-lg bg-paper">
             {snap.entries.map((e) => (
               <li key={e.path} className="p-3">
-                <code className="break-all text-sm text-road-dark">{e.path}</code>
+                <code className="wrap-anywhere text-sm text-road-dark">{e.path}</code>
                 <p className="font-semibold">{e.title}</p>
                 {typeof e.tldr === 'string' && e.tldr && <p className="text-sm text-ink-2">{e.tldr}</p>}
               </li>
