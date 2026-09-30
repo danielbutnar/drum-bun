@@ -97,7 +97,9 @@ function CountryColumn({c}: {c: CountryPlan}) {
   return (
     <li className={`rail pl-6 ${free ? 'rail-free' : ''}`}>
       <div className="flex items-baseline gap-2">
-        <span className="type-expanded text-3xl font-extrabold text-ink/20">{c.code}</span>
+        <span aria-hidden="true" className="type-expanded text-3xl font-extrabold text-ink/20">
+          {c.code}
+        </span>
         <h3 className="text-lg font-bold">{c.name}</h3>
         <span className="type-condensed tabular ml-auto text-sm text-ink-2">{c.km} km</span>
       </div>
