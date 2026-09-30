@@ -28,7 +28,7 @@ This year they changed under everyone's feet:
 
 **Live:** https://drum-bun-agent.vercel.app (no login; the planner works without the model, the chat is rate-limited)
 
-VIDEO_EMBED
+{% embed https://youtu.be/X2qOuYowQro %}
 
 ![The Brașov to Munich plan: a strip map of the route through Romania, Hungary, Austria and Germany, the warnings before you go, and what to buy in each country with prices for each travel day](https://raw.githubusercontent.com/danielbutnar/drum-bun/main/post/img/plan.png)
 *The route as a strip map drawn from the data: tolled sections red with a yellow core, free sections hollow, borders dashed.*
