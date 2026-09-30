@@ -13,7 +13,7 @@ Every December, hundreds of thousands of cars drive home between Germany or Aust
 
 This year they changed under everyone's feet:
 
-- **Romania** replaced its rovinietă on **1 October 2026**: new seller (TollRo), new durations, prices in lei **by Euro class**, and a car whose class cannot be shown pays the Euro 0 rate. A Senate bill could still postpone it.
+- **Romania** replaced its rovinietă on **1 October 2026**: new seller (TollRo), prices in lei **by Euro class**, and a car whose class cannot be shown pays the Euro 0 rate. A Senate bill could still postpone it.
 - **Hungary** added an **M1 regional** vignette in 2026 that makes a yearly crossing less than half the price of the national one, if you know that the Pest and Komárom-Esztergom county vignettes leave a gap on the M1 that only Fejér covers.
 - **Austria** sells only digital vignettes for validity from **1 December 2026**, raised the on-the-spot penalty to €200, and its 2027 prices are not published yet, so a Christmas trip cannot be priced exactly.
 
@@ -56,9 +56,9 @@ A pure, unit-tested planner walks that structure: it picks the price valid on ea
 
 ### 2. A Knowledge Base from official pages in four languages
 
-The Knowledge Base "Drum Bun road rules" is built from the dataset (a GROQ query that flattens each document into readable fields) plus 23 web pages: the toll operators, ministries and cities in Romanian, Hungarian, German and English, **and the blogs drivers actually read**. The first build filed 14 issues; after all fixes and a full rebuild the Knowledge Base has 22 entries from 103 dataset documents and 24 web pages, 21 decided issues and 9 standing instructions. I resolved them with `@sanity/client`'s `context` API instead of clicking through the Dashboard, so every decision is in the repo with its reason ([decisions.md](https://github.com/danielbutnar/drum-bun/blob/main/context/knowledge-bases/decisions.md)):
+The Knowledge Base "Drum Bun road rules" is built from the dataset (a GROQ query that flattens each document into readable fields) plus 24 web pages: the toll operators, ministries and cities in Romanian, Hungarian, German and English, **and the blogs drivers actually read**. The first build filed 14 issues; after all fixes and a full rebuild the Knowledge Base has 22 entries from 103 dataset documents and 24 web pages, 21 decided issues and 9 standing instructions. I resolved them with `@sanity/client`'s `context` API instead of clicking through the Dashboard, so every decision is in the repo with its reason ([decisions.md](https://github.com/danielbutnar/drum-bun/blob/main/context/knowledge-bases/decisions.md)):
 
-- Four "conflicts" came from **my own vocabulary**: the build read my enum value `carTrailer` as "a trailer" and concluded trailers must carry warning triangles. One standing instruction fixed the vocabulary for every future build.
+- Two of the four conflicts came from **my own vocabulary**: the build read my enum value `carTrailer` as "a trailer" and concluded trailers must carry warning triangles. One standing instruction fixed the vocabulary for every future build. The other two were both true, for different dates (Austria's substitute toll was €120 before 2026, €200 since); an instruction now makes entries state the date.
 - It **invented** Hungarian purchase points (post offices, the automobile club) that no source names. An instruction limits entries to the channels the sources name.
 - It **missed** one: an entry quoted the Romanian Interior Ministry page's winter-tyre fine, computed with an old penalty-point value. I wrote an instruction scoped to that page; the background contradiction check then filed an issue against the stale entry by itself, and applying it fixed the number. That loop, human instruction → automatic check → issue → rebuild, is the part I would not want to build myself.
 
@@ -96,7 +96,7 @@ Honest notes: the first run scored the agent **6 / 16**. It asked "which city?" 
 
 ## Sanity Project Details
 
-- Project ID: **`pd5e7gez`**, dataset **`production`** (public). Try: `https://pd5e7gez.api.sanity.io/v2026-09-01/data/query/production?query=*[_type=="tollProduct" && country->code=="RO"][0]{name, prices}`
+- Project ID: **`pd5e7gez`**, dataset **`production`** (public). Try [one product's stored prices](https://pd5e7gez.api.sanity.io/v2026-09-01/data/query/production?query=*%5B_id%3D%3D%22product-ro-12month%22%5D%5B0%5D%7Bname%2C%20prices%7D): `*[_id=="product-ro-12month"][0]{name, prices}`
 - Organization `ob2cyckj9`, Knowledge Base `kbv1SRpT2A3t`, MCP endpoints `drum-bun-kb` and `drum-bun-rules`.
 - Studio: https://drum-bun.sanity.studio (members only; the schema is in [`studio/schemaTypes`](https://github.com/danielbutnar/drum-bun/blob/main/studio/schemaTypes)).
 
