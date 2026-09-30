@@ -35,7 +35,7 @@ About 71 Path One entries existed on 29 Sep; most are "an agent that refuses to 
 - [x] Org token `drum-bun-agent` (Context Viewer) → Vercel `SANITY_ORGANIZATION_TOKEN`; token `drum-bun-insights` (Context Editor) → `SANITY_INSIGHTS_TOKEN`.
 - [x] Card on file at Vercel to unlock the AI Gateway free credit (no credits bought; owner chose to stay free, 29 Sep).
 - [x] Public repo https://github.com/danielbutnar/drum-bun (29 Sep).
-- [ ] Publish the DEV post, upload the agent session and press Make Public.
+- [x] Publish the DEV post and upload the agent session (30 Sep): https://dev.to/danielbutnar/drum-bun-an-agent-that-knows-romania-rewrote-its-vignette-this-week-2d0g
 
 ## Schedule (Brașov time)
 
@@ -68,3 +68,10 @@ About 71 Path One entries existed on 29 Sep; most are "an agent that refuses to 
 5. web-qa on the live site (375/1440, axe, links), README check.
 6. Owner publishes the post with #sanitychallenge (target Sun 4 Oct evening at the latest; the deadline is Mon 5 Oct 09:59 Brașov).
 - 2026-09-30 morning: video cut 2 (2:52): chat scene shows Knowledge Base reads, new structure scene. Web QA: site-check PASS on the live site after adding sharing tags, canonical, robots, sitemap, manifest, 404 page, CSP + security headers (zod jitless so the chat never probes eval), security.txt, overflow fix; manual checks OK (keyboard, 200 % zoom, 404, live chat under CSP). Agent: grounding rule for cited sources, formal German / polite Romanian, no closing offers; examples re-recorded. Post: cover and screenshots from the repo; open placeholders VIDEO_EMBED and AGENT_SESSION_SLUG. Sanitized session for upload: post/private/drum-bun-session.jsonl (git-ignored; private steps, reasoning, system text and raw outputs removed; leak-checked).
+- 2026-09-30 11:52: DEV post published (https://dev.to/danielbutnar/drum-bun-an-agent-that-knows-romania-rewrote-its-vignette-this-week-2d0g), checked logged out: cover, tags, video, 3 screenshots, GitHub card, eval table, session embed. Before publishing: three wording fixes in the post (Romania durations, the four KB conflicts, 24 web pages), sample query made a link. The first session upload (sgjo1z) broke the save: DEV links every `@word` that matches a username, also inside a session embed, and refuses more than 10 (`@sanity` alone appeared 105 times). Re-uploaded with a zero-width space after each `@` (post/private/nomention.mjs) as `building-drum-bun-with-claude-code-dlb6i2`, embedded as range `0..494` (the last 12 messages were redaction noise). Standalone session pages show "Session not available" to logged-out visitors even for DEV's own example, but embeds render in the post for everyone.
+
+## After publishing
+
+- Owner: optionally share once (LinkedIn, Sanity community); answer comments on the post.
+- Keep the live site and Sanity project up until the winners are announced; the AI Gateway OIDC token only matters locally.
+- The old session upload `sgjo1z` is unused; the owner can delete it on DEV.

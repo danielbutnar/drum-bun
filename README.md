@@ -2,7 +2,7 @@
 
 **What your car needs on the road between Romania and Germany or Austria**: vignettes and tolls for your dates (the cheapest combination), winter-tyre and emission-zone rules, and which claims you read online are out of date. Every answer is traced to an official source.
 
-Live: https://drum-bun-agent.vercel.app · Demo video (2:52): https://youtu.be/X2qOuYowQro · Sanity project `pd5e7gez`, dataset `production` (public) · Built for the [DEV Sanity Challenge](https://dev.to/challenges/sanity-2026-09-16), Path One.
+Live: https://drum-bun-agent.vercel.app · Demo video (2:52): https://youtu.be/X2qOuYowQro · Sanity project `pd5e7gez`, dataset `production` (public) · Built for the [DEV Sanity Challenge](https://dev.to/challenges/sanity-2026-09-16), Path One: [the post](https://dev.to/danielbutnar/drum-bun-an-agent-that-knows-romania-rewrote-its-vignette-this-week-2d0g).
 
 > "Drum bun!" is what Romanians say before a journey, and what the sign says when you leave a town.
 

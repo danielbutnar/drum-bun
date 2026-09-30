@@ -1,6 +1,6 @@
 ---
 title: Drum Bun: an agent that knows Romania rewrote its vignette this week
-published: false
+published: true
 tags: devchallenge, sanitychallenge, sanity, ai
 cover_image: https://raw.githubusercontent.com/danielbutnar/drum-bun/main/post/cover.png
 ---
