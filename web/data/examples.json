@@ -1,6 +1,6 @@
 {
   "ro-cluj-vienna": {
-    "recordedAt": "2026-09-29",
+    "recordedAt": "2026-09-30",
     "messages": [
       {
         "id": "user",
@@ -18,7 +18,7 @@
         "parts": [
           {
             "type": "tool-plan_trip",
-            "toolCallId": "call_2LDADD0OEmrN6bVER88ANrLa",
+            "toolCallId": "call_T5fQFbMW4ZeZPTJZkYV6cbdP",
             "state": "output-available",
             "input": {
               "origin": "cluj-napoca",
@@ -32,21 +32,21 @@
             },
             "callProviderMetadata": {
               "openai": {
-                "itemId": "fc_0241975f668ac414016abc2163ff4087d1b4e90919a8e5c918"
+                "itemId": "fc_045852681a43a86b016abcb24dfa0487d1abcf7040eb696732"
               }
             },
             "resultProviderMetadata": {
               "openai": {
-                "itemId": "fc_0241975f668ac414016abc2163ff4087d1b4e90919a8e5c918"
+                "itemId": "fc_045852681a43a86b016abcb24dfa0487d1abcf7040eb696732"
               }
             }
           },
           {
             "type": "text",
-            "text": "Decis pentru a nu fi amendat (prioritare)\n- România: rovinietă (10 zile) pentru categoria A — 35 RON (valabilă 10.10–19.10). Cumpărați înainte de plecare prin TollRo/CNAIR; sistemul nou e activ din 1 oct 2026 (verificați, există o propunere de amânare). [CNAIR (RO)](https://www.cnadnr.ro/en/node/15933) • [Ordin MTI 888/2026 (RO)](https://lege5.ro/Gratuit/ge4tqnzthazti/ordinul-nr-888-2026-pentru-aprobarea-categoriilor-de-vehicule-si-a-nivelului-rovinietei)\n- Ungaria: e‑matrică D1, 10 zile — 6.900 HUF (valabil 10.10–19.10). Trebuie cumpăratĂ înainte de a intra pe autostradă; introduceţi corect numărul de înmatriculare şi codul de ţară (RO). [Nemzetiutdij (HU)](https://nemzetiutdij.hu/en/e-vignette/tolls/e-vignette-rates)\n- Austria: vinietă 10‑zile pentru autoturism — 12,80 EUR. Plata şi numărul de înmatriculare trebuie corecte (greselile după pornire nu se pot corecta); eroarea = Ersatzmaut 200 EUR. [ASFINAG (EN)](https://media.asfinag.at/media/xq0lud1b/asf_vignettenfolder_2026_en.pdf)\n\nCe să faceți înainte de plecare\n- Cumpărați: rovinietă 10 zile (start 10.10), e‑matrică HU 10 zile (start 10.10), vinietă AT 10 zile (start 10.10). Total aprox. 38.26 EUR (sume afişate de autorităţi).\n- Verificați că placa introdusă la fiecare cumpărare e exactă (fără spații) — o greșeală se consideră lipsă de vignietă.\n- Acte: carte identitate/pașaport pentru toți pasagerii (controale la frontieră posibil). [EU border controls](https://home-affairs.ec.europa.eu/policies/schengen/schengen-area/temporary-reintroduction-border-control_en)\n\nNotă: plannerul semnalează o propunere legislativă care ar amâna schimbarea rovinietei — CNAIR confirmă lansarea la 1 oct 2026 la data verificării. Verificați CNAIR înainte de plecare.",
+            "text": "Decisiv pentru a nu fi amendat: 1) cumpăraţi şi introduceţi corect numărul de înmatriculare la fiecare vignietă; 2) cumpăraţi vignetele înainte să intraţi pe segmentele cu taxă; 3) aveţi act de identitate pentru controalele la frontieră şi echipamentul obligatoriu din RO/AT.\n\nCe trebuie să cumpăraţi pentru 10–18 octombrie 2026 (Cluj → Viena, Dacia Logan, benzină, Euro 4):\n- România: rovinietă 10 zile (valabilă 2026-10-10 → 2026-10-19) — 35 RON. Se cumpără prin portalul TollRo (CNAIR). [CNAIR (RO)](https://portal.etoll.ro/)  \n- Ungaria: e‑vignetă D1, 10 zile (start 2026-10-10) — 6.900 HUF. Cumpăraţi înainte să intraţi pe autostradă; un cod greşit de ţară/număr e echivalent cu lipsa vignetei (suprataxă mare). [Magyar Közút (HU)](https://nemzetiutdij.hu/en/e-vignette/tolls/e-vignette-rates)  \n- Austria: vignetă 10 zile (mașină) — 12,80 EUR. Tastaţi exact numărul; o greșeală poate fi considerată lipsă de vignetă (Ersatzmaut 200 EUR). [ASFINAG (AT)](https://shop.asfinag.at/en)\n\nAlte obligaţii importante:\n- Acte de identitate la toţi pasagerii (posibile controale la frontieră). [EU info](https://home-affairs.ec.europa.eu/)  \n- În România şi Austria: trusă prim-ajutor, triunghi reflectorizant, stingător; anvelope de iarnă doar când drumul este acoperit cu zăpadă/ghiaţă (nu calendar fix). [OUG 195/2002 (RO)](https://legislatie.just.ro/public/detaliidocument/74028) [ASFINAG (AT)](https://media.asfinag.at/media/xq0lud1b/asf_vignettenfolder_2026_en.pdf)\n\nNotă: intrarea în vigoare a vânzării exclusive prin TollRo pentru rovinietă a fost confirmată de CNAIR la 25 Sep 2026; există un proiect de amânare în parlament — verificaţi din când în când dacă se schimbă. [CNAIR (RO)](https://www.cnadnr.ro/en/node/15933)\n\nCumpăraţi vignetele azi şi verificaţi corectitudinea plăcii înainte de pornire.",
             "providerMetadata": {
               "openai": {
-                "itemId": "msg_0241975f668ac414016abc2167640087d1892faa9e709f0311"
+                "itemId": "msg_045852681a43a86b016abcb2517ba087d1944470e9de31a8c7"
               }
             },
             "state": "done"
@@ -56,7 +56,7 @@
     ]
   },
   "de-christmas-munich": {
-    "recordedAt": "2026-09-29",
+    "recordedAt": "2026-09-30",
     "messages": [
       {
         "id": "user",
@@ -74,7 +74,7 @@
         "parts": [
           {
             "type": "tool-plan_trip",
-            "toolCallId": "call_HFe7JXRKRLm0lyT0DZz3eHIc",
+            "toolCallId": "call_pMn2Mh57jtP2pvr7H4HKZBnB",
             "state": "output-available",
             "input": {
               "origin": "brasov",
@@ -88,21 +88,21 @@
             },
             "callProviderMetadata": {
               "openai": {
-                "itemId": "fc_0ea4d4bf63961df0016abc21b91dc487d1a0449d7f7cafd84f"
+                "itemId": "fc_0171d54008ad5c73016abcb2a1953887d19a7f65d9397a1cca"
               }
             },
             "resultProviderMetadata": {
               "openai": {
-                "itemId": "fc_0ea4d4bf63961df0016abc21b91dc487d1a0449d7f7cafd84f"
+                "itemId": "fc_0171d54008ad5c73016abcb2a1953887d19a7f65d9397a1cca"
               }
             }
           },
           {
             "type": "text",
-            "text": "Kurz: Nein — M+S allein reicht nicht für München/Deutschland. Entscheidend sind diese Punkte:\n\n- Deutschland: Bei winterlichen Straßenverhältnissen (Schnee, Eis, Glätte) sind nur Reifen mit Alpine-/Schneeflockensymbol (3PMSF) zulässig; M+S allein gilt seit 01.10.2024 nicht mehr. Sonst Bußgeld (ca. 60–80 € + 1 Punkt). [§ 2 StVO / § 36 StVZO](https://www.gesetze-im-internet.de/stvo_2013/__2.html) und [Polizei Bayern](https://www.polizei.bayern.de/verkehr/verkehrsrecht/005372/index.html).\n\n- Österreich: Saison 1.11.–15.4. bei winterlichen Verhältnissen Winterreifen auf allen Rädern akzeptiert; M+S oder Schneeflockensymbol sind zulässig (tiefere Profiltiefe ≥ 4 mm empfohlen). Bei Verstößen hohe Strafen möglich. [§ 102 KFG / oesterreich.gv.at](https://www.oesterreich.gv.at/en/themen/mobilitaet/kfz/10/2/Seite.063100).\n\n- Rumänien: Pflicht gilt immer bei Schnee/Eis/Schlitt; M+S-Reifen werden dort akzeptiert. [OUG 195/2002; MAI](https://legislatie.just.ro/public/detaliidocument/74028) / https://www.mai.gov.ro/precizari-privind-anvelopele-de-iarna/\n\nWas Sie jetzt tun sollten:\n- Wenn möglich: Winterreifen mit Alpine-/Schneeflockensymbol (3PMSF) montieren — das deckt DE, AT und RO ab.\n- Falls Sie nur M+S haben: vermeiden Sie fahrten auf winterlichen Straßen in Deutschland (sonst Reifen wechseln oder 3PMSF leihen). In Österreich können M+S mit ausreichend Profil unter den genannten Bedingungen akzeptiert werden, in Deutschland nicht.\n- Noch beachten: Für München brauchen Sie vor Einfahrt die grüne Umweltplakette (Ihre Euro‑5 Diesel ist zulässig). [Stadt München](https://stadt.muenchen.de/infos/umweltzone-muenchen.html)\n\nQuellen oben verlinkt.",
+            "text": "Kurz: Nein — M+S allein reicht nicht sicher für die ganze Strecke.\n\nWeshalb:\n- Deutschland: Seit 1.10.2024 zählen nur noch Winterreifen mit dem Alpine-/3PMSF‑Symbol; M+S reicht nicht. Bei winterlichen Straßen drohen 60–80 € und 1 Punkt. [§ 36 StVZO](https://www.gesetze-im-internet.de/stvzo_2012/__36.html) und Polizei Bayern: M+S nur noch bis 30.09.2024 (alt).  \n- Österreich: 01.11–15.04 in wintrigen Bedingungen sind Winterreifen mit M+S oder Schneeflocke und ≥4 mm vorgeschrieben — hier wären Ihre M+S‑Reifen in Ordnung, sofern Profil ausreichend ist. [oesterreich.gv.at](https://www.oesterreich.gv.at/en/themen/mobilitaet/kfz/10/2/Seite.063100)  \n- Rumänien: Pflicht nur wenn die Straße mit Schnee/Eis/Glätte bedeckt ist; M+S wird akzeptiert. [OUG 195/2002](https://legislatie.just.ro/public/detaliidocument/74028)\n\nWas Sie jetzt tun sollten:\n- Wenn möglich vor der Abfahrt 3PMSF‑Winterreifen montieren (empfohlen für Deutschland).  \n- Alternativ: für Deutschland Strecken meiden, nur bei sicher schneefreien Bedingungen fahren (riskant). Prüfen Sie Profil (≥4 mm empfohlen) und nehmen Sie Schneeketten mit für Pkw‑Anforderungen in Österreich.  \n\nQuellen: §36 StVZO (DE), oesterreich.gv.at (AT), OUG 195/2002 (RO).",
             "providerMetadata": {
               "openai": {
-                "itemId": "msg_0ea4d4bf63961df0016abc21bf9d0087d1a76b37ba2464b8b7"
+                "itemId": "msg_0171d54008ad5c73016abcb2a72ff887d18ff7bfd475b0f59b"
               }
             },
             "state": "done"
@@ -112,7 +112,7 @@
     ]
   },
   "en-claims": {
-    "recordedAt": "2026-09-29",
+    "recordedAt": "2026-09-30",
     "messages": [
       {
         "id": "user",
@@ -131,11 +131,11 @@
           {
             "type": "dynamic-tool",
             "toolName": "knowledge_base_search",
-            "toolCallId": "call_Asl24AZW2xW72f2ENOTnzVgp",
+            "toolCallId": "call_zHNcFqcKUBiiorrOVXCIJUHz",
             "state": "output-available",
             "input": {
               "knowledgeBase": "kbv1SRpT2A3t",
-              "query": "Germany car toll"
+              "query": "Germany car toll claim"
             },
             "toolMetadata": {
               "clientName": "ai-sdk-mcp-client",
@@ -143,25 +143,28 @@
             },
             "callProviderMetadata": {
               "openai": {
-                "itemId": "fc_0483d134e0154dac016abc2210bf8c87d1b71e0ba758afdfac"
+                "itemId": "fc_02ff86e22cdbdb85016abcb2f5314487d185b6f49fa26312a4"
               }
             },
             "resultProviderMetadata": {
               "openai": {
-                "itemId": "fc_0483d134e0154dac016abc2210bf8c87d1b71e0ba758afdfac"
+                "itemId": "fc_02ff86e22cdbdb85016abcb2f5314487d185b6f49fa26312a4"
               }
             }
           },
           {
             "type": "dynamic-tool",
             "toolName": "knowledge_base_read",
-            "toolCallId": "call_OYr8Qa9RXCEL6K26YBN3jngu",
+            "toolCallId": "call_jEk9YnxrTJuRD8rlk6PMTcbC",
             "state": "output-available",
             "input": {
               "knowledgeBase": "kbv1SRpT2A3t",
               "paths": [
                 "tolls/germany/toll_free_routes",
-                "tolls/austria/digital_vignette"
+                "tolls/austria/digital_vignette",
+                "tolls/austria/exempt_sections",
+                "tolls/austria/penalties",
+                "tolls/austria/products"
               ]
             },
             "toolMetadata": {
@@ -170,21 +173,21 @@
             },
             "callProviderMetadata": {
               "openai": {
-                "itemId": "fc_0483d134e0154dac016abc221256a087d1a98eed0cfdb5d5ea"
+                "itemId": "fc_02ff86e22cdbdb85016abcb2f684c087d18b3f5e9a21339f07"
               }
             },
             "resultProviderMetadata": {
               "openai": {
-                "itemId": "fc_0483d134e0154dac016abc221256a087d1a98eed0cfdb5d5ea"
+                "itemId": "fc_02ff86e22cdbdb85016abcb2f684c087d18b3f5e9a21339f07"
               }
             }
           },
           {
             "type": "text",
-            "text": "Both statements are wrong or misleading.\n\n- Germany car toll: False. There is currently no motorway toll or vignette for private cars, campers or motorcycles up to 3.5 t — the German scheme for cars was struck down by the EU Court (case C‑591/17) and no new nationwide car toll is in force. See the ruling and summary in the dataset (ECJ case C‑591/17).  \n\n- Austrian digital vignette activation: Misleading. It is true that when you buy a 2‑month or annual digital vignette online as a private buyer, there is an 18‑day activation delay before it becomes valid (consumer cancellation period + buffer). BUT 1‑day and 10‑day digital vignettes are valid immediately, and any vignette bought at a physical sales point or vending machine is also immediately valid. For details and where to buy see ASFINAG (Digitale Vignette) — https://www.asfinag.at/maut-vignette/vignette/digitale-vignette/ and the ASFINAG FAQ — https://www.asfinag.at/maut-vignette/vignette/faqs-vignette/.\n\nIf you want, tell me your start city, destination and dates and I’ll plan exactly which vignettes/tolls you must buy.",
+            "text": "Both claims are misleading.\n\n- Germany: there is currently no motorway toll or vignette for private cars, campers or motorcycles up to 3.5 t — the law (BFStrMG §1) limits motorway charges to goods vehicles over 3.5 t and the 2016–2019 car-vignette proposals were struck down. No purchase is required before driving through Germany. (KB: \"Germany — Toll‑free status\".)\n\n- Austria: the 18‑day online activation delay is real but only for 2‑month and annual digital vignettes bought online as a private consumer. 1‑day and 10‑day digital vignettes are valid immediately when bought online, and any vignette (including 2‑month/annual) bought at a physical outlet, vending machine or ASFINAG toll station is also immediately valid. From 2027 only the digital vignette will be offered. See ASFINAG for details and the 18‑day rule: https://www.asfinag.at/maut-vignette/vignette/faq-vignette/ .\n\nAlso note substitute-toll amounts changed (Ersatzmaut for cars €200 from 1 Jan 2026) — check ASFINAG if you’re unsure before travel: https://shop.asfinag.at/ .",
             "providerMetadata": {
               "openai": {
-                "itemId": "msg_0483d134e0154dac016abc2217896087d1a8a3059db3090a84"
+                "itemId": "msg_02ff86e22cdbdb85016abcb2fc748887d1a044f5a34c9e9e25"
               }
             },
             "state": "done"
@@ -194,7 +197,7 @@
     ]
   },
   "en-hungary-counties": {
-    "recordedAt": "2026-09-29",
+    "recordedAt": "2026-09-30",
     "messages": [
       {
         "id": "user",
@@ -212,32 +215,32 @@
         "parts": [
           {
             "type": "tool-country_products",
-            "toolCallId": "call_M27faxWW8BpSPPOiAcaCOCCg",
+            "toolCallId": "call_bWq20XpjSoRq5hV6mYdulgfR",
             "state": "output-available",
             "input": {
               "country": "HU",
-              "date": "2026-09-29",
+              "date": "2026-09-30",
               "vehicle": "car",
               "fuel": null,
               "euroNorm": null
             },
             "callProviderMetadata": {
               "openai": {
-                "itemId": "fc_0e8d585969e0cabd016abc2266882887d18adab20878b5781b"
+                "itemId": "fc_0bdc79e9722d25ce016abcb348cdb087d1aba18fa8f66b793c"
               }
             },
             "resultProviderMetadata": {
               "openai": {
-                "itemId": "fc_0e8d585969e0cabd016abc2266882887d18adab20878b5781b"
+                "itemId": "fc_0bdc79e9722d25ce016abcb348cdb087d1aba18fa8f66b793c"
               }
             }
           },
           {
             "type": "text",
-            "text": "The M1 from Budapest to Hegyeshalom runs through these counties — so the county (megyei) vignettes that cover it are: Pest, Fejér, Komárom‑Esztergom and Győr‑Moson‑Sopron. [Magyar Közút (HU)](https://nemzetiutdij.hu/api/uploads/e_matrica_arak_2026_pdf_611db0ecc1.pdf)\n\nCheaper options\n- There is an M1 regional county bundle (covers exactly the M1 sections in those four counties) — listed as the \"M1 regional e‑vignette\" — price on 2026‑09‑29: 15,000 HUF. This is cheaper than buying the four single county vignettes separately (4 × 7,190 HUF). [Magyar Közút (HU)](https://nemzetiutdij.hu/hu/hirek/tisztazzuk-a-felreerteseket-az-m1-regionalis-matrica-kapcsan)  \n- If your trip is short, the 10‑day vignette (6,900 HUF) or the 1‑day vignette (5,550 HUF) can be even cheaper than the regional annual product — check which fits your travel dates before buying. [Rates list](https://nemzetiutdij.hu/api/uploads/e_matrica_arak_2026_pdf_611db0ecc1.pdf)\n\nBuy on the official e‑vignette site before you enter the motorway: https://ematrica.nemzetiutdij.hu/ (official).",
+            "text": "The M1 between Budapest and Hegyeshalom runs through these counties (county vignettes that individually cover M1 segments): Pest, Fejér, Komárom‑Esztergom and Győr‑Moson‑Sopron. Each county annual vignette is HUF 7,190 (official rates).  \n\nCheaper options (official):\n- The new M1 regional e‑vignette covers all M1 sections in those four counties for HUF 15,000 (cheapest single purchase instead of buying 4 county vignettes).  \n- If you only need the motorway for a short visit, a 10‑day national e‑vignette is HUF 6,900 or a 1‑day is HUF 5,550 (validity and start rules listed below).  \n\nSources: Hungarian National Toll Operator pages and price list — [Nemzeti Útdíj (HU) — e‑vignette rates & M1 regional note](https://nemzetiutdij.hu/api/uploads/e_matrica_arak_2026_pdf_611db0ecc1.pdf) and [official e‑vignette shop](https://ematrica.nemzetiutdij.hu/).  \n\nBuy the M1 regional vignette or a national 1/10‑day vignette at the official e‑vignette site before you drive.",
             "providerMetadata": {
               "openai": {
-                "itemId": "msg_0e8d585969e0cabd016abc226c006487d19b669ab152b51b4f"
+                "itemId": "msg_0bdc79e9722d25ce016abcb34d44b887d19fd191a54232718c"
               }
             },
             "state": "done"
