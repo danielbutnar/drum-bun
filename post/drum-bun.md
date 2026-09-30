@@ -2,7 +2,7 @@
 title: Drum Bun: an agent that knows Romania rewrote its vignette this week
 published: false
 tags: devchallenge, sanitychallenge, sanity, ai
-cover_image: COVER_URL
+cover_image: https://raw.githubusercontent.com/danielbutnar/drum-bun/main/post/cover.png
 ---
 
 *This is a submission for the [Sanity Challenge, Path One: Ship an Agent That Queries Real Content](https://dev.to/challenges/sanity-2026-09-16)*
@@ -30,10 +30,10 @@ This year they changed under everyone's feet:
 
 VIDEO_EMBED
 
-SCREENSHOT_PLAN
+![The Brașov to Munich plan: a strip map of the route through Romania, Hungary, Austria and Germany, the warnings before you go, and what to buy in each country with prices for each travel day](https://raw.githubusercontent.com/danielbutnar/drum-bun/main/post/img/plan.png)
 *The route as a strip map drawn from the data: tolled sections red with a yellow core, free sections hollow, borders dashed.*
 
-SCREENSHOT_TRACE
+![The agent checks two claims from a blog; the expanded trace shows a Knowledge Base search and the two entries it opened](https://raw.githubusercontent.com/danielbutnar/drum-bun/main/post/img/agent-trace.png)
 *Every answer shows its steps: planner run, Knowledge Base entries opened, GROQ queries.*
 
 ## Code
@@ -61,6 +61,9 @@ The Knowledge Base "Drum Bun road rules" is built from the dataset (a GROQ query
 - Four "conflicts" came from **my own vocabulary**: the build read my enum value `carTrailer` as "a trailer" and concluded trailers must carry warning triangles. One standing instruction fixed the vocabulary for every future build.
 - It **invented** Hungarian purchase points (post offices, the automobile club) that no source names. An instruction limits entries to the channels the sources name.
 - It **missed** one: an entry quoted the Romanian Interior Ministry page's winter-tyre fine, computed with an old penalty-point value. I wrote an instruction scoped to that page; the background contradiction check then filed an issue against the stale entry by itself, and applying it fixed the number. That loop, human instruction → automatic check → issue → rebuild, is the part I would not want to build myself.
+
+![A Knowledge Base conflict on the How it knows page: the side that was not kept, the side that was kept, and why](https://raw.githubusercontent.com/danielbutnar/drum-bun/main/post/img/kb-decision.png)
+*One of the conflicts the build filed, with the decision and the reason.*
 
 The public [How it knows](https://drum-bun-agent.vercel.app/knowledge) page shows every issue with both sides, what was kept, the standing instructions and the outline, from a snapshot the script writes into the dataset.
 
