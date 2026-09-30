@@ -3,7 +3,9 @@ import type {Metadata} from 'next'
 import {sanity} from '@/lib/queries'
 
 export const metadata: Metadata = {
-  title: 'How Drum Bun knows: structured content, Knowledge Base, decisions',
+  title: 'How Drum Bun knows: content, Knowledge Base, decisions',
+  alternates: {canonical: '/knowledge'},
+  openGraph: {url: '/knowledge', title: 'How Drum Bun knows', images: ['/og.png']},
   description: 'The Sanity dataset, the Knowledge Base built from official pages in four languages, and every contradiction it found with the decision taken.',
 }
 
@@ -183,7 +185,7 @@ export default async function Knowledge() {
           <ul className="mt-3 divide-y divide-land-2 rounded-lg bg-paper">
             {snap.entries.map((e) => (
               <li key={e.path} className="p-3">
-                <code className="text-sm text-road-dark">{e.path}</code>
+                <code className="break-all text-sm text-road-dark">{e.path}</code>
                 <p className="font-semibold">{e.title}</p>
                 {typeof e.tldr === 'string' && e.tldr && <p className="text-sm text-ink-2">{e.tldr}</p>}
               </li>

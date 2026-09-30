@@ -203,7 +203,7 @@ function TraceStep({p}: {p: Part}) {
     const paths = (input?.paths as string[] | undefined) ?? []
     return (
       <span>
-        <b>Knowledge Base</b>: {paths.map((x) => <code key={x} className="mr-1 rounded bg-land px-1">{x}</code>)}
+        <b>Knowledge Base</b>: {paths.map((x) => <code key={x} className="mr-1 break-all rounded bg-land px-1">{x}</code>)}
       </span>
     )
   }

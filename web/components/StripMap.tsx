@@ -19,12 +19,8 @@ export function StripMap({plan}: {plan: Plan}) {
   const available = X1 - X0 - MIN_COUNTRY * countries.length
   const widths = kms.map((km) => MIN_COUNTRY + (available * km) / total)
 
-  let x = X0
-  const blocks = countries.map((c, i) => {
-    const start = x
-    x += widths[i]
-    return {c, start, end: x}
-  })
+  const starts = widths.map((_, i) => X0 + widths.slice(0, i).reduce((a, b) => a + b, 0))
+  const blocks = countries.map((c, i) => ({c, start: starts[i], end: starts[i] + widths[i]}))
 
   const label = `Route ${plan.route.origin} to ${plan.route.destination}, about ${plan.route.totalKm} km through ${countries
     .map((c) => `${c.name} (${c.km} km, ${c.tollFree ? 'no toll' : 'tolled'})`)
@@ -35,7 +31,8 @@ export function StripMap({plan}: {plan: Plan}) {
       {blocks.map(({c, start, end}, i) => {
         const segs = c.segments.length ? c.segments : [{road: '', from: '', to: '', km: c.km, charged: !c.tollFree}]
         const segTotal = segs.reduce((a, s) => a + (s.km ?? 1), 0)
-        let sx = start
+        const segWidth = (s: {km: number | null}) => ((end - start) * (s.km ?? 1)) / segTotal
+        const segStart = segs.map((_, j) => start + segs.slice(0, j).reduce((a, s) => a + segWidth(s), 0))
         return (
           <g key={c.code}>
             <text x={start + 10} y={40} className="type-expanded" fontSize="40" fontWeight="800" fill="#1d2a33" opacity="0.13">
@@ -48,10 +45,8 @@ export function StripMap({plan}: {plan: Plan}) {
               {c.km} km · {c.tollFree ? 'no car toll' : c.exemptNotes.length && !c.purchases.length ? 'nothing due' : `${c.purchases.length} to buy`}
             </text>
             {segs.map((s, j) => {
-              const w = ((end - start) * (s.km ?? 1)) / segTotal
-              const x1 = sx
-              const x2 = sx + w
-              sx = x2
+              const x1 = segStart[j]
+              const x2 = x1 + segWidth(s)
               return (
                 <g key={j}>
                   <title>{s.road ? `${s.road}: ${s.from} to ${s.to}${s.charged ? '' : ' (no charge)'}` : c.name}</title>

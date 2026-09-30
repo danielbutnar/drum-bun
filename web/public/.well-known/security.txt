@@ -1,0 +1,4 @@
+Contact: https://github.com/danielbutnar/drum-bun/issues
+Expires: 2027-09-30T00:00:00.000Z
+Preferred-Languages: en, ro, de
+Canonical: https://drum-bun-agent.vercel.app/.well-known/security.txt

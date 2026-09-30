@@ -2,6 +2,8 @@ import type {Metadata} from 'next'
 import {Archivo} from 'next/font/google'
 import Link from 'next/link'
 
+import {SITE} from '@/lib/site'
+
 import './globals.css'
 
 const archivo = Archivo({
@@ -10,10 +12,23 @@ const archivo = Archivo({
   axes: ['wdth'],
 })
 
+const DESCRIPTION =
+  'Vignettes, tolls, winter tyres and emission zones from Romania through Hungary to Austria or Germany, priced for your dates, every source shown.'
+
 export const metadata: Metadata = {
-  title: 'Drum Bun: what your car needs between Romania and Germany',
-  description:
-    'Vignettes, tolls, winter tyres and emission zones for a drive from Romania through Hungary to Austria or Germany, priced for your dates, with every source shown.',
+  metadataBase: new URL(SITE),
+  title: 'Drum Bun: what your car needs, Romania to Germany',
+  description: DESCRIPTION,
+  alternates: {canonical: '/'},
+  openGraph: {
+    type: 'website',
+    url: '/',
+    siteName: 'Drum Bun',
+    title: 'Drum Bun: what your car needs between Romania and Germany or Austria',
+    description: DESCRIPTION,
+    images: [{url: '/og.png', width: 2000, height: 840, alt: 'Drum bun! A route from Romania through Hungary and Austria to Germany, drawn as a strip map.'}],
+  },
+  twitter: {card: 'summary_large_image'},
 }
 
 export default function RootLayout({children}: LayoutProps<'/'>) {
