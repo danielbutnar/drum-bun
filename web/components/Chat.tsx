@@ -5,9 +5,15 @@ import {DefaultChatTransport, type UIMessage} from 'ai'
 import {useState} from 'react'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
+import {config} from 'zod'
 
 import recorded from '@/data/examples.json'
 import {EXAMPLES} from '@/lib/examples'
+
+// The AI SDK validates the chat stream with zod, which probes `new Function`
+// to see whether it may compile validators. Our CSP forbids eval, so tell zod
+// up front and skip the probe (it would log a CSP violation on every page).
+config({jitless: true})
 
 type Recording = {recordedAt: string; messages: UIMessage[]}
 const RECORDINGS = recorded as Record<string, Recording>

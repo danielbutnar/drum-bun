@@ -5,7 +5,7 @@ import {sanity} from '@/lib/queries'
 export const metadata: Metadata = {
   title: 'How Drum Bun knows: content, Knowledge Base, decisions',
   alternates: {canonical: '/knowledge'},
-  openGraph: {url: '/knowledge', title: 'How Drum Bun knows', images: ['/og.png']},
+  openGraph: {type: 'website', url: '/knowledge', siteName: 'Drum Bun', title: 'How Drum Bun knows', images: ['/og.png']},
   description: 'The Sanity dataset, the Knowledge Base built from official pages in four languages, and every contradiction it found with the decision taken.',
 }
 
