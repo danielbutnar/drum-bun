@@ -1,118 +1,132 @@
 1
-00:00:00,000 --> 00:00:06,784
+00:00:00,000 --> 00:00:06,769
 Every December, hundreds of thousands of cars
 drive home from Germany and Austria to Romania.
 
 2
-00:00:06,784 --> 00:00:12,301
-Before the border, everyone asks the same thing:
-what do I need to buy?
+00:00:06,769 --> 00:00:11,187
+And everyone asks the same thing: what do I need
+to buy?
 
 3
-00:00:12,301 --> 00:00:20,566
+00:00:11,187 --> 00:00:17,973
 The answer is spread over four toll operators,
-four languages and a lot of old blog posts. And
-this year it changed.
+four languages and a lot of outdated blog posts.
 
 4
-00:00:20,566 --> 00:00:25,143
-Romania rewrote its vignette on the first of
+00:00:17,973 --> 00:00:22,844
+And Romania rewrote its vignette on the first of
 October.
 
 5
-00:00:27,008 --> 00:00:36,339
+00:00:24,465 --> 00:00:33,796
 This is Drum Bun. Brașov to Munich on the
 twentieth of December, back on the third of
 January, in a Euro 5 diesel.
 
 6
-00:00:37,750 --> 00:00:44,002
+00:00:35,029 --> 00:00:41,281
 The planner walks the route stored in Sanity:
 every road section, the products that cover it,
 
 7
-00:00:44,002 --> 00:00:47,625
+00:00:41,281 --> 00:00:44,904
 and the price valid on each day you drive.
 
 8
-00:00:48,973 --> 00:00:56,259
+00:00:45,945 --> 00:00:53,231
 In Austria, two one-day vignettes beat a ten-day
 one, because the drive home is two weeks later.
 
 9
-00:00:56,259 --> 00:01:01,082
+00:00:53,231 --> 00:00:58,054
 The 2027 prices aren't published yet, and it
 says so.
 
 10
-00:01:01,243 --> 00:01:08,370
+00:00:58,196 --> 00:01:05,323
 In Romania the price now depends on the Euro
 class. A Euro 5 diesel pays 26 lei a day.
 
 11
-00:01:08,370 --> 00:01:13,066
+00:01:05,323 --> 00:01:10,019
 Without a known class, you pay the Euro 0 rate.
 
 12
-00:01:14,463 --> 00:01:21,152
+00:01:11,115 --> 00:01:17,803
 Before you go: winter tyres in three countries,
 and in Germany M plus S no longer counts.
 
 13
-00:01:21,152 --> 00:01:25,935
+00:01:17,803 --> 00:01:22,587
 Munich needs a green sticker, and this car
 qualifies.
 
 14
-00:01:27,250 --> 00:01:33,106
+00:01:23,645 --> 00:01:29,501
 And the claims you probably read online, each
 linked to the fact that corrects it.
 
 15
-00:01:35,388 --> 00:01:44,195
+00:01:31,510 --> 00:01:40,413
 You can also ask the agent, in Romanian, German,
-Hungarian or English. Here it plans a trip in
-Romanian.
+Hungarian or English. Here it checks two claims
+from a blog.
 
 16
-00:01:44,792 --> 00:01:52,551
-It runs the same planner, reads the Knowledge
-Base through Sanity Context, and shows every
-step it took.
+00:01:40,851 --> 00:01:47,071
+It reads the Knowledge Base through Sanity
+Context, calls the planner when a trip is
+involved,
 
 17
-00:01:52,665 --> 00:02:00,668
+00:01:47,071 --> 00:01:49,790
+and shows every step it took.
+
+18
+00:01:49,902 --> 00:01:57,905
 The Knowledge Base is built from official pages
 in four languages, plus the blogs drivers
 actually read.
 
-18
-00:02:01,947 --> 00:02:05,348
+19
+00:01:59,284 --> 00:02:06,996
+Underneath, every price is a document with the
+dates it's valid, and in Romania the Euro class
+it applies to.
+
+20
+00:02:06,996 --> 00:02:11,971
+A keyword search can find it. Only structure can
+choose it.
+
+21
+00:02:13,112 --> 00:02:16,513
 When sources disagree, the build files an issue.
 
-19
-00:02:05,348 --> 00:02:12,242
+22
+00:02:16,513 --> 00:02:23,407
 I resolved them in code, and each decision
 becomes a standing rule for the next build.
 
-20
-00:02:13,329 --> 00:02:21,182
+23
+00:02:24,466 --> 00:02:32,320
 It caught mistakes in my own data model. And
 when a ministry page still quoted an old fine,
 it flagged that too.
 
-21
-00:02:21,182 --> 00:02:28,206
+24
+00:02:32,320 --> 00:02:39,344
 Against keyword search over the same content,
 the agent gets fifteen of sixteen test questions
 right.
 
-22
-00:02:28,206 --> 00:02:33,551
+25
+00:02:39,344 --> 00:02:44,683
 Search gets eleven. It finds the documents, but
 it can't compute a trip.
 
-23
-00:02:33,551 --> 00:02:41,070
+26
+00:02:44,683 --> 00:02:52,202
 Drum Bun. Structured content in Sanity, so the
 answer is computed, not guessed. Drum bun!
