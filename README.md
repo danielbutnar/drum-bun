@@ -48,7 +48,7 @@ the UI shows the plan as a strip map and every step the agent took
 | `studio/` | Sanity Studio 6: schema (`schemaTypes/`), desk structure, seed data (`seed/`), scripts (`scripts/seed.ts`, `scripts/kb.ts`) |
 | `context/` | Everything configured in Sanity Context: Knowledge Base purpose, dataset query, web sources, MCP endpoint instructions, decisions |
 | `web/` | Next.js 16 app: planner + tests (`lib/`), agent and MCP client, pages, components |
-| `evals/` | 16 questions in RO/DE/EN with checkable facts; agent vs any-word keyword baseline over the same content |
+| `evals/` | 18 questions in RO/DE/HU/EN with checkable facts; agent vs semantic search, keyword search and no documents (same model, prompt and fields): 18, 16, 13 and 4 of 18 ([RESULTS.md](evals/RESULTS.md)) |
 
 ## Run it
 
