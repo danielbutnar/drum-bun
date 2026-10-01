@@ -6,8 +6,12 @@ import {readFileSync} from 'node:fs'
 type Q = {id: string; must: string[]; mustNot: string[]}
 const questions: Q[] = JSON.parse(readFileSync(new URL('./questions.json', import.meta.url), 'utf8'))
 const run = JSON.parse(readFileSync(process.argv[2], 'utf8'))
-const check = (q: Q, text: string) =>
-  q.must.every((re) => new RegExp(re, 'is').test(text)) && !q.mustNot.some((re) => new RegExp(re, 'is').test(text))
+// Models write non-breaking hyphens; patterns use a plain one (same as run.mts).
+const normalize = (text: string) => text.replace(/[\u2010\u2011]/g, '-')
+const check = (q: Q, raw: string) => {
+  const text = normalize(raw)
+  return q.must.every((re) => new RegExp(re, 'is').test(text)) && !q.mustNot.some((re) => new RegExp(re, 'is').test(text))
+}
 
 const LABELS: Record<string, string> = {agent: 'agent', semantic: 'semantic search', keyword: 'keyword search', none: 'no documents'}
 const systems = ['agent', 'semantic', 'keyword', 'none'].filter((k) => run.results[0][k] ?? (k === 'keyword' && run.results[0].baseline))

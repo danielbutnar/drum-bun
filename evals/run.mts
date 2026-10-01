@@ -53,7 +53,11 @@ async function askBaseline(q: string, mode: Baseline): Promise<{text: string; hi
   return res.json()
 }
 
-function score(q: Q, text: string) {
+// Models write non-breaking hyphens ("1\u2011day"); patterns use a plain one.
+const normalize = (text: string) => text.replace(/[\u2010\u2011]/g, '-')
+
+function score(q: Q, raw: string) {
+  const text = normalize(raw)
   const has = (re: string) => new RegExp(re, 'is').test(text)
   const missing = q.must.filter((re) => !has(re))
   const wrong = q.mustNot.filter((re) => has(re))

@@ -5,7 +5,7 @@
     "q": "I drive from Brașov to Munich on 20 December and back on 3 January, diesel Euro 5. What do I need to buy and what does it cost?",
     "must": [
       "1-day|one-day|1 day",
-      "green (sticker|Umweltplakette)|Umweltplakette"
+      "green (sticker|Umwelt-?plakette)|Umwelt-?plakette"
     ],
     "mustNot": [
       "Germany (has|charges) a (car )?toll",
