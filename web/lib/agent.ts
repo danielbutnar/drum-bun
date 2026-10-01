@@ -156,6 +156,9 @@ export async function runAgent(messages: UIMessage[], threadId?: string, model =
           if (/rate limit/i.test(message)) {
             return 'The live agent is busy right now: its free model plan allows only a few requests a minute. Try again in a minute. The trip planner above and the recorded answers work without limits.'
           }
+          if ((error as {statusCode?: number}).statusCode === 402 || /credit|insufficient funds|balance/i.test(message)) {
+            return 'The live agent has used up its free model credit for now. The trip planner above and the recorded answers below still work.'
+          }
           return process.env.NODE_ENV === 'development' ? message : 'The agent could not finish this answer. The trip planner above still works.'
         },
       }),
