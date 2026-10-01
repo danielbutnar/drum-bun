@@ -45,15 +45,16 @@ async function snapshot(client: any) {
     client.context.issues.list(),
     client.context.instructions.list(),
   ])
-  // Count what the build actually read: ready sources only, and a page's
-  // sitemap.xml import as the same page.
+  // Count what the build actually read: no skipped or failed sources (a source
+  // being re-checked by a refresh still counts), and a page's sitemap.xml
+  // import as the same page.
   const webPages = new Set<string>()
   let dataset = 0
   let cursor: string | undefined
   do {
     const page = await client.context.sources.list({limit: 100, cursor})
     for (const src of page.data) {
-      if (src.status !== 'ready') continue
+      if (src.status === 'skipped' || src.status === 'failed') continue
       if (src.kind === 'web') webPages.add(String(src.canonicalUrl).replace(/\/sitemap\.xml$/, ''))
       else if (src.kind === 'dataset') dataset++
     }
