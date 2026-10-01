@@ -1,20 +1,25 @@
-// Runs evals/questions.json against two systems and scores them with the
+// Runs evals/questions.json against four systems and scores them with the
 // same regexes:
 //   agent    → the Drum Bun chat endpoint (planner + Knowledge Base + GROQ via Sanity Context)
-//   baseline → keyword search: GROQ `match` over the same Sanity documents,
+//   semantic → embeddings search (text::semanticSimilarity) over the same Sanity documents,
 //              top 6 hits pasted into the prompt of the same model
+//   keyword  → any-word keyword search (GROQ `match`) over the same documents, top 6
+//   none     → the same model with no documents
+// The three baselines share one prompt, the agent's output budget and the fields
+// the Knowledge Base ingests (web/app/api/dev-baseline/route.ts).
 // Usage (dev server running with the env from `vercel env pull web/.env.local`):
-//   npx tsx evals/run.mts http://localhost:3000
+//   npx tsx evals/run.mts http://localhost:3000 [id,id,...]
 // Writes evals/runs/<timestamp>.json and prints a table.
 
 import {mkdirSync, readFileSync, writeFileSync} from 'node:fs'
 
-
 type Q = {id: string; lang: string; q: string; must: string[]; mustNot: string[]; why: string}
+type Baseline = 'semantic' | 'keyword' | 'none'
 const questions: Q[] = JSON.parse(readFileSync(new URL('./questions.json', import.meta.url), 'utf8'))
 const base = process.argv[2] ?? 'http://localhost:3000'
 const only = process.argv[3]?.split(',')
 const PAUSE_MS = Number(process.env.EVAL_PAUSE_MS ?? 45_000)
+const BASELINES: Baseline[] = ['semantic', 'keyword', 'none']
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms))
 
 async function askAgent(q: string): Promise<{text: string; tools: string[]}> {
@@ -42,9 +47,9 @@ async function askAgent(q: string): Promise<{text: string; tools: string[]}> {
   return {text, tools}
 }
 
-async function askBaseline(q: string): Promise<{text: string; hits: number}> {
-  const res = await fetch(`${base}/api/dev-baseline`, {method: 'POST', headers: {'content-type': 'application/json'}, body: JSON.stringify({q})})
-  if (!res.ok) throw new Error(`baseline HTTP ${res.status}`)
+async function askBaseline(q: string, mode: Baseline): Promise<{text: string; hits: number}> {
+  const res = await fetch(`${base}/api/dev-baseline`, {method: 'POST', headers: {'content-type': 'application/json'}, body: JSON.stringify({q, mode})})
+  if (!res.ok) throw new Error(`baseline ${mode} HTTP ${res.status}`)
   return res.json()
 }
 
@@ -55,25 +60,29 @@ function score(q: Q, text: string) {
   return {pass: missing.length === 0 && wrong.length === 0, missing, wrong}
 }
 
-const results = []
+const results: Record<string, unknown>[] = []
 for (const q of questions.filter((x) => !only || only.includes(x.id))) {
-  // The free AI Gateway tier allows 5 requests a minute: run one system at a
-  // time and pause, so a rate limit never counts as a wrong answer.
+  // The free AI Gateway tier allows 5 requests a minute for the whole team:
+  // one system at a time with pauses, so a rate limit never counts as a wrong answer.
   const [agent] = await Promise.allSettled([askAgent(q.q)])
   await sleep(PAUSE_MS)
-  const [baseline] = await Promise.allSettled([askBaseline(q.q)])
-  await sleep(PAUSE_MS / 3)
   const a = agent.status === 'fulfilled' ? agent.value : {text: `ERROR ${agent.reason}`, tools: []}
-  const b = baseline.status === 'fulfilled' ? baseline.value : {text: `ERROR ${baseline.reason}`, hits: 0}
-  const row = {id: q.id, lang: q.lang, why: q.why, agent: {...score(q, a.text), tools: a.tools, text: a.text}, baseline: {...score(q, b.text), hits: b.hits, text: b.text}}
+  const row: Record<string, unknown> = {id: q.id, lang: q.lang, why: q.why, agent: {...score(q, a.text), tools: a.tools, text: a.text}}
+  for (const mode of BASELINES) {
+    const [b] = await Promise.allSettled([askBaseline(q.q, mode)])
+    await sleep(PAUSE_MS / 3)
+    const r = b.status === 'fulfilled' ? b.value : {text: `ERROR ${b.reason}`, hits: 0}
+    row[mode] = {...score(q, r.text), hits: r.hits, text: r.text}
+  }
   results.push(row)
-  console.log(`${q.id.padEnd(18)} agent ${row.agent.pass ? 'PASS' : 'fail'}  baseline ${row.baseline.pass ? 'PASS' : 'fail'}  tools: ${a.tools.join(',')}`)
+  const mark = (k: string) => ((row[k] as {pass: boolean}).pass ? 'PASS' : 'fail')
+  console.log(`${q.id.padEnd(18)} agent ${mark('agent')}  semantic ${mark('semantic')}  keyword ${mark('keyword')}  none ${mark('none')}  tools: ${a.tools.join(',')}`)
 }
 
-const agentPass = results.filter((r) => r.agent.pass).length
-const basePass = results.filter((r) => r.baseline.pass).length
-console.log(`\nagent ${agentPass}/${results.length}, keyword baseline ${basePass}/${results.length}`)
+const passes = (k: string) => results.filter((r) => (r[k] as {pass: boolean}).pass).length
+const totals = Object.fromEntries(['agent', ...BASELINES].map((k) => [k, passes(k)]))
+console.log(`\n${Object.entries(totals).map(([k, n]) => `${k} ${n}/${results.length}`).join(', ')}`)
 mkdirSync(new URL('./runs/', import.meta.url), {recursive: true})
 const file = new URL(`./runs/${new Date().toISOString().replace(/[:.]/g, '-')}.json`, import.meta.url)
-writeFileSync(file, JSON.stringify({base, agentPass, basePass, total: results.length, results}, null, 2))
+writeFileSync(file, JSON.stringify({base, totals, total: results.length, results}, null, 2))
 console.log(`written ${file.pathname}`)

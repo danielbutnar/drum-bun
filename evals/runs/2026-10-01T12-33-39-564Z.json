@@ -1,0 +1,701 @@
+{
+  "base": "http://localhost:3000",
+  "totals": {
+    "agent": 16,
+    "semantic": 15,
+    "keyword": 12,
+    "none": 4
+  },
+  "total": 18,
+  "results": [
+    {
+      "id": "christmas-munich",
+      "lang": "en",
+      "why": "Route × dates × vehicle: 2 × 1-day in AT and HU, rovinietă by Euro class, Munich sticker.",
+      "agent": {
+        "pass": false,
+        "missing": [
+          "1-day|one-day|1 day",
+          "green (sticker|Umweltplakette)|Umweltplakette"
+        ],
+        "wrong": [],
+        "tools": [
+          "plan_trip"
+        ],
+        "text": "Top facts that decide if you get fined\n- You must have valid vignettes for RO, HU and AT for the days you drive those motorways. Cameras check licence plates exactly. Buy before entering each country.  \n- Munich low‑emission zone requires a green Umwelt‑plakette on the windscreen before entry (Euro‑5 diesel is allowed).  \n- Winter‑tyre rules apply in Romania, Austria and Germany when roads are snowy/icy — fit compliant winter tyres or carry chains where required.\n\nWhat to buy (cheapest combination the planner found) and cost\n- Romania: 2 × 1‑day rovinietă (Euro IV–V band): 26 RON each → 52 RON total. Buy on TollRo (CNAIR). [CNAIR / TollRo (RO)](https://portal.etoll.ro/)  \n- Hungary: 2 × daily e‑vignette (D1): 5,550 HUF each → 11,100 HUF total. Buy at the official e‑vignette shop before you enter. [Nemzetiút / e‑vignette (HU)](https://ematrica.nemzetiutdij.hu/)  \n- Austria: 2 × 1‑day vignette (car): €9.60 each → €19.20 total. Buy at ASFINAG shop or points of sale. [ASFINAG (AT)](https://shop.asfinag.at/en)\n\nTotals shown by the planner: 52 RON + 11,100 HUF + €19.20 (approx. €59.36 total; includes estimated items). The planner warns the 2027 dates use latest published prices — check again right before purchase.\n\nMust‑do before leaving\n- Buy the RO rovinietă on TollRo, HU e‑vignettes on ematrica, and AT vignette on ASFINAG; enter each plate exactly.  \n- Order a green Umwelt‑plakette for Munich and attach it before entering the zone. [Munich Umweltzone (DE)](https://stadt.muenchen.de/infos/umweltzone-muenchen.html)  \n- Fit winter tyres (or carry chains) if roads are wintry — you travel inside Austria’s Nov 1–Apr 15 season and Germany/Romania require winter tyres in wintry conditions.\n\nSources: CNAIR (RO), Nemzetiút (HU), ASFINAG (AT), City of Munich (DE)."
+      },
+      "semantic": {
+        "pass": false,
+        "missing": [
+          "1-day|one-day|1 day"
+        ],
+        "wrong": [],
+        "hits": 6,
+        "text": "Presupunând că maşina ta e diesel Euro 5, iată ce trebuie şi cât costă (informaţii valabile cu regulile şi tarifele afişate la 01.10.2026).\n\n1) România — rovinieta\n- Trebuie rovinietă pentru orice pătrundere pe drumuri naţionale. Străinii trebuie să cumpere înainte de a pleca; maşinile înmatriculate în România au facilitatea de a plăti până la miezul nopţii a doua zi pentru ziua curentă.\n- Pentru un diesel Euro 5 eşti în bandă „Euro IV–V”.\n- Tarife (în vigoare 01.10.2026–31.12.2026):\n  - 1 zi: 26 RON\n  - 10 zile: 35 RON\n  - 30 zile: 55 RON\n  - etc.\n- Recomandare practică: dacă intri/ieşi din România doar în 20 decembrie (plecare) şi în 3 ianuarie (revenire), cea mai ieftină opţiune este două roviniete de 1 zi (una pentru 20.12 şi una pentru 03.01). Cost: 2 × 26 RON = 52 RON (plăteşti prin portalul TollRo — portal.etoll.ro — sau aplicaţia mobilă, distribuitori autorizaţi, puncte CNAIR, SMS etc).\n\nNotă: tarifele pentru 2027 nu sunt listate în documentele pe care le am; dacă vrei siguranţă totală pentru 03.01, poţi cumpăra în avans (pe etoll) o rovinietă de 10 sau 30 zile care va acoperi ambele intrări — 10 zile (35 RON) nu ar acoperi perioada dintre 20 Dec şi 03 Jan, dar 30 zile (55 RON) o va acoperi — în cazul în care te interesează să nu cumperi două zile separate, 30 zile de 55 RON acoperă ambele date.\n\n2) Germania — München (zonă cu restricţii de emisii)\n- Informaţia actualizată: München în 2026 restricţionează numai dieselurile Euro 4 şi mai vechi. Diesel Euro 5 poate intra în zona de mediu (LEZ) — dar e necesară viza ecologică (Autocollant/Umweltplakette) verde care atestă emisiile.\n- Deci, ca diesel Euro 5, eşti permis, dar trebuie să ai „plaketa” verde aplicată. Poţi cumpăra/sticker-ul înainte de plecare (online, service-uri TÜV/DEKRA, unele benzinării) sau la intrarea în Germania înainte de a intra în zona restricţionată. Păstrează dovada achiziţiei.\n\nÎţi pot confirma exact ce e mai economic în funcţie de:\n- dacă maşina e înmatriculată în România sau în străinătate (are importanţă pentru momentul şi posibilitatea cumpărării pentru ziua curentă), şi\n- dacă preferi să cumperi numai zilele efective în România (două roviniete de 1 zi = 52 RON) sau o rovinietă de 30 zile (55 RON) care acoperă ambele intrări plus eventual alte deplasări interne.\n\nVrei să confirm pentru ce variantă optezi şi ce fel de înmatriculare are maşina?"
+      },
+      "keyword": {
+        "pass": false,
+        "missing": [
+          "1-day|one-day|1 day",
+          "green (sticker|Umweltplakette)|Umweltplakette"
+        ],
+        "wrong": [],
+        "hits": 6,
+        "text": "Short answer\n- For Munich: your Euro 5 diesel is allowed in the Munich low‑emission zone (Munich bans Euro 4 and older; there is no Euro‑5 ban in 2026). Penalty for entering the zone with a non‑compliant vehicle is 100 EUR.\n- For the route through Austria: check Austria’s motorway vignette rules before you travel — you will usually need an Austrian vignette for use of Austrian motorways unless you plan to use vignette‑free stretches. Buy the vignette online or at border petrol stations.\n\nWhat to buy (recommended)\n1. Austrian motorway vignette (if you take Austrian motorways)\n   - Requirement: usually required on Austrian motorways; there are some vignette‑free stretches (see Austrian authorities/maps).\n   - Where to buy: online, at petrol stations before/at the border, or at border kiosks.\n   - Price: varies by validity (10‑day, 2‑month, annual). Check the official Austrian vignette site or a roadside seller for current prices and choose the duration that best fits your trip.\n\n2. (Optional reminder) German low‑emission zone sticker\n   - Many German cities require an environmental sticker (Feinstaubplakette) to enter Umweltzonen. Munich’s rule in 2026 requires diesel Euro 5 or better; make sure you meet that standard and carry any sticker if you already have one. Entering without required documentation for an Umweltzone can lead to fines (Munich: ~100 EUR).\n\nPractical suggestion\n- Before you leave, verify the exact route and current rules:\n  - Munich: Landeshauptstadt München site (official) confirms Munich bans diesel Euro 4 and older (Euro 5 allowed).\n  - Austria: check the official Austrian motorway/vignette website for current vignette prices and any vignette‑free sections on your planned route.\n- If you want, tell me the exact driving route (which border crossings or motorways you plan to use) and I can look up exactly which vignettes/tolls you will need and the up‑to‑date costs."
+      },
+      "none": {
+        "pass": false,
+        "missing": [
+          "1-day|one-day|1 day"
+        ],
+        "wrong": [],
+        "hits": 0,
+        "text": "Am nevoie de câteva detalii ca să-ți dau o listă exactă și preţurile corecte: în ce țară e înmatriculată mașina și intenționezi să foloseşti exclusiv autostrăzile/ drumurile cu taxă pe traseu (sau vrei rute „fără taxă”)?  \n\nPână primesc răspuns, iată ce e foarte probabil să trebuiască să cumperi pentru un drum Brașov → München (plecare 20 decembrie) și întoarcere 3 ianuarie, și explicaţii scurte:\n\n1) Rovinieta (România)  \n- Obligatorie pentru orice automobil înmatriculat străin sau românesc care circulă pe reţeaua naţională. Se cumpără electronic (roviniete.ro).  \n- Dacă pleci din Brașov pe drumuri naţionale/autostrăzi, trebuie. Valabilităţi disponibile (zile): 7/30/90 de zile (preţuri variabile).  \n\n2) Vigneta/e-vigneta pentru Ungaria (Autópálya-matrica) — probabil necesară dacă treci prin Ungaria pe autostradă (M43, M5 etc.)  \n- Se cumpără electronic (mpla.hu sau aplicaţii) înainte de a intra. Există 10 zile/30 zile/an.  \n\n3) Vigneta pentru Austria (Autobahn-Vignette) — necesară pentru a folosi autostrăzile austriece (de ex. A1, A8 etc.)  \n- Există vignete de 10 zile, 2 luni, 1 an; pentru rutele tale între 20 dec. și 3 ian. 10-zile (sau două bilete de 10 zile, în funcţie de poziţionarea exactă a călătoriei) ar putea fi necesare. Se cumpără online sau la benzinării din apropierea graniţei.  \n\n4) Placă/etichetă de mediu pentru Germania (Umweltplakette / Feinstaubplakette) — obligatorie pentru intrarea în majoritatea zonelor URM (zona de mediu) din orașe mari, inclusiv München.  \n- Pentru a primi „plăcuţa verde” trebuie ca mașina să îndeplinească criteriile de emisii; Euro 5 diesel poate fi acceptat, dar depinde dacă mașina are filtru de particule și cum este clasificată în certificatul de înmatriculare (versiunea exactă a codului Euro). Se cumpără online sau la birouri autorizate; cost mic (de obicei ~5–15 EUR).  \n\nAlte posibilităţi:\n- Dacă alegi un traseu care trece prin Slovacia sau Cehia, acele ţări au şi ele vignete electronice (Slovacia: diaľničná známka electronică; Cehia: e-vignette, în funcţie de segment).  \n- Plata taxelor de tunel/viaduct (dacă iei anumite rute în Austria/Elveţia; pentru Bavaria nu sunt tuneluri majore plătibile pe ruta uzuală).\n\nEstimare de costuri (valori orientative):\n- Rovinieta România (7–30 zile): câţiva euro (estimativ 3–15 EUR, în funcţie de durată).  \n- E-vigneta Ungaria (10 zile): ~10–20 EUR (în funcţie de curs HUF/EUR actual).  \n- Vigneta Austria (10 zile): ~9–10 EUR.  \n- Umweltplakette Germania: ~5–15 EUR.  \nTotal orientativ: 30–60 EUR, plus eventual vignete suplimentare dacă treci prin alte ţări sau dacă ai nevoie de două vignete Austria pentru călătorii în afara intervalului de 10 zile.\n\nCe am nevoie de la tine ca să-ţi dau un calcul exact şi linkuri/paşi de cumpărare:\n- Țara de înmatriculare a maşinii (număr/serie nu e necesar, doar ţara).  \n- Dacă vrei să foloseşti autostrăzile (ruta preferată) sau preferi traseu fără vignete.  \n- Confirmă că mașina e sub 3,5 t (presupun că da).\n\nSpune-mi aceste detalii și îți trimit exact ce cumpărături să faci, prețuri actualizate și linkuri oficiale de plată."
+      }
+    },
+    {
+      "id": "at-18-days",
+      "lang": "en",
+      "why": "The 18-day online rule applies only to 2-month and annual vignettes.",
+      "agent": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "tools": [
+          "country_products"
+        ],
+        "text": "No — the 2‑month digital vignette bought online is subject to an 18‑day activation delay. If you buy it online now it will not be valid from 5 Oct. [ASFINAG](https://shop.asfinag.at/en) shows the 2‑month vignette price €32 (valid 05‑Oct‑2026) and onlineDelayDays = 18.\n\nWhat to do before driving on 5 Oct\n- Buy the 2‑month vignette at a point of sale (petrol station, vending machine, ÖAMTC/ARBÖ) — it is valid immediately.  \n- Or buy a 1‑day (€9.60) or 10‑day (€12.80) digital vignette online — those are valid immediately.  \n- If you drive without a valid vignette you face the substitute toll (Ersatzmaut) €200 (from 1 Jan 2026) and further fines. [ASFINAG toll rules](https://media.asfinag.at/media/00sbusiu/00_mo_v87_tolling-regulations_en.pdf)\n\nIf you want the 2‑month vignette online instead, you must purchase it at least 18 days before the intended start date."
+      },
+      "semantic": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "hits": 6,
+        "text": "Not fine if you buy the 2‑month vignette online today. For annual and 2‑month digital vignettes bought online by a private customer, online purchases become valid only on the 18th day after purchase (14‑day withdrawal period plus processing days). If you buy on 2026‑10‑01 it would become valid on 2026‑10‑19, so it would not cover a trip starting 2026‑10‑05.\n\nOptions to be legal on 5 October:\n- Buy a 1‑day or 10‑day vignette online (these are valid immediately) — good if your trip is short.  \n- Buy the 2‑month vignette at a physical point of sale (about 6,000 outlets), at an ASFINAG toll station or vending machine — these are valid immediately.  \n- Or buy a 1‑day/10‑day at a shop or petrol station for immediate coverage and then buy the 2‑month online later if you still want it.\n\nNote: the substitute toll for driving without a valid vignette for a car is €200 (from 1 Jan 2026)."
+      },
+      "keyword": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "hits": 6,
+        "text": "Not if you buy the 2‑month vignette online today. For private customers annual and 2‑month digital vignettes bought in the ASFINAG toll shop or app only become valid on the 18th day after purchase (14‑day withdrawal period + processing). Today is 2026‑10‑01, so an online 2‑month bought now would start on 2026‑10‑19 — too late for a trip starting 2026‑10‑05.\n\nWhat to do instead\n- Buy the vignette at a physical point of sale (petrol station, tobacconist, ÖAMTC/ARBÖ, ADAC), at an ASFINAG toll station or from a vending machine — those are valid immediately.  \n- Or, if a shorter vignette fits your trip, buy a 1‑day or 10‑day vignette online now — those are valid immediately when bought online.  \n- Make sure you enter your licence plate and country code exactly (a wrong plate counts as no vignette). Note the substitute toll is €200 for cars (from 1 Jan 2026) and higher fines apply if not paid.\n\nIf you want, tell me your vehicle type and whether you prefer buying online or at a shop and I can point you to the best option."
+      },
+      "none": {
+        "pass": false,
+        "missing": [
+          "18",
+          "(point of sale|petrol station|sales point|toll station|vending machine|10-day)"
+        ],
+        "wrong": [],
+        "hits": 0,
+        "text": "Yes — you can buy the Austrian 2‑month digital vignette online now and set the start date to 5 October.\n\nThings to note:\n- Buy from the official ASFINAG webshop or app to avoid extra fees and to be sure the vignette is registered correctly.\n- When purchasing you must enter the correct vehicle registration number (license plate) and issuing country — the digital vignette is linked to that plate and is checked electronically.\n- The 2‑month vignette is valid for two consecutive months starting from the start date you choose (so if you choose 5 Oct it will cover two months from that date).\n- You cannot backdate the vignette; pick 5 October as the start date now and it will begin then.\n- Keep the purchase confirmation (email/receipt) until you’ve completed your trip in case of questions.\n\nIf you want, tell me your vehicle type (car/motorcycle) and I can point you to the exact ASFINAG purchase page."
+      }
+    },
+    {
+      "id": "ro-12m-euro5",
+      "lang": "ro",
+      "why": "Order 888/2026 band Euro IV–V.",
+      "agent": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "tools": [
+          "country_products"
+        ],
+        "text": "Rovinieta de 12 luni pentru un autoturism diesel Euro 5, valabilă de la 01.10.2026: 292 RON. Sursa oficială: [CNAIR — lista preţuri sept. 2026](https://www.cnadnr.ro/sites/default/files/pagini-statice/Pret%20ROVINIETE%20Septembrie%202026.pdf) și Ordinul MTI nr. 888/2026 (Monitorul Oficial) ([lege5.ro](https://lege5.ro/Gratuit/ge4tqnzthazti/ordinul-nr-888-2026-pentru-aprobarea-categoriilor-de-vehicule-si-a-nivelului-rovinietei)).\n\nCe decide dacă primiți amendă\n- trebuie rovinietă valabilă înainte de a circula; camerele verifică.\n- amendă (după 01.10.2026): între de 2× și 4× valoarea rovinietei anuale pentru categoria dvs. (echivalent aproximativ 584–1.168 RON pentru acest band — valoarea exactă rezultă din lege). (vezi sursa de preţ și prevederile Legii)\n\nCe faceți înainte de plecare\n- cumpărați rovinieta prin portalul TollRo / etoll.ro (vânzare oficială din 01.10.2026) — [portal.etoll.ro](https://portal.etoll.ro/). Nu circulați fără rovinietă activă."
+      },
+      "semantic": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "hits": 6,
+        "text": "Rovinieta de 12 luni pentru un diesel Euro 5 (Euro IV–V) costă 292 RON (preț valabil de la 1 octombrie 2026)."
+      },
+      "keyword": {
+        "pass": false,
+        "missing": [
+          "292"
+        ],
+        "wrong": [],
+        "hits": 6,
+        "text": "Din documentele furnizate nu apare tariful exact pentru un autovehicul diesel Euro 5 pentru rovinieta de 12 luni după 1 octombrie 2026. Ce ştim din ele:\n- Noul sistem şi tarifele pentru rovinietă au fost mutate să intre în vigoare la 1 octombrie 2026 (Legea 103/2026).\n- Ordinul final (888/2026) fixează tariful pentru maşinile electrice la 228 lei pentru 12 luni (nu 254 lei).\n\nPentru tariful precis aplicabil dieselului Euro 5 trebuie să verificaţi lista oficială de tarife publicată de CNAIR sau textul Ordinului 888/2026. Vă recomand:\n- site-ul CNAIR (anunţuri/tarife rovinietă) sau\n- textul Ordinului 888/2026 (publicat în Monitorul Oficial sau pe site-urile ministerelor)."
+      },
+      "none": {
+        "pass": false,
+        "missing": [
+          "292"
+        ],
+        "wrong": [],
+        "hits": 0,
+        "text": "Nu pot accesa tarifele actualizate după iunie 2024, deci nu pot confirma suma exactă valabilă de la 1 octombrie 2026. \n\nPentru informaţia corectă, consultă:\n- Site-ul oficial CNAIR (www.cnadnr.ro sau site-ul dedicat rovinietei) — pagina cu tarife şi achiziţie rovinietă;\n- Aplicatii/servicii oficiale (roviniete.ro, aplicaţia CNAIR sau furnizori autorizaţi: PayPoint, Payzone, mobile banking, operatorii de telefonie);\n- Centrul de relaţii cu publicul CNAIR / call-center pentru confirmare telefonică.\n\nPaşi rapizi:\n1. Accesezi site-ul oficial sau aplicaţia autorizată.  \n2. Alegi tipul vehiculului (categorie/greutate/număr axe). Euro 5 nu influenţează de obicei clasa rovinietei; tariful este stabilit pe categorie/greutate/axa.  \n3. Selectezi perioada (12 luni) şi procedezi la plată.\n\nDacă vrei, spune-mi categoria vehiculului (de ex. autovehicul persoane, camion sub/ peste 3,5 t, etc.) şi îţi explic exact paşii pentru a obţine rovinieta online."
+      }
+    },
+    {
+      "id": "ro-unknown-euro",
+      "lang": "en",
+      "why": "Unknown class is charged the Euro 0–III band.",
+      "agent": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "tools": [
+          "country_products"
+        ],
+        "text": "A 10‑day rovinietă for a car when the Euro class is unknown (or Euro 0–III) costs 39 RON on 2026‑10‑01. The rovinietă for foreign cars must be bought before driving and from 1 Oct 2026 is sold via the TollRo portal: https://portal.etoll.ro/ ([CNAIR](https://www.cnadnr.ro/en/node/15933), [Ordin MTI 888/2026](https://lege5.ro/Gratuit/ge4tqnzthazti/ordinul-nr-888-2026-pentru-aprobarea-categoriilor-de-vehicule-si-a-nivelului-rovinietei)).\n\nImportant: because you don’t know the Euro class, the system charges the Euro 0–III / unknown band (the price above). From 1 Oct 2026 the fine for driving without a valid rovinietă is much higher (penalties are set relative to the 12‑month rate; see the law)—enforcement by cameras is in place ([Legea 226/2023](https://legislatie.just.ro/public/DetaliiDocument/272230)).\n\nBuy on TollRo before you enter tolled national roads; if you can, enter your vehicle’s Euro class in the purchase screen to check whether a lower band applies."
+      },
+      "semantic": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "hits": 6,
+        "text": "From 1 Oct 2026 the 10‑day rovinietă price depends on the Euro class in the vehicle papers. Prices (valid 2026‑10‑01 to 2026‑12‑31):\n\n- Electric: 27 RON  \n- Euro VI: 30 RON  \n- Euro IV–V: 35 RON  \n- Euro 0–III or unknown: 39 RON\n\nIf you don't know your car's Euro class, it is charged at the \"Euro 0–III or unknown\" rate: 39 RON."
+      },
+      "keyword": {
+        "pass": false,
+        "missing": [
+          "39"
+        ],
+        "wrong": [],
+        "hits": 6,
+        "text": "The 10‑day rovinietă price after 1 Oct 2026 depends on your car’s Euro emissions class — prices were changed to be differentiated by Euro class from that date. The documents here don’t list the exact 10‑day tariffs.\n\nWhat you should do next\n- Check your car’s Euro class: look in the vehicle registration certificate (talon), ask the dealer, or decode the VIN (many online VIN-decode services show Euro class).  \n- Then check the official CNAIR price list (CNAIR / Ministerul Transporturilor) for the rovinietă tariffs valid from 1 Oct 2026 to get the exact 10‑day price.\n\nIf you want, tell me the Euro class (or paste the relevant line from your registration) and I’ll look up the correct 10‑day price for you."
+      },
+      "none": {
+        "pass": false,
+        "missing": [
+          "39"
+        ],
+        "wrong": [],
+        "hits": 0,
+        "text": "Nu pot spune cu precizie tariful exact valabil după 1 octombrie 2026 (datele de preţ se pot schimba şi eu nu am acces în timp real la tarife noi). Ce pot face însă:\n\n- Unde verifici imediat preţul corect: site-ul oficial pentru rovinietă al CNAIR (roviniete.ro) sau aplicaţia/site-ul furnizorilor autorizaţi. Pe site poţi introduce numărul de înmatriculare şi data începutului valabilităţii şi îţi va arăta tariful corect pentru categoria şi norma de poluare ale vehiculului tău.\n\n- Cum afli clasa EURO dacă nu o ştii: uită‑te în certificatul de înmatriculare (talon). Câmpul indicat poate fi notat ca „Norma de poluare”, „EURO” sau similar (uneori apare în rubrica V.9 sau în fişa tehnică). Dacă nu găseşti, poţi suna la RAR sau la serviciul de înmatriculări (sau introduce numărul în site‑ul rovinietei care recunoaşte automat categoria/clasa).\n\n- Dacă vrei, îmi poţi comunica categoria vehiculului (ex.: M1 = autoturism, N1 = autoutilitară sub 3,5 t etc.) şi, dacă o găseşti, clasa EURO sau numărul de înmatriculare, iar eu te îndrum pas cu pas sau te ajut să cauţi tariful pe site‑ul oficial."
+      }
+    },
+    {
+      "id": "ro-7-day",
+      "lang": "ro",
+      "why": "Durations are 1, 10, 30, 60 days and 12 months.",
+      "agent": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "tools": [
+          "knowledge_base_read"
+        ],
+        "text": "Nu — rovinieta nu se vinde pentru 7 zile. Opţiunile valabile pentru autoturisme (inclusiv rulote/car‑trailer, categorie A) sunt: 1 zi, 10 zile, 30 zile, 60 zile şi 12 luni. (Preţuri şi benzi de emisii au fost actualizate la 1 octombrie 2026.)  \n\nCe trebuie să faceţi înainte să plecaţi:\n- Cumpăraţi rovinieta exclusiv prin platforma TollRo (portal, aplicaţie mobilă, SMS sau distribuitori autorizaţi) — vechiul sistem a fost înlocuit la 1 octombrie 2026: https://portal.etoll.ro/  \n- Alegeţi durata existentă care vi se potriveşte (1/10/30/60 zile sau 12 luni). Verificaţi clasa Euro în cartea vehiculului: tarifele diferă după Euro‑clasă.  \n\nSursă: informaţiile TollRo / CNAIR şi tabelul de tarife publicat pentru rovinietă (actualizări din 1 oct 2026) — TollRo portal: https://portal.etoll.ro/; anunţ CNADNR despre TollRo (1 oct 2026)."
+      },
+      "semantic": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "hits": 6,
+        "text": "Nu — acum nu există o rovinietă de 7 zile. Produsele disponibile (din 1 octombrie 2026) pentru categoria A (autoturism, rulotă, camper) sunt: 1 zi, 10 zile, 30 zile, 60 zile și 12 luni. Preţurile încep să depindă de clasa Euro din certificatul de înmatriculare. \n\nUnde o poți cumpăra: portalul TollRo (portal.etoll.ro) sau aplicaţia mobilă TollRo, puncte de vânzare CNAIR şi la frontieră, distribuitori autorizaţi (benzinării) sau SMS. Observaţie: maşinile înmatriculate în România pot achita pentru ziua curentă până la 24:00 a zilei următoare; maşinile străine trebuie să cumpere înainte de a circula."
+      },
+      "keyword": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "hits": 6,
+        "text": "Nu — nu se mai vinde o rovinietă de 7 zile. În prezent produsele sunt: 1 zi, 10 zile, 30 zile, 60 zile şi 12 luni. De la 1 octombrie 2026 rovinieta se vinde prin platforma TollRo (portalul etoll.ro) şi tarifele sunt diferenţiate după clasa Euro înscrisă în certificatul de înmatriculare."
+      },
+      "none": {
+        "pass": false,
+        "missing": [
+          "10 zile|10 days|1, 10, 30"
+        ],
+        "wrong": [],
+        "hits": 0,
+        "text": "Da — poți cumpăra rovinietă valabilă 7 zile. Este disponibilă pentru diferite categorii de vehicule (de ex. M1 pentru autoturisme). \n\nCum o poți cumpăra:\n- Online, prin portalul oficial al CNAIR pentru roviniete (site-ul dedicat vânzării), cu plată card; ai nevoie de numărul de înmatriculare, codul țării și data de începere a valabilității.  \n- La punctele de frontieră, benzinării, oficii poștale și unele bănci/agenții fizice care vând roviniete — poți plăti cash sau card (în funcție de punct).  \n\nAlte lucruri de reținut:\n- Tariful depinde de categoria vehiculului; verifică tarifele actuale pe portalul oficial.  \n- Sistemul este electronic — nu trebuie un sticker pe parbriz; asigură-te că datele înmatriculării sunt corecte.  \n\nDacă vrei, pot să-ți dau link-ul portalului oficial sau să te ajut pas cu pas cu achiziția."
+      }
+    },
+    {
+      "id": "at-walserberg",
+      "lang": "en",
+      "why": "Vignette-free since 15 Dec 2019.",
+      "agent": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "tools": [
+          "knowledge_base_read"
+        ],
+        "text": "No — you do NOT need an Austrian vignette for the stretch Walserberg (German border) → Salzburg Nord if your vehicle is ≤ 3.5 t. That specific A1 segment is permanently exempt from the time-vignette obligation; only the listed border-to-junction stretches are free — the rest of the A1 and other motorways still require a vignette. Make sure your vehicle category (car/camper/motorcycle) and weight are ≤ 3.5 t; outside the exempt stretch you must have a valid vignette.\n\nBefore you go: enter Austria on that A1 stretch only if you stay on the exempt section to Salzburg Nord. If you continue beyond Salzburg Nord onto the A1 (or other tolled motorways), buy a vignette beforehand or at the next point of sale. Official source: [oesterreich.gv.at — vignette exceptions](https://www.oesterreich.gv.at/en/themen/mobilitaet/kfz/10/Vignette-und-Maut/streckenbezogene_Ausnahmen-von-der-Vignettenpflicht). General vignette rules and where to buy: [ASFINAG — Vignette](https://www.asfinag.at/maut-vignette/vignette/)."
+      },
+      "semantic": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "hits": 6,
+        "text": "No — you do NOT need an Austrian vignette for the short A1 stretch from the German border at Walserberg to Salzburg Nord. That roughly 12 km section is vignette‑free.\n\nHowever, any other parts of the A1 (and most other Austrian motorways/expressways) do require a vignette. If you continue beyond Salzburg Nord onto tolled stretches without a valid vignette, you risk the substitute toll (Ersatzmaut) of €200 for a car (and higher fines if unpaid)."
+      },
+      "keyword": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "hits": 6,
+        "text": "No — the short section of the A1 from the German border at Walserberg to Salzburg Nord (about 12 km) is vignette‑free. If you continue past Salzburg Nord onto the rest of the A1, you will need a vignette. (This vignette exemption has applied since December 2019; rules can change, so check before travel.)"
+      },
+      "none": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "hits": 0,
+        "text": "Yes — if you drive on the A1 motorway from the Walserberg border crossing to the Salzburg Nord exit you must have a valid Austrian vignette (passenger cars and motorcycles up to 3.5 t). Vehicles over 3.5 t need a GO‑Box (distance charge).\n\nIf you want to avoid the vignette you must use non‑motorway local roads (which is slower and less direct). You can buy a vignette as a physical sticker at border stations, petrol stations or online as a digital vignette before or shortly after entering Austria — driving on the motorway without one risks a heavy fine."
+      }
+    },
+    {
+      "id": "hu-counties",
+      "lang": "en",
+      "why": "Needs the Fejér-only stretch and the 2026 M1 regional product.",
+      "agent": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "tools": [
+          "country_products"
+        ],
+        "text": "I can’t run the precise Drum Bun trip planner for Nădlac because Nădlac isn’t one of the covered Romanian start cities in this system. General (official) facts from the Hungarian e‑vignette data:\n\n- Cheaper yearly alternative: the new M1 regional annual e‑vignette (covers Pest + Fejér + Komárom‑Esztergom + Győr‑Moson‑Sopron) costs 15,000 HUF on 2026‑10‑01 — substantially cheaper than buying those four county vignettes separately (each county e‑vignette: 7,190 HUF). Source: Magyar Közút / e‑matrica official info [Magyar Közút (HU)](https://nemzetiutdij.hu/hu/hirek/tisztazzuk-a-felreerteseket-az-m1-regionalis-matrica-kapcsan) and price list [e‑matrica price list (HU)](https://nemzetiutdij.hu/api/uploads/e_matrica_arak_2026_pdf_611db0ecc1.pdf).\n\n- Full national annual e‑vignette costs 61,760 HUF (official rate). Source: [e‑matrica rates (EN)](https://nemzetiutdij.hu/en/e-vignette/tolls/e-vignette-rates).\n\nIf you want the exact set of county vignettes that would cover the entire Nădlac → Hegyeshalom drive (so I can tell you whether the M1 regional alone suffices or which counties you’d need), I can run a full route plan — please let me use Timișoara as the nearest covered Romanian start, or confirm you want a best-effort route from Nădlac (I’ll then give the exact county list and the cheapest yearly option)."
+      },
+      "semantic": {
+        "pass": false,
+        "missing": [
+          "M1 regional"
+        ],
+        "wrong": [],
+        "hits": 6,
+        "text": "Pentru a acoperi întreg traseul Nădlac → Hegyeshalom (pe autostrăzi/șosele cu taxă) ai nevoie de vignete pentru cele patru județe care acoperă coridorul M1: Pest, Fejér, Komárom‑Esztergom și Győr‑Moson‑Sopron.  \n\nOpţiune mai ieftină pentru un şofer anual: din 2026 există o e‑matrică regională M1 care acoperă exact aceleaşi drumuri ca cele 4 vignete judeţene. Preţ 2026: 15.000 HUF anual, comparativ cu 4 × 7.190 HUF = 28.760 HUF dacă cumperi separat cele patru vignete judeţene — deci regionala M1 e mai ieftină.  \n\nPoţi cumpăra online de la magazinul oficial: https://ematrica.nemzetiutdij.hu/ . Atenție la introducerea corectă a numărului de înmatriculare și a codului țării: o greșeală se consideră lipsă de vignietă; amenzile sunt 27.790 HUF (plată în 60 zile) sau 95.730 HUF ulterior."
+      },
+      "keyword": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "hits": 6,
+        "text": "Trebuie să acoperi tot tronsonul pe autostradă dinspre Nădlac spre Hegyeshalom — asta trece prin următoarele judeţe/autonomii rutiere:\n\n- Csongrád‑Csanád  \n- Bács‑Kiskun  \n- Fejér  \n- Pest  \n- Győr‑Moson‑Sopron\n\nOpţiune mai ieftină pentru un şofer anual\n- În 2026 există un vigneta regională M1 care acoperă împreună: Pest, Fejér, Komárom‑Esztergom şi Győr‑Moson‑Sopron. Deci pentru traseul Nădlac→Hegyeshalom poţi cumpăra:\n  - vigneta regională M1 (acoperă segmentele nord‑vest: Pest + Fejér + Győr‑Moson‑Sopron) și\n  - vignetă anuală pentru Csongrád‑Csanád și vignetă anuală pentru Bács‑Kiskun.\n\nAceasta înlocuieşte cumpărarea a 5 vignetă judeţene separate şi, practic, reduce numărul de produse cumpărate (costuri totale mai mici decât 5 vignete separate).\n\nPreţuri orientative (lista oficială 2026)\n- vignetă judeţeană anuală (ex.: Pest, Fejér, Csongrád‑Csanád, Bács‑Kiskun etc.): 7.190 HUF (preţ 2026) fiecare.\n- preţul vignetei regionale M1 nu este listat aici, dar ideea e că, combinând M1 regional + 2 vignete judeţene, plăteşti pentru 3 produse în loc de 5.\n\nUnde le cumperi\n- Magazinul oficial: https://ematrica.nemzetiutdij.hu/ (fără comision) sau prin aplicaţiile/resellerii Nemzeti Mobilfizetési; benzinării/centre vamale contractate.\n\nDacă vrei, îţi calculez costul estimat exact (în HUF sau convertit în EUR/RON) pentru varianta „5 vignete judeţene” vs „M1 regional + 2 judeţe” — spune-mi dacă vrei şi preţul exact al vignetei regionale M1 (voi căuta sursa)."
+      },
+      "none": {
+        "pass": false,
+        "missing": [
+          "Fejér",
+          "M1 regional"
+        ],
+        "wrong": [],
+        "hits": 0,
+        "text": "Útvonal Nădlac (román–magyar határ) → Hegyeshalom típikus autópálya-vezetése: M43 → M5 → M0 → M1. A teljes szakaszt lefedő megyei matricák, amelyeket meg kell vásárolni, ha megyeileg fizetnél:\n\n- Csongrád‑Csanád megye (a határ/Szeged környéke, M43)  \n- Bács‑Kiskun megye (M5)  \n- Pest megye (M0/M1 környéke)  \n- Komárom‑Esztergom megye (M1)  \n- Győr‑Moson‑Sopron megye (Hegyeshalom és környéke, M1)\n\nOlcsóbb lehetőség éves (országos) használónak:\n- Van országos (országos/kereskedelmi nevén „éves országos e‑matrica” / „éves e‑vignetta”), ami az egész országra érvényes. Ha gyakran jársz át Magyarországon teljes hosszon, általában ez az egyszeri éves országos díj olcsóbb és kényelmesebb, mint öt megyei matricát venni.\n- Javaslom ellenőrizni a legfrissebb árakat és vásárlást a hivatalos felületen (pl. nemzetiutdij.hu vagy a hivatalos e‑matrica applikáció), mert díjak/terméknevek idővel változhatnak."
+      }
+    },
+    {
+      "id": "de-ms-tyres",
+      "lang": "de",
+      "why": "Since 1 Oct 2024 only the alpine symbol counts.",
+      "agent": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "tools": [
+          "knowledge_base_read"
+        ],
+        "text": "Kurz: Nein — in Deutschland sind seit 1. Oktober 2024 M+S‑Reifen allein nicht mehr ausreichend. Bei winterlichen Straßenverhältnissen (Schnee, Eis, Matsch, Reifglätte) braucht Ihr Fahrzeug die Alpine‑/3PMSF‑Kennzeichnung (Berg‑/Schneeflockensymbol). Motorräder sind ausgenommen. (Quelle: deutsche Straßenverkehrsregeln / Behördenauskunft.)  \n\nWichtig für Sie:\n- Regel greift bei tatsächlichen winterlichen Verhältnissen, nicht nach Datum allein.  \n- Fehlen geeigneter Winterreifen: Bußgeld in der Regel €60, bei Behinderung €80 plus 1 Punkt in Flensburg.  \n- Österreich unterscheidet sich: dort reichen M+S‑ oder 3PMSF‑Reifen in der Saison (1.11.–15.4.) bei winterlichen Verhältnissen — in Deutschland aber nicht.  \n\nQuellen: §2 StVO / §36 StVZO (deutsche Regeln) und Bestätigung durch Polizeinformationsseiten; ergänzende Vergleichsinfo zu Österreich finden sich in den Behördeneinträgen. Beispielquelle: [Katastrophenschutz‑Seite (HU)](https://www.katasztrofavedelem.hu/382/katasztrofatipusok-teli-veszelyek-a-teli-gumi-es-holanc-kotelezo-hasznalata-a-szomszedos-orszagokban)."
+      },
+      "semantic": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "hits": 6,
+        "text": "Kurz: Nein — seit dem 1. Oktober 2024 reichen Reifen mit nur der Kennung M+S in Deutschland bei winterlicher Straßenlage nicht mehr aus.\n\nDetails:\n- Bei Schneeglätte, Eis, Schneematsch, Reifglätte (also immer dann, wenn die Straße „wintrig“ ist) müssen an allen Rädern Winterreifen mit dem Alpine‑Symbol (Bergpiktogramm mit Schneeflocke, 3PMSF) montiert sein.  \n- Reifen, die nur mit M+S (M.S., MS, M&S) gekennzeichnet sind, gelten seit 01.10.2024 nicht mehr als Winterreifen.  \n- Gilt auch für ausländische Pkw; Motorräder sind ausgenommen.  \n- Bußgeld: in der Regel 60 € plus 1 Punkt (bis 80 € wenn Behinderung/Gefährdung).\n\nQuelle: §2 StVO in Verbindung mit §36 StVZO (deutsche Vorschriften)."
+      },
+      "keyword": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "hits": 6,
+        "text": "Kurz: Nein. Seit dem 1. Oktober 2024 reichen Reifen mit nur der M+S‑Kennzeichnung in Deutschland bei winterlichen Straßenverhältnissen nicht mehr aus. \n\nDetails:\n- Bei Glatteis, Schneeglätte, Schneematsch oder Reifglätte (black ice, Schnee, Matsch, Frost) sind nur Winterreifen mit dem Alpine‑Symbol (dreizackiger Berg mit Schneeflocke, 3PMSF) zulässig.  \n- M+S‑Reifen ohne das Alpine‑Symbol gelten nicht mehr als Winterreifen.  \n- Die Regel gilt auch für ausländische Fahrzeuge. Motorräder sind ausgenommen.  \n- Bei Verstoß drohen mindestens 60 € Bußgeld und 1 Punkt (80 € bei Behinderung/des Behinderndes Fahrens).\n\n(Quelle: deutsche StVO/StVZO – Winterreifenregelungen, gültig ab 01.10.2024.)"
+      },
+      "none": {
+        "pass": false,
+        "missing": [
+          "2024"
+        ],
+        "wrong": [],
+        "hits": 0,
+        "text": "Kurz: In der Praxis in Deutschland reichen M+S-Markierungen allein oft nicht aus — die verlässliche und rechtlich unproblematische Kennzeichnung für Wintertauglichkeit ist das Bergpiktogramm mit Schneeflocke (3PMSF).\n\nDetails kurz erklärt:\n- 3PMSF (Three‑Peak‑Mountain‑Snowflake) heißt: der Reifen wurde auf Winterverhältnisse geprüft und erfüllt Mindestanforderungen an Haftung auf Schnee. Das ist heute der empfohlene und von Behörden als Nachweis angesehene Standard.\n- M+S („Mud & Snow“) war früher ein Hinweis auf bessere Eigenschaften gegenüber Sommerreifen, beruht jedoch auf keiner einheitlichen Prüfbedingung und sagt wenig über tatsächliche Schneeperformance aus.\n- Seit 2018 gilt in vielen Regelungen (und so auch in der Praxis deutscher Behörden/Versicherer): 3PMSF ist der sichere Nachweis für wintertaugliche Reifen. M+S‑Reifen, insbesondere neuere ohne 3PMSF, können nicht mehr als vollwertiger Ersatz gelten.\n- Auswirkung: Bei Kontrollen, Bußgeldfällen oder Unfällen können nur mit 3PMSF gekennzeichnete Winterreifen rechtliche und versicherungstechnische Probleme vermeiden. Bei stark eingeschränkter Wintertauglichkeit (z. B. M+S mit wenig Profil) drohen Bußgeld, Punkte und Haftungsanteile.\n\nPraktische Empfehlungen:\n- Achte beim Kauf auf das 3PMSF‑Symbol.\n- Gute Winterleistung braucht außerdem ausreichend Profil (empfohlen ≥4 mm, gesetzlich Mindestprofil sind 1,6 mm, das ist aber für Winterfahrten zu wenig).\n- Reifenwechsel je nach Wetter: meist zwischen Oktober und Ostern, bei Frost/Schnee sofort.\n- Gespannte Fälle (z. B. älteres M+S‑Modell, das vor 2018 hergestellt wurde) können Ausnahmen bringen — im Zweifel Händler, TÜV oder Versicherung fragen.\n\nKurz gesagt: Verlasse dich nicht nur auf M+S — 3PMSF‑Winterreifen sind sicherer und rechtlich belastbarer."
+      }
+    },
+    {
+      "id": "euro5-cities",
+      "lang": "en",
+      "why": "Munich bans only Euro 4; Stuttgart's small zone bans Euro 5.",
+      "agent": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "tools": [
+          "knowledge_base_read"
+        ],
+        "text": "Short answer: yes for Munich; conditional for Stuttgart.\n\n- Munich: A Euro 5 diesel may enter the Munich Umweltzone (including the Mittlerer Ring) provided it displays the green Umweltplakette. Euro 4 and older diesels are banned; Euro 5 is permitted. [Munich local page](https://www.muenchen.de) (dataset summary).\n\n- Stuttgart: Euro 5 diesels are allowed in the outer city (the general Umweltzone) but are banned from the stricter “small environmental zone” (Stuttgart basin and the districts Bad Cannstatt, Feuerbach and Zuffenhausen) introduced 1 July 2020. If you need to go into those inner areas you must have Euro 6 diesel; otherwise park outside/switch to P+R or use public transport. [City of Stuttgart — Diesel traffic ban](https://www.stuttgart.de/en/leben/mobilitaet/dieselverkehrsverbot/dieselverkehrsverbot)\n\nWhat to do before you drive\n- Buy and affix a green Umweltplakette (foreign drivers): TÜV or registering office (sticker issued based on your registration document). \n- Check your emission class on the vehicle registration (Zulassungsbescheinigung / V5) — do not rely on a sticker alone.\n- If you will enter Stuttgart’s small zone, ensure your car is Euro 6; otherwise plan to park outside the small zone.\n\nFine for violation: €100 (BKatV no.153). Sources above and the German Umweltplakette guidance."
+      },
+      "semantic": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "hits": 6,
+        "text": "Short answer:\n- Munich: Yes. Euro 5 diesels are allowed in the Munich Umweltzone (including the Mittlerer Ring) in 2026.\n- Stuttgart: Usually no for central/station/inner-basin areas. The small environmental zone (Stuttgart basin and central districts) requires Euro 6, so Euro 5 vehicles are banned there. Some outer parts of the city accept Euro 5.\n\nNotes:\n- In Stuttgart the stricter small-zone ban targets central/inner-basin access — if you must go there, use Park & Ride or a Euro 6 vehicle. \n- Fines for driving a non-compliant diesel in a signed Umweltzone are about €100 (administrative fees can raise the payable amount)."
+      },
+      "keyword": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "hits": 6,
+        "text": "Short answer:\n- Munich — Yes. Euro‑5 diesels are allowed inside the Munich Umweltzone (including the Mittlerer Ring) in 2026, but you must display the green Umweltplakette.\n- Stuttgart — Usually yes, but with a caveat. A Euro‑5 diesel with a green sticker may enter most of Stuttgart, but a smaller central “small environmental zone” (Stuttgart basin and the districts Bad Cannstatt, Feuerbach and Zuffenhausen) bans Euro‑5 — there Euro‑6 is required.\n\nExtra useful points:\n- Both cities require the green sticker for signposted Umweltzonen. \n- Fines for entering a zone with a non‑compliant vehicle are about €100 (administrative fees can raise the payable amount). \n- If your destination might be inside the small Stuttgart zone, park outside and use public transport (Park & Ride) or use a Euro‑6 vehicle."
+      },
+      "none": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "hits": 0,
+        "text": "Short answer\n- Munich: very likely yes — Euro 5 diesels with a green Umweltplakette (particulate‑matter sticker) are normally allowed in the Umweltzone (central low‑emission zone).  \n- Stuttgart: maybe not — Stuttgart has stricter diesel restrictions in some central areas and some streets may be limited to Euro 6 or petrol/green‑label vehicles only. Euro 5 can be banned on certain roads depending on current local measures.\n\nWhat you should do\n1. Check your vehicle’s emission class on the Fahrzeugbrief/CoC or registration document (look for “Euro 5” / “Emission standard”).  \n2. Make sure you have a green Umweltplakette (Feinstaubplakette). Euro 5 diesels with a DPF normally qualify; you can buy/apply for the sticker at TÜV/DEKRA, many garages or post offices, or online (you will need registration papers and an ID).  \n3. For Stuttgart specifically, check the city’s current diesel ban maps / traffic regulations before you drive — some streets or zones may exclude Euro 5 vehicles.  \n4. Use official sources or traffic apps for up‑to‑date restrictions: Munich and Stuttgart city websites, or the “Umweltzone” app/online maps.\n\nIf you tell me your exact vehicle (make/model, year) or the precise area/routes you plan to drive in, I can check more specifically."
+      }
+    },
+    {
+      "id": "berlin-fine",
+      "lang": "en",
+      "why": "BKatV no. 153 says 100 euros; berlin.de still says 80.",
+      "agent": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "tools": [
+          "knowledge_base_read"
+        ],
+        "text": "Fine: €100 (no points). Driving inside Berlin’s Umweltzone (inside the S‑Bahn ring) without the required green Umweltplakette is punishable by a €100 fine. Motorcycles are exempt; all cars/ vans must show the green sticker. Buy the sticker before entering the zone (TÜV providers sell it online). Source: [Berlin Senatsverwaltung — Umweltzone / Allgemeines](https://www.berlin.de/sen/uvk/umwelt/luft/luftreinhaltung/umweltzone/allgemeines/)"
+      },
+      "semantic": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "hits": 6,
+        "text": "The fine is €100 (per the federal fine catalogue, BKatV no. 153). Some older/municipal pages still say €80, but the law sets €100 and that applies in Berlin."
+      },
+      "keyword": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "hits": 6,
+        "text": "The fine is €100 (per the federal fine catalogue BKatV No. 153). Some older official pages still state €80, but that is outdated."
+      },
+      "none": {
+        "pass": false,
+        "missing": [
+          "100"
+        ],
+        "wrong": [],
+        "hits": 0,
+        "text": "If you drive into Berlin’s Umweltzone without a valid emissions sticker (Feinstaubplakette), the on‑the‑spot fine is €80. \n\nNote: rules and enforcement can change, so if you need an official confirmation or current exceptions check the Berlin Senate/traffic authority website."
+      }
+    },
+    {
+      "id": "de-toll",
+      "lang": "ro",
+      "why": "Struck down by the ECJ in 2019.",
+      "agent": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "tools": [
+          "knowledge_base_search",
+          "knowledge_base_read"
+        ],
+        "text": "Nu — este fals. În prezent Germania nu are taxă de autostradă (vignetă) pentru autoturisme, rulote sau motociclete sub 3,5 t. Schema pentru maşini a fost anulată de Curtea de Justiţie a UE (cazul C‑591/17, iunie 2019) şi, conform datelor actualizate, ministerul german al transporturilor nu planifică introducerea unei astfel de taxe. Nu trebuie să cumpăraţi nimic înainte de a intra în Germania. (Sursa: sinteza noastră asupra regimului de taxare din Germania și analiza revendicărilor online.)"
+      },
+      "semantic": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "hits": 6,
+        "text": "Nu — informaţia este depăşită. Germania nu are taxă de autostradă pentru autoturisme (până la 3,5 t). Curtea de Justiţie a UE a anulat sistemul propus în 2019 (cazul C‑591/17), iar în 2026 ministrul transporturilor a spus că nu va introduce o nouă taxă pentru maşini. (Sursă: hotărârea CJUE 18‑06‑2019 şi declaraţii de presă din 2026.)"
+      },
+      "keyword": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "hits": 0,
+        "text": "Pe scurt: nu am dovada unei taxe naţionale pe autostradă pentru autoturisme introdusă în Germania până la ultima mea actualizare (iunie 2024). Situaţia cunoscută până atunci:\n\n- Germania are taxe/tarife pentru camioane (Toll Collect) de mulţi ani, dar nu exista o taxă generală pentru autoturisme (vignetă/autostradă) valabilă pentru toţi şoferii.\n- Au existat propuneri şi discuţii politice despre o „Pkw-Maut” în trecut, dar planurile anterioare au fost blocate şi abandonate.\n- În anumite oraşe pot exista zone cu restricţii de emisii (Umweltzonen) care cer autocolante/înregistrare pentru unele vehicule; acestea nu sunt însă taxe de autostradă.\n\nDin moment ce azi e 2026-10-01, e posibil să fi intervenit schimbări după iunie 2024. Dacă vrei, îți pot:\n- explica unde să verifici rapid (site-ul Ministerului Federal al Transporturilor — BMVI, Autobahn GmbH, Toll Collect, ADAC sau site-urile consulatului/ambasadei pentru anunţuri turistice), sau\n- te pot ghida ce să întrebi companiei de închirieri auto sau la punctele de frontieră.\n\nSpune-mi dacă vrei linkuri/paşi concreţi de verificare sau dacă te interesează situaţia pentru o anumită dată/traseu."
+      },
+      "none": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "hits": 0,
+        "text": "Până la ultima mea actualizare (iunie 2024), nu — Germania nu introdusese o taxă națională pentru autostrăzi aplicabilă maşinilor particulare. Există deja o taxă pentru camioane (LKW-Maut) şi unele taxe locale sau pentru tuneluri/poduri/ferry-uri, dar nu o vinietă sau taxă generală pentru autoturisme pe Autobahn. \n\nDacă ai citit ştiri recente (după iunie 2024), este posibil să fie vorba de propuneri politice sau de taxe locale specifice; îţi recomand să verifici o sursă oficială actualizată (de ex. Ministerul Transporturilor german — BMVI — sau site-urile de ştiri germane) pentru confirmare. Vrei să caut linkuri oficiale sau surse recente?"
+      }
+    },
+    {
+      "id": "hu-surcharge",
+      "lang": "en",
+      "why": "Surcharge 27,790 HUF within 60 days, 95,730 after.",
+      "agent": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "tools": [
+          "knowledge_base_read"
+        ],
+        "text": "If you drive on a Hungarian motorway without a valid e‑vignette the system treats you as unregistered and enforcement is automatic (cameras read plate + country code). Consequences and what to do:\n\n- Automatic detection → surcharge. From 1 Jan 2026 the published amounts are: base surcharge 27,790 HUF (if paid within 60 days) and elevated surcharge 95,730 HUF (after 60 days). Differential surcharges apply when you had a wrong/cheaper vignette: 15,530 HUF (within 60 days) or 49,190 HUF (after 60 days) [Nemzetiútadó rates](https://nemzetiutdij.hu/en/e-vignette/tolls/e-vignette-rates).  \n- If you made a genuine mistake you have 60 minutes after entering a tolled section to buy an e‑vignette online; that grace is lost if you refuse to buy at an enforcement check [ematrica system rules].  \n- Entering a wrong plate or wrong country code counts as no vignette — it will trigger the full surcharge. Plate corrections (≤3 characters) are possible at a customer office within 60 days for 1,470 HUF.  \n- Unpaid cases are pursued (for Romanian plates an Oradea-based collection agency is used). Keep the purchase confirmation for 3 years from expiry.  \n\nBuy on the official portal (ematrica.nemzetiutdij.hu) before you enter a tolled motorway; if you already entered, buy within 60 minutes."
+      },
+      "semantic": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "hits": 6,
+        "text": "If you drive on a Hungarian tolled motorway without a valid e‑vignette (or with wrong plate/country code) you will be treated as not having paid and face a surcharge:\n\n- Substitute surcharge: 27,790 HUF if you pay within 60 days, 95,730 HUF after 60 days.  \n- Cameras and checks are widely used to detect unpaid vehicles; for foreign (e.g. Romanian) plates unpaid cases are pursued abroad (collection agency in Oradea).  \n- Entering the plate with the wrong country code or wrong plate number counts as no vignette.  \n- If you bought the wrong plate you can correct it at a customer service office for 1,470 HUF — but only within 60 days, only if at most 3 characters were wrong, and subject to the surcharge rules.  \n- If you entered a tolled section by mistake you have 60 minutes to buy an e‑vignette on the spot, but you lose that leniency if you refuse to buy when checked.\n\nYou should always buy the e‑vignette before driving onto a tolled section and enter the plate without spaces and the correct country code."
+      },
+      "keyword": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "hits": 6,
+        "text": "Ha autópályán vezetsz magyar e‑matrica (e‑vignette) nélkül:\n\n- Büntatás (surcharge): ha utólag fizeted a pótdíjat, 27 790 HUF lesz, ha ezt 60 napon belül rendezed; 60 nap elmúltával 95 730 HUF.  \n- Ellenőrzés: kamerák figyelik a pályákat, a rendszámot és az országkódot összevetik az e‑matricával. Román rendszámoknál tartós tartozás esetén beszedési megbízást indítanak (Oradea‑i behajtó).  \n- Rendszám/országkód hibája: ha rossz rendszámot vagy országkódot adsz meg (például nem a RO országkódot), az úgy számít, mintha nincs matrica.  \n- Hibajavítás: rossz rendszámot lehet javítani ügyfélszolgálaton (díj: 1 470 HUF), de csak az első 60 napon belül és legfeljebb 3 karakter hibája esetén — később csak a pótdíj befizetése után van lehetőség.  \n- Sürgősségi vétel: ha véletlenül hajtottál fel, 60 perc áll rendelkezésre matricát venni az autópályára való felhajtást követően, de ezt a lehetőséget elveszíted, ha megtagadod a vásárlást egy ellenőrzésnél.\n\nForrás: Magyar Közút / e‑vignette szabályok és díjszabás."
+      },
+      "none": {
+        "pass": false,
+        "missing": [
+          "27,?790|27 790",
+          "60"
+        ],
+        "wrong": [],
+        "hits": 0,
+        "text": "Short answer: you can be detected by the automatic cameras and charged a penalty (pótdíj) in addition to the missing vignette. Enforcement is automatic; don’t assume you’ll get away with it.\n\nDetails and what to do\n- Who needs an e‑vignette: most vehicles up to 3.5 t (passenger cars) and other vehicle categories require the correct electronic vignette (e‑matrica) for using Hungarian motorways. Different vehicle classes and regional/national options apply.\n- How you’re caught: ANPR/camera systems and roadside checks match licence plates against the vignette database.\n- Consequences: if you drove without a valid vignette you will be charged the toll(s) you owe plus a pótdíj (administrative surcharge). The surcharge for passenger cars has historically been significantly higher than the vignette price; penalties for heavier/commercial vehicles are larger. Repeated offences raise the risk and penalties.\n- What to do right away: buy the correct e‑vignette immediately (via the official site/app, SMS services or authorised resellers). Save the purchase confirmation/receipt.\n- Retrospective purchase and fines: purchasing a vignette after the trip does not always cancel the surcharge — in many cases you still receive a pótdíj. There are time limits for administrative procedures and possible mitigation, so act promptly.\n- If you get a fine: you will receive a notice with payment instructions. You can normally appeal or request review within the statutory deadline (the notice will say how long). Follow the instructions on the notice and on the Nemzeti Útdíjfizetési Szolgáltató (NÚSZ)/e‑vignette website.\n\nFor exact current penalty amounts, vehicle class rules and how to buy, check the official NÚSZ/e‑vignette site or app before you drive. If you tell me your vehicle type and where you plan to drive, I can give more specific buying options and likely penalties."
+      }
+    },
+    {
+      "id": "at-ersatzmaut",
+      "lang": "de",
+      "why": "200 euros for offences from 1 Jan 2026.",
+      "agent": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "tools": [
+          "country_products"
+        ],
+        "text": "Die Ersatzmaut (Ersatzvignette) in Österreich für Pkw beträgt seit 1. Januar 2026: 200 € (zuvor 120 €). Wird diese Ersatzmaut nicht bezahlt, droht eine Strafe von 300–3.000 €; eine falsche Kennzeichenangabe bei der digitalen Vignette gilt als kein Vignettennachweis.\n\nWas Sie jetzt tun müssen:\n- Kaufen Sie vor der Fahrt eine gültige Vignette (1‑Tag, 10‑Tage, 2‑Monate oder Jahresvignette) — Jahres‑ und 2‑Monats‑Vignetten haben beim Onlinekauf 18 Tage Aktivierungsverzögerung.  \n- Wenn Sie unterwegs keine gültige Vignette haben: zahlen Sie sofort die Ersatzmaut (200 €) an die Behörden, um höhere Strafen zu vermeiden.\n\nQuellen: [ASFINAG Tolling Regulations / Vignettenfolder 2026](https://media.asfinag.at/media/xq0lud1b/asf_vignettenfolder_2026_en.pdf), [RIS – Vignettenpreisverordnung 2025 (BGBl II Nr. 225/2025)](https://www.ris.bka.gv.at/Dokumente/BgblAuth/BGBLA_2025_II_225/BGBLA_2025_II_225.html)."
+      },
+      "semantic": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "hits": 6,
+        "text": "Ab 1. Januar 2026 beträgt die Ersatzmaut für Pkw 200 Euro. Wenn sie nicht bezahlt wird, droht eine Geldstrafe von 300–3.000 Euro; bei digitaler Vignette gilt: falsches Kennzeichen = keine Vignette."
+      },
+      "keyword": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "hits": 6,
+        "text": "Die Ersatzmaut (Ersatzvignette) für Pkw in Österreich beträgt seit 1. Januar 2026 pauschal 200 Euro. (Ältere Quellen nannten noch 120 Euro; die geltende Regelung ist 200 Euro.)"
+      },
+      "none": {
+        "pass": false,
+        "missing": [
+          "200"
+        ],
+        "wrong": [],
+        "hits": 0,
+        "text": "Meinen Sie mit „Ersatzmaut“ die Strafe, wenn man ohne gültige Autobahnvignette erwischt wird, oder etwas anderes (z. B. die Maut für bestimmte Tunnel/Pässe wie Brenner, oder die Ersatzmaut für Bus/Taxi etc.)?\n\nKurz vorab die wichtigsten Fälle und wo Sie die aktuelle Höhe prüfen:\n- Wenn Sie die Strafe für das Fehlen einer gültigen Vignette meinen: Das ist eine Verkehrsstrafe/„Ersatzmaut“ und wird von ASFINAG/den Behörden festgesetzt — die Höhe kann sich ändern. Prüfen Sie die tagesaktuellen Sätze auf der ASFINAG-Website (www.asfinag.at) oder fragen Sie die Landespolizeidirektion.\n- Für strecken- oder objektbezogene Sondermauten (z. B. Autobahntunnel, Brenner-Basis-Tunnel in zukünftiger Gebührensystematik) gelten gesonderte Tarife, die ebenfalls auf asfinag.at bzw. den Betreibergesellschaften stehen.\n\nSagen Sie kurz, welchen Fall Sie genau meinen (Fehlende Vignette / Bußgeld, konkreter Tunnel oder Streckenmaut), dann nenne ich die zuletzt bekannten Beträge und wo Sie die aktuell gültigen Zahlen sofort sehen."
+      }
+    },
+    {
+      "id": "hu-buy-after",
+      "lang": "en",
+      "why": "Only drivers who entered by mistake, and not if they refuse at a check.",
+      "agent": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "tools": [
+          "knowledge_base_read"
+        ],
+        "text": "Yes — but only for a short grace period. You have 60 minutes from the moment you enter a tolled motorway section to buy the Hungarian e‑vignette online. After that a surcharge applies; if you are stopped at an enforcement check and refuse to buy, the 60‑minute option is lost and the higher penalty process follows.  \nWhen buying, enter the registration number (no spaces) and the correct country code — a wrong country code counts as no vignette. Plate corrections are possible at a customer service office (≤3 characters wrong) within 60 days for a 1,470 HUF fee. Enforcement is automatic (camera checks), so keep the purchase confirmation (electronic or print) for 3 years from the vignette’s last valid day.  \n\nSources: [ematrica.nemzetiutdij.hu](https://ematrica.nemzetiutdij.hu) and [NemzetiUtdij — e‑vignette rates (EN)](https://nemzetiutdij.hu/en/e-vignette/tolls/e-vignette-rates)."
+      },
+      "semantic": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "hits": 6,
+        "text": "Generally no — you must have the Hungarian e‑vignette before you drive onto a tolled road. There is a narrow exception: if you entered a tolled section by mistake you have 60 minutes from entry to buy the vignette. However, you lose that 60‑minute right if you already refused to buy when stopped at a control.\n\nIf you do buy after entry (within the 60 minutes), make sure you enter the vehicle plate without spaces and the correct country code — a wrong plate or wrong country code is treated as no vignette. Cameras are used widely; penalties/surcharges apply (27,790 HUF if paid within 60 days, 95,730 HUF after that)."
+      },
+      "keyword": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "hits": 6,
+        "text": "Generally no — you must have the Hungarian e‑vignette before you drive onto a tolled road. \n\nThere is a very limited exception: if you entered a tolled section by mistake you have 60 minutes to buy a vignette after entering. However you lose that 60‑minute option if you refuse to buy one when stopped at a toll check.\n\nWhen buying, enter the licence plate without spaces and the correct country code (e.g. RO for Romania). A wrong plate or wrong country code counts as no vignette. Plate typos can be corrected at customer service (fee ~1,470 HUF) but stricter rules and surcharges apply if corrected later. If caught without a valid vignette the surcharge is 27,790 HUF (if paid within 60 days) or 95,730 HUF afterwards."
+      },
+      "none": {
+        "pass": false,
+        "missing": [
+          "60.minute"
+        ],
+        "wrong": [],
+        "hits": 0,
+        "text": "Short answer: No — the Hungarian e‑vignette (e‑matrica) must be valid before you use the motorway. If you are already on the motorway you should buy one immediately, but a late purchase does not guarantee you will avoid a fine if you were detected without a valid vignette.\n\nWhat to do now\n- Buy an e‑matrica immediately (online or with the official mobile app) or at the next motorway service station, petrol station or kiosk that sells vignettes.  \n- Note that passenger cars and light vans (≤3.5 t) use the e‑matrica system; heavy commercial vehicles use HU‑GO tolling.  \n- Keep proof of purchase; it will at least cover you from the purchase time onward.\n\nWhy buying after entry is risky\n- Enforcement is camera‑based and linked to licence plates; authorities can detect the time you entered the tolled section. If that time is before your purchase, you may be fined.\n\nIf you want, tell me your vehicle type and where you entered and I can point to the right purchase channel (app/website) and the nearest service station."
+      }
+    },
+    {
+      "id": "ro-winter-dates",
+      "lang": "en",
+      "why": "Romania ties the rule to road conditions; a Hungarian agency page says otherwise.",
+      "agent": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "tools": [
+          "knowledge_base_read"
+        ],
+        "text": "No. Romania does not impose a calendar obligation starting 1 November. Winter tyres (M+S / M.S. / MS / M&S) are required only when the road is actually covered by snow, ice or black ice — at any date, year‑round. The common claim \"compulsory from 1 Nov to 31 Mar\" is outdated/wrong; the legal duty is condition‑based (OUG 195/2002 art.102). Police penalties: Class IV fine (9–20 penalty points → currently 1,946.25–4,325 lei) and retention of the vehicle registration certificate. Source: MINISTERUL AFACERILOR INTERNE [Precizări privind anvelopele de iarnă](https://www.mai.gov.ro/precizari-privind-anvelopele-de-iarna/)."
+      },
+      "semantic": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "hits": 6,
+        "text": "No. Romania does not have a fixed 1 November–31 March obligation. Winter tyres are required only when the road is covered with snow, ice or black ice (any date of year). Tyres marked M+S (or M.S., MS, M&S) are acceptable; tyres labelled only \"all‑season\" do not meet the rule. Penalties are substantial (class IV fines and the police can retain the vehicle registration). The requirement is set out in OUG 195/2002 and clarified by the Interior Ministry."
+      },
+      "keyword": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "hits": 6,
+        "text": "No. Romania does not have a blanket rule starting 1 November. Winter tyres are required only when the road is covered with snow, ice or black ice (on any date), not for a fixed calendar period. Tyres marked M+S are accepted; \"all‑season\" only is not. Penalties are substantial (class IV fines; police may keep the vehicle registration). Sources: OUG 195/2002 and Romanian Interior Ministry guidance."
+      },
+      "none": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "hits": 0,
+        "text": "Short answer: You should assume yes — fit winter tyres (or carry/fit approved snow chains) for the winter season beginning 1 November.\n\nDetails and practical points:\n- Romanian authorities and road services expect vehicles to be equipped for winter from about 1 November to 31 March. Police can stop and fine drivers who are not properly equipped when conditions require it (snow/ice or when signs/order require winter equipment).\n- Recommended minimum tread for winter tyres is 3 mm; many recommend 4 mm for safe grip. Winter tyres (marked M+S or the three‑peak mountain snowflake symbol) are preferred to summer tyres in cold, snowy or icy conditions.\n- If you don’t have winter tyres, you must at least carry snow chains and be able to fit them when requested or when conditions/road signs require them (especially on mountain roads).\n- Rules and enforcement can change and may vary by road/region, so if you’re planning travel in Romania check just before departure with the Romanian Police, the Ministry of Interior, or a local car club for the latest, location‑specific requirements.\n\nIf you tell me your travel dates/route I can give more specific advice."
+      }
+    },
+    {
+      "id": "at-typo",
+      "lang": "en",
+      "why": "Only annual vignettes can be re-registered after the start; a wrong plate counts as no vignette.",
+      "agent": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "tools": [
+          "knowledge_base_search",
+          "knowledge_base_read"
+        ],
+        "text": "If the 10‑day digital vignette has already started, a plate typo means the vignette is not valid for your car. For a 10‑day vignette this cannot be corrected after validity starts — only annual vignettes can be changed (fee applies) [ASFINAG FAQ](https://www.asfinag.at/maut-vignette/vignette/faq-vignette/) and tolls/penalties note this rule and the consequences.\n\nWhat to do now (do these immediately):\n1. Buy a new 10‑day digital vignette with the correct registration country + plate right away (online via the ASFINAG Mautshop or the ASFINAG app — 10‑day vignettes are valid immediately) [ASFINAG Mautshop](https://shop.asfinag.at/) [ASFINAG FAQ](https://www.asfinag.at/maut-vignette/vignette/faq-vignette/).  \n2. Keep the purchase confirmation (email/receipt) with you while driving; enforcement checks the plate in the vignette register.  \n3. If you are already on Austrian motorways and cannot buy online, stop at an official reseller (petrol station, ÖAMTC/ARBÖ/ADAC point or vending machine) and buy there — immediate validity too.\n\nWhy act now: driving with a plate that does not match a valid vignette exposes you to the substitute toll of €200 for cars (from 1 Jan 2026); unpaid, that can become an administrative fine (€300–€3,000) [ASFINAG FAQ; penalties summary](https://www.asfinag.at/).\n\nSources: [ASFINAG — Digital vignette / FAQ](https://www.asfinag.at/maut-vignette/vignette/faq-vignette/), penalties summary in the Drum Bun dataset (Ersatzmaut €200 from 2026)."
+      },
+      "semantic": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "hits": 6,
+        "text": "Sorry — that typo means your digital vignette does not cover your vehicle. Important points and what to do now:\n\n- A digital vignette is valid only for the exact country code and licence plate entered. A wrong plate is treated as no vignette.\n- You can correct plate mistakes for free only before the vignette’s validity starts. Once a vignette has started, 1‑day, 10‑day and 2‑month vignettes cannot be changed. (Only annual vignettes may be changed once for €18.)\n- Consequence: your 10‑day vignette that has already started is not valid for your car. If you drive on Austrian motorways/expressways without a valid vignette you risk the substitute toll (Ersatzmaut) of €200 for cars (since 1 Jan 2026) — and if unpaid a fine of €300–3,000.\n\nWhat you should do now\n1. Stop using Austrian motorways/expressways immediately if possible.  \n2. Buy a new digital vignette registered to the correct country code and plate (10‑day vignettes bought online are valid immediately). That will give you valid cover for future motorway use.  \n3. If you already used tolled roads with the wrong plate, you may be liable for the substitute toll; contact ASFINAG / the toll shop to explain the situation and ask about next steps or evidence you can provide.\n\nWhere to buy / contact\n- ASFINAG toll shop or app (shop.asfinag.at) or one of the sales points listed on asfinag.at.\n\nIf you want, tell me: (a) whether you already drove on motorways with the wrong plate and (b) your vehicle type — I can suggest exact wording to contact ASFINAG or next steps."
+      },
+      "keyword": {
+        "pass": false,
+        "missing": [
+          "(annual|18)"
+        ],
+        "wrong": [],
+        "hits": 6,
+        "text": "Sorry — if the 10‑day digital vignette has already started with a wrong licence plate, Austrian rules treat that as no vignette.\n\nWhat that means for you\n- A wrong plate on a digital vignette counts as no vignette. 1‑day, 10‑day and 2‑month vignettes cannot be corrected once validity has started.  \n- For a car (including camper/trailer) the substitute toll (Ersatzmaut) from 1 Jan 2026 is €200. For a motorcycle it is €100.  \n- If the substitute toll is not paid, a further fine of €300–€3,000 can be imposed.\n\nWhat to do now (recommended)\n1. Buy a new vignette immediately and enter the correct country code + plate (ASFINAG toll shop or app, petrol stations, vending machines). A 10‑day vignette is valid immediately when bought. This will cover you from now on.  \n   - ASFINAG toll shop: https://shop.asfinag.at/en  \n   - Points of sale info: https://www.asfinag.at/vertriebsstellen\n2. Expect to be liable for the substitute toll (€200 / €100) for any period you drove on tolled roads with the wrong plate. If you receive an invoice/notice from ASFINAG or the authorities, pay or follow the instructions promptly to avoid higher fines.  \n3. If you think you will be charged incorrectly or need help, contact ASFINAG customer service to explain the situation and ask about the exact next steps and payment procedure.\n\nIf you want, tell me: vehicle type (car or motorcycle) and whether you drove on Austrian motorways since the vignette started — I can help you draft a message to ASFINAG or point to the right contact."
+      },
+      "none": {
+        "pass": false,
+        "missing": [
+          "(annual|18)",
+          "200"
+        ],
+        "wrong": [],
+        "hits": 0,
+        "text": "You need to act quickly — a digital vignette is valid only for the licence plate it was issued for, so a wrong plate can mean it’s not valid for you. Steps to take now:\n\n1. Contact the seller immediately\n   - If you bought it from the official ASFINAG webshop or app, contact ASFINAG customer service right away (use the contact form or phone number on asfinag.at/toll). If you bought from a third‑party vendor (petrol station, kiosk, online reseller), contact that vendor immediately.\n2. Ask whether they can correct or cancel the vignette\n   - Some vendors may be able to cancel/replace or issue a refund and reissue a new vignette; others cannot. Ask about cancellation, reissuance and any fees.\n3. If they cannot fix it, buy a new vignette with the correct plate\n   - To avoid enforcement risk, buy a correct vignette now (official ASFINAG channel recommended).\n4. Keep all documentation\n   - Save receipts, screenshots, order confirmations and any communication proving you tried to fix the error. That can help if an enforcement officer questions you or you pursue a refund.\n5. If you get stopped or fined\n   - Show proof of purchase(s) and the steps you took to correct the mistake. You can later request a refund or appeal if the vendor cancels the incorrect vignette.\n\nPractical tips\n- Act immediately — the sooner you contact the seller, the better the chance of correction or refund.\n- Use the same payment/transaction details when communicating with the vendor to speed up verification.\n- If you’re already driving in Austria, buy the correct vignette now to avoid fines.\n\nIf you tell me where/how you bought the vignette (ASFINAG app/website, petrol station, online retailer), I can give more specific advice and wording for contacting them."
+      }
+    },
+    {
+      "id": "hu-ro-unknown-euro",
+      "lang": "hu",
+      "why": "Asked in Hungarian: from 1 Oct 2026 an unknown Euro class pays the Euro 0–III band, 39 lei for 10 days.",
+      "agent": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "tools": [
+          "country_products"
+        ],
+        "text": "10 napos rovinieta ára (indulás 2026-10-15): 39 RON — ez a rendszer az Ön által megadott Euro-besorolás hiányában a „Euro 0–III vagy ismeretlen” sáv szerint árult tétel. (Az ár a 2026-10-15-én érvényes tételből származik.)\n\nFontos teendők:\n- Vegye meg a rovinietát a TollRo/CNAIR portálon, mielőtt Románia úthálózatára hajt (külföldi rendszámú autóknál kötelező elővétel) — https://portal.etoll.ro/ ([CNAIR (RO)](https://portal.etoll.ro/)).  \n- A jogszabály és a díjszabás forrása: Ordinul MTI 888/2026 és Legea 226/2023 — árak közzétéve 2026. szeptemberi listában ([Ordinul MTI 888/2026 (RO)](https://lege5.ro/Gratuit/ge4tqnzthazti/ordinul-nr-888-2026-pentru-aprobarea-categoriilor-de-vehicule-si-a-nivelului-rovinietei), [Legea 226/2023 (RO)](https://legislatie.just.ro/public/DetaliiDocument/272230)).  \n- Büntetés kamerás ellenőrzés esetén (állapot 2026.10.01-től): a mulasztás két–négy szerese a 12 havi rovinietának (becsült sáv: 456–1 320 RON a különböző díjsávok szerint), ezért ne induljon megvétel nélkül.\n\nHa megmondja az autó Euro-besorolását vagy a rendszám országát, lekérem a pontos (Euro-sáv szerinti) árat."
+      },
+      "semantic": {
+        "pass": true,
+        "missing": [],
+        "wrong": [],
+        "hits": 6,
+        "text": "Ha nem tudod az Euro-besorolást, a járműdíj az „Euro 0–III vagy ismeretlen” sáv szerint számolandó: a 10 napos rovinieta 2026.10.01–2026.12.31 árlistája szerint 39 RON.  \n\nMegjegyzés: ha a forgalmi alapján nem igazolható az Euro-osztály, a rendszer az „ismeretlen/Euro 0–III” díjat alkalmazza. A rovinietét a TollRo (portal.etoll.ro vagy mobilapp) felületén tudod megvenni; a megvásárolt érvényesség 2026.10.15-től kezdődően 10 napig érvényes."
+      },
+      "keyword": {
+        "pass": false,
+        "missing": [
+          "39"
+        ],
+        "wrong": [],
+        "hits": 0,
+        "text": "A kérdéshez két tisztázás kell:\n\n1) Melyik járműkategóriáról van szó? (Személyautó = M1/B, kisbusz, teherautó, busz stb.) A román rovinieta díját a járműkategória határozza meg. Ha ez egy normál személyautó (maximum 9 ülés, M1/B), akkor az Euro-besorolás NEM befolyásolja a rovinieta árát. Az Euro-osztály csak nagyobb teherautóknál/buszoknál számít a díjszabásnál.\n\n2) Biztos, hogy 10 napos rovinietát szeretne? Romániában gyakori érvényességi időszakok: 1 nap, 7 nap, 30 nap, 90 nap, 12 hónap stb. (10 napos konkrét opciót nem minden terméklistában szerepel). Kérem erősítse, hogy tényleg 10 napot szeretne-e, vagy elég Önnek például a 7 vagy a 30 napos.\n\nHa személyautóról van szó: írja meg, hogy személyautó-e (vagy küldje a forgalmi papír típusmegjelölését), és megerősítem a pontos elérhető opciókat és az aktuális árat, illetve segítek megvenni/hol tudja megvenni. Ha teherautó vagy busz, szükség lesz az Euro-besorolásra — az Euro-osztályt a forgalmi engedélyen (forgalmi) találja meg, és ha megírja nekem, kiszámolom a díjat."
+      },
+      "none": {
+        "pass": false,
+        "missing": [
+          "39"
+        ],
+        "wrong": [],
+        "hits": 0,
+        "text": "A gépjármű Euro-besorolását így tudja ellenőrizni:\n- Nézze meg a forgalmi engedélyt (hatósági igazolást): rajta szerepel az emissziós/besorolás mező, gyakran „Euro 3/4/5/6” formában.  \n- Ha a forgalmiban nincs egyértelműen feltüntetve, a motorkód vagy a gyártási év + típusszám alapján a gyártó/forgalmazó tud segíteni, vagy egy műszaki vizsgahely.  \n- Alternatív megoldás: a jármű VIN-számával a gyártó online adatbázisaiból is lekérdezhető az Euro‑szint.\n\nA rovinietta (román autópálya-matrica) kapcsán fontos: Románia általában nem kínál kifejezetten 10 napos opciót. A tipikus időtartamok (a járműkategóriától függően) röviden: 1 nap, 7 nap, 30 nap, 90 nap és éves. Tehát ha október 15-én szeretne érvényességet kezdeni, a 10 napra vonatkozó választás helyett a 7 napos vagy a 30 napos vignetta közül kell választania.\n\nA pontos árak járműkategóriától (pl. személyautó = kategória B), és az aktuális díjszabástól függenek, ezért a legbiztosabb a hivatalos értékesítési oldal vagy applikáció ellenőrzése a vásárlás előtt. Hivatalos információt és vásárlást az országos közútkezelő oldalán vagy a rovinieta mobilalkalmazásban talál (keressen rá: „rovinieta Romania official” vagy a CNADNR/ CNAIR oldalak). Általános tájékoztatásként a rövid (napos/hét) matricák díja személyautóknál általában alacsonyabb, a havi és éves jóval drágábbak — de az aktuális forint/euró árakat és a pontos összegeket csak a hivatalos rendszer mutatja meg a vásárláskor.\n\nSzeretné, hogy megnézzem az aktuális (2026.10.01-i) díjakat és a pontos opciókat a hivatalos román rovinieta-oldalon? Ha igen, írja meg a jármű kategóriáját (pl. személyautó B) — ha nem tudja a kategóriát, írja le a típust és a tömeget/vonatkoztató adatokat, és segítek beazonosítani."
+      }
+    },
+    {
+      "id": "hu-yearly-counties",
+      "lang": "hu",
+      "why": "Asked in Hungarian: two county vignettes (Csongrád-Csanád, Bács-Kiskun) plus the 2026 M1 regional one beat the national annual vignette.",
+      "agent": {
+        "pass": false,
+        "missing": [
+          "Bács-Kiskun"
+        ],
+        "wrong": [],
+        "tools": [
+          "country_products"
+        ],
+        "text": "Legolcsóbb 2026-ban (az Ön útvonalához: M43 → M5 → M0 → M1, Nagylak → Hegyeshalom):\n\n1) Vegyen éves M1 regionális e‑matricát (Pest + Fejér + Komárom‑Esztergom + Győr‑Moson‑Sopron) — 15 000 HUF. Ez lefedi az M0/M1 érintett szakaszait és az M5 egyes részeit a leírás szerint.  \n2) Vegyen éves megyei e‑matricát Csongrád‑Csanád megyére — 7 190 HUF (M43 kezdete).  \n3) Vegyen éves megyei e‑matricát Bács‑Kiskun megyére — 7 190 HUF (M5 déli szakasza).  \n\nÖsszesen: 29 380 HUF — olcsóbb, mint az országos éves (61 760 HUF). Források: Magyar Közút hivatalos árlista és termékleírások [Magyar Közút (HU)](https://nemzetiutdij.hu/api/uploads/e_matrica_arak_2026_pdf_611db0ecc1.pdf) és a termékoldal [e‑matrica hivatalos shop](https://ematrica.nemzetiutdij.hu/).  \n\nVásárlás: az e‑matricákat a hivatalos online shopban vegye meg, a helyes rendszám és országkód pontos megadása kötelező — hibás beírás esetén bírság jár."
+      },
+      "semantic": {
+        "pass": false,
+        "missing": [
+          "Bács-Kiskun"
+        ],
+        "wrong": [],
+        "hits": 6,
+        "text": "Legolcsóbb (éves) megoldás 2026-ban: vedd meg az M1 regionális e‑matricát + két megyei éves matricát.\n\nMire van szükséged\n- M1 regionális e‑matrica (Pest + Fejér + Komárom‑Esztergom + Győr‑Moson‑Sopron) — 15 000 HUF (2026). Ez lefedi az M0 és az M1 budapesti/nyugati szakaszait, amelyeken Hegyeshalom felé haladsz.\n- Komáron felől délre haladva az M43 és az M5 kezdeti szakaszai Csongrád‑Csanád és Bács‑Kiskun megyéken mennek át, ezért meg kell venned a Csongrád‑Csanád és a Bács‑Kiskun megyei éves matricát is — megyénként 7 190 HUF (2026).\n\nÖsszköltség\n- M1 regionális: 15 000 HUF\n- Csongrád‑Csanád éves megyei: 7 190 HUF\n- Bács‑Kiskun éves megyei: 7 190 HUF\nÖsszesen: 29 380 HUF (2026)\n\nMiért ez a legolcsóbb\n- Alternatíva lenne az országos éves e‑matrica (~61 760 HUF), ami drágább.\n- Ha a négy megyei matricát (Pest+Fejér+Komárom‑Esztergom+Győr‑Moson‑Sopron) vennéd meg külön az M1 helyett, az 4×7 190 = 28 760 HUF lenne — de ez akkor is csak az M1‑hez tartozó megyéket fedné, így még hozzá kell adni Csongrád‑Csanád és Bács‑Kiskun díját, tehát ez drágább összességében.\n\nFontos tudnivalók\n- A rendszámot szóköz nélkül add meg, és válaszd ki a helyes országkódot (RO, ha román rendszámod van). A rendszer a rendszám+ország+kategória összevetését végzi.\n- Vásárold meg mielőtt autópályára hajtasz; ha véletlenül felhajtottál, 60 perc áll rendelkezésre vásárlásra, de ha ellenőrzésnél nem veszed meg, bírság jár.\n- Bírság: 27 790 HUF pótdíj, ha 60 napon belül fizetsz; 95 730 HUF később. Kamerák figyelik a szakaszokat.\n\nHa kéred, meg tudom mutatni a pontos vásárlóhelyeket (hivatalos webshop, applikációk, határközeli benzinkutak) és segítek a vásárlásnál."
+      },
+      "keyword": {
+        "pass": false,
+        "missing": [
+          "Bács-Kiskun"
+        ],
+        "wrong": [],
+        "hits": 1,
+        "text": "Röviden: nincs elég részlet a csatolt forrásokban ahhoz, hogy konkrét árakat mondjak, de általánosan két lehetőség közül érdemes választani 2026-ban:\n\n1) Országos éves e‑matrica (e‑vignette) — lefedi az összes M‑út (M43, M5, M0, M1) egyetlen matricával. Ha évente többször végigmegy ugyanazon a teljes vonalon (vagy sok különböző gyorsforgalmi szakaszt használ), az országos éves a legegyszerűbb megoldás, és gyakran a legkényelmesebb.\n\n2) Éves megyei matricák kombinációja vagy az új M1 regionális matrica — ha csak néhány megyén haladsz át, olcsóbb lehet megyei éves matricákból összeállítani a fedezetet, illetve az M1‑es szakaszra 2026 óta létezik külön M1 regionális matrica, ami az M1 egyes szakaszaira vonatkozik és olcsóbb lehet, mint az országos éves.\n\nMely megyéken kell áthaladnod (jellemző útvonal, Nagylak → Szeged → Budapest felé → Hegyeshalom):\n- Csongrád‑Csanád (Nagylak, Szeged környéke) — M43/M5 csatlakozás\n- Bács‑Kiskun (M5 északi szakasza egyes útvonalakon érintheti)\n- Pest megye (M0 körgyűrű)\n- Győr‑Moson‑Sopron (Hegyeshalom és az M1 nyugati része)\n(Ez tájékoztató; a pontos áthaladó megyék attól függnek, hol lépsz fel/le az autópályára.)\n\nAjánlás a továbblépéshez:\n- Ha rendszeresen teljes szakaszon jársz és sokszor mész, valószínűleg az országos éves e‑matrica a legegyszerűbb és gyakori esetben a legkedvezőbb. \n- Ha viszont csak az említett néhány megye kisebb szakaszait használod, nézd meg az éves megyei matricák árát az érintett megyékre (Csongrád‑Csanád, Bács‑Kiskun, Pest, Győr‑Moson‑Sopron) és hasonlítsd össze az országos éves, illetve az új M1 regionális matricával.\n\nA pontos árak és a konkrét, legolcsóbb kombináció megállapításához kérlek nézd meg a hivatalos e‑matrica árakat és térképes fedettséget a nemzetiutdij.hu oldalon, vagy add meg a pontos fel- és lehajtóhelyeket (ahol felmész és ahol lehajtasz), és segítek kiszámolni a legolcsóbb kombinációt."
+      },
+      "none": {
+        "pass": false,
+        "missing": [
+          "regionális",
+          "Bács-Kiskun"
+        ],
+        "wrong": [],
+        "hits": 0,
+        "text": "Röviden: ha csak Nagylak–M43 → M5 → M0 → M1 útvonalon jársz évi többször, akkor általában a megyei (megyei éves) matricák kombinációja a legolcsóbb. Pontos megyei kombináció, amely lefedi a teljes útvonalat:\n\n- Csongrád‑Csanád (Nagylak / Szeged környéke, M43),\n- Bács‑Kiskun (M5 Szeged–Kecskemét szakasz),\n- Pest (M5 közel Budapest, és M0),\n- Győr‑Moson‑Sopron (M1 Hegyeshalom felé).\n\nTehát ezek négy megyei éves e‑matricát kell megvenned. Ez általában olcsóbb, mint az országos éves matrica, ha csak ezeket a szakaszokat használod rendszeresen; ha viszont más autópályákat is gyakran használni fogsz, vagy sok áthaladásodon túl több megye érintett, előfordulhat, hogy az országos éves matrica már olcsóbb vagy praktikusabb.\n\nMivel a díjak évente változhatnak, és 2026 aktuális árszintjét a Nemzeti Útdíjfizetési Szolgáltató (NÚSZ) oldalán tudod ellenőrizni, érdemes ott megnézni a 2026-os éves megyei és országos díjakat, illetve egy gyors összehasonlítást végezni (4 megyei ár vs országos ár). Ha kéred, megnézem a NÚSZ aktuális árait és kiszámolom a pontos költségösszehasonlítást — engedélyezd, hogy lekössem az aktuális adatokat, vagy küldd át az ott talált árakat."
+      }
+    }
+  ]
+}

@@ -190,5 +190,29 @@
     ],
     "mustNot": [],
     "why": "Only annual vignettes can be re-registered after the start; a wrong plate counts as no vignette."
+  },
+  {
+    "id": "hu-ro-unknown-euro",
+    "lang": "hu",
+    "q": "Nem tudom, milyen Euro-besorolású az autóm. Mennyibe kerül a 10 napos román rovinieta, ha október 15-én indulok?",
+    "must": [
+      "39"
+    ],
+    "mustNot": [
+      "31[.,]55"
+    ],
+    "why": "Asked in Hungarian: from 1 Oct 2026 an unknown Euro class pays the Euro 0–III band, 39 lei for 10 days."
+  },
+  {
+    "id": "hu-yearly-counties",
+    "lang": "hu",
+    "q": "Évente többször megyek Nagylakról Hegyeshalomig az M43, M5, M0 és M1 úton. Melyik éves magyar matrica vagy matricakombináció a legolcsóbb 2026-ban?",
+    "must": [
+      "regionális",
+      "Bács-Kiskun",
+      "Csongrád"
+    ],
+    "mustNot": [],
+    "why": "Asked in Hungarian: two county vignettes (Csongrád-Csanád, Bács-Kiskun) plus the 2026 M1 regional one beat the national annual vignette."
   }
 ]
