@@ -9,6 +9,8 @@
 //   sanity exec scripts/kb.ts --with-user-token -- dismiss <issueId>
 //   sanity exec scripts/kb.ts --with-user-token -- apply <issueId,issueId,...>
 //   sanity exec scripts/kb.ts --with-user-token -- instruct <sourceId,sourceId> <rebuildPath,path|-> <statement>
+//   sanity exec scripts/kb.ts --with-user-token -- refresh        (re-check sources, file change issues)
+//   sanity exec scripts/kb.ts --with-user-token -- job <jobId>
 import {getCliClient} from 'sanity/cli'
 
 export const KB = 'kbv1SRpT2A3t'
@@ -43,14 +45,21 @@ async function snapshot(client: any) {
     client.context.issues.list(),
     client.context.instructions.list(),
   ])
-  let web = 0
+  // Count what the build actually read: ready sources only, and a page's
+  // sitemap.xml import as the same page.
+  const webPages = new Set<string>()
   let dataset = 0
   let cursor: string | undefined
   do {
     const page = await client.context.sources.list({limit: 100, cursor})
-    for (const src of page.data) src.kind === 'web' ? web++ : src.kind === 'dataset' ? dataset++ : null
+    for (const src of page.data) {
+      if (src.status !== 'ready') continue
+      if (src.kind === 'web') webPages.add(String(src.canonicalUrl).replace(/\/sitemap\.xml$/, ''))
+      else if (src.kind === 'dataset') dataset++
+    }
     cursor = page.nextCursor ?? undefined
   } while (cursor)
+  const web = webPages.size
   let k = 0
   const key = () => `k${k++}`
   const doc = {
@@ -147,6 +156,10 @@ async function main() {
     console.log('rescoped', res.id, res.scopeSourceIds)
   } else if (cmd === 'rebuild') {
     for (const path of arg.split(',')) console.log(path, JSON.stringify(await client.context.entries.rebuild({path})))
+  } else if (cmd === 'refresh') {
+    console.log('refresh', JSON.stringify(await client.context.refresh()))
+  } else if (cmd === 'job') {
+    console.log(JSON.stringify(await client.context.jobs.get({jobId: arg}), null, 1).slice(0, 3000))
   } else if (cmd === 'endpoints') {
     for (const m of await client.context.mcpEndpoints.list()) console.log(m.name, "|", m.title, "|", JSON.stringify(m.sources))
   } else if (cmd === 'instructions') {
