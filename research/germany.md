@@ -116,3 +116,8 @@ Not found despite searching: a page claiming "Stuttgart Umweltzone abolished" or
 - Whether the Infrastrukturabgabengesetz (InfrAG) was formally repealed (Bundestag Drucksache 20/8092, 23 Aug 2023, appears to be a repeal bill). The PDF could not be read.
 - Frankfurt city page (frankfurt.de) could not be fetched because of bot protection. Frankfurt facts rely on UBA and IHK.
 - Mainz lifting: also on mainz.de per a search snippet; only the UBA entry was fetched.
+
+## Update 1 Oct 2026
+
+- New federal transport minister Steffen Bilger (CDU) said on a car toll: "kein Projekt, für das ich jetzt eine Initiative starten werde". [https://www.nordkurier.de/politik/von-der-pkw-maut-laesst-bilger-die-finger-weg-4798187, DE, press, 20 Aug 2026] § 1 BFStrMG still limits the toll to goods vehicles over 3.5 t.
+- Munich (green sticker; diesel Euro 4 and older banned inside the Mittlerer Ring, Euro 5 allowed) and the 3PMSF winter-tyre rule rechecked: unchanged.

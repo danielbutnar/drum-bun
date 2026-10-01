@@ -31,6 +31,15 @@ export const sources: Doc[] = [
     country: 'de',
     pageDate: '2026-06-23',
   }),
+  source('de-nordkurier-bilger-2026', {
+    title: 'Von der Pkw-Maut lässt Bilger die Finger weg',
+    url: 'https://www.nordkurier.de/politik/von-der-pkw-maut-laesst-bilger-die-finger-weg-4798187',
+    publisher: 'Nordkurier',
+    language: 'de',
+    trust: 'press',
+    country: 'de',
+    pageDate: '2026-08-20',
+  }),
   source('de-uba-umweltzonen', {
     title: 'Umweltbundesamt: Umweltzonen in Deutschland (map and list)',
     url: 'https://gis.uba.de/website/umweltzonen/',
@@ -187,8 +196,8 @@ export const country: Doc = {
   name: localized('Germany', {ro: 'Germania', de: 'Deutschland', hu: 'Németország'}),
   currency: 'EUR',
   carTollSummary:
-    'No motorway toll or vignette for cars up to 3.5 t. The German car toll was struck down by the EU Court of Justice in 2019, and in June 2026 the transport minister said none is planned.',
-  sources: refs(S('de-bfstrmg-1'), S('de-curia-c-591-17'), S('de-nordkurier-no-toll-2026')),
+    'No motorway toll or vignette for cars up to 3.5 t. The German car toll was struck down by the EU Court of Justice in 2019, and in August 2026 the new transport minister, Steffen Bilger, said he would not start a new one.',
+  sources: refs(S('de-bfstrmg-1'), S('de-curia-c-591-17'), S('de-nordkurier-no-toll-2026'), S('de-nordkurier-bilger-2026')),
 }
 
 const free = (id: string, road: string, from: string, to: string, lengthKm: number): Doc => ({
@@ -356,7 +365,7 @@ export const claims: Doc[] = [
     verdict: 'outdated',
     correctedBy: ['section-de-a8-walserberg-munich', 'section-de-a3-passau-frankfurt', 'section-de-a8-munich-stuttgart', 'section-de-a3-a9-passau-berlin'],
     explanation:
-      'The EU Court of Justice struck the car toll down on 18 Jun 2019 (C-591/17). There is no car toll in 2026, and the minister said in June 2026 that none is planned.',
+      'The EU Court of Justice struck the car toll down on 18 Jun 2019 (C-591/17). There is no car toll in 2026, and the new transport minister said in August 2026 that he would not start one.',
   }),
   claim('de-munich-euro5-ban', {
     statement: 'Euro 5 diesels may no longer enter the Munich low-emission zone.',

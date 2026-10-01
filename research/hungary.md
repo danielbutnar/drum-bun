@@ -379,3 +379,12 @@ These are not confirmed by an official page in this session, so they must not be
 10. **Emission zones.** No permanent low-emission zone for passenger cars was found on official sources. Budapest has smog-alert driving bans by Hungarian environmental class codes (city ordinance 69/2008 (XII. 10.) Főv. Kgy., per secondary sources). Whether and how they apply to foreign-registered cars is not confirmed.
 11. **Whether Hungary gets RO/DE owner data through the EU cross-border exchange (Directive 2019/520)** for e-vignette surcharges in practice. The decree allows automated EU register searches (§11(5)b), but the operator's page says it relies on collection partners because it lacks agreements.
 12. **Timing of the M4 Kisújszállás–Berettyóújfalu completion (2029–2032).** Only regional news sources, not an official project page.
+
+## Update 1 Oct 2026
+
+- All 2026 D1/D1M prices rechecked against the official 2026 price list and decree 45/2020 (XI. 28.) ITM (net.jogtar.hu, version in force from 1 Jan 2026): unchanged.
+- The M1 regional vignette has no end date: §22/A(4) only says it can be bought "első alkalommal a 2026. évre". Only the Borsod-Abaúj-Zemplén discount is limited to 2026.
+- 2027 prices: still not published by the operator on 1 Oct 2026 (press figures from 8 Sep 2026 are CPI estimates). §8(4) requires publication at least 30 days before 1 Jan 2027.
+- "Less than half the national annual vignette" (half of 61,760 = 30,880 HUF) holds for the Nădlac route (Csongrád-Csanád + Bács-Kiskun + M1 regional = 29,380) and the Ártánd route (22,190), not for a route over the M3 (31,880).
+- Decree 45/2020 Annex 1: the Pest vignette covers the M1 from km 7+680 to 38+625, Komárom-Esztergom from 47+975, Fejér 26+112 to 56+0, so about 9.35 km (Bicske–Szárliget) is covered only by Fejér.
+- Border traffic for the post: Romanian Border Police, 3 Jan 2020: from 20 Dec 2019 to 3 Jan 2020 about 941,000 people crossed at the western border crossing points, over 361,000 at Nădlac II. [https://www.politiadefrontiera.ro/ro/main/i-peste-25-milioane-de-persoane-au-tranzitat-frontiera-in-perioada-sarbatorilor-de-iarna-19003.html, RO, 3 Jan 2020] No counts exist since Romania joined Schengen for land borders (1 Jan 2025).

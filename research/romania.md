@@ -120,3 +120,12 @@ Low-trust pages that are still online. Add them to the knowledge base as contrad
 - Whether the winter-tyre rule (art. 102(1) pct. 28) applies to motorcycles. Not verified.
 - Current intensity of random police checks near Nădlac II and Borș. The EU list only covers formal internal border controls.
 - CNAIR's reported request to postpone TollRo to April 2027 (hotnews.ro, antena3.ro). Not found on cnadnr.ro.
+
+## Update 1 Oct 2026
+
+- The new system started as planned. CNAIR, 30 Sep 2026: the TollRo platform (etoll.ro) "a fost recepționată și este operațională, de la ora 00.00". [https://www.cnadnr.ro/ro/comunicare/comunicate-de-presa/interes-general/noua-platform%C4%83-oficial%C4%83-pentru-plata-toll-%C8%99i, RO, 30 Sep 2026] On day one CNAIR reported a card-payment and confirmation e-mail incident and said the purchase and validity of rovinietas were not affected. [https://www.cnadnr.ro/ro/comunicare/comunicate-de-presa/interes-general/aten%C8%9Bie-incident-tehnic-%C3%AEn-platforma-tollro, RO, 1 Oct 2026]
+- The Senate bill is B517/2026: registered for debate, no urgent procedure, no action recorded on 1 Oct 2026. [https://www.senat.ro/legis/lista.aspx?nr_cls=b517&an_cls=2026, RO, checked 1 Oct 2026] CNAIR's own request to postpone to 1 Apr 2027 (18 Sep 2026) is now on cnadnr.ro, which resolves the last Unverified item. [https://www.cnadnr.ro/ro/comunicare/comunicate-de-presa/interes-general/cnair-solicitat-guvernului-%C8%99i-ministerului, RO, 18 Sep 2026]
+- Category A prices from 1 Oct 2026 confirmed on the official TollRo price list (portal.etoll.ro, tariff page), identical to the table above. The unknown-class rule is in the law itself: Legea 226/2023 art. 6(3), "vehiculul se încadrează în clasa de emisii Euro 0".
+- Legea 226/2023 art. 5(2^1) (added by Legea 275/2024): "utilizatorii vehiculelor înmatriculate în România pot achita rovinieta pentru ziua în curs până cel târziu la ora 24 a zilei următoare". Foreign-registered cars must still buy before driving.
+- erovinieta.ro now redirects to portal.etoll.ro; the old /vignettes-portal-web/ path returns 404.
+- Fetești–Cernavodă: Legea 226/2023 art. 24 repeals OG 15/2002 and ends unused bridge passes, but the live TollRo price list still lists Fetești crossings. Still unverified; no route in the dataset crosses the Danube bridges.

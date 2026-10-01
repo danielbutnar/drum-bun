@@ -1,6 +1,7 @@
 // Seeds the dataset from studio/seed/*. Idempotent: every document has a
 // fixed ID and is written with createOrReplace, so re-running after a fix
 // updates in place. Run with: pnpm --filter studio seed
+// Only some documents: sanity exec scripts/seed.ts --with-user-token -- --only id1,id2
 //
 // `sanity exec --with-user-token` supplies the logged-in CLI user's token;
 // nothing secret lives in this repo.
@@ -69,15 +70,19 @@ async function main() {
   checkReferences(docs)
   const client = getCliClient({apiVersion: '2026-09-01'})
   const dryRun = process.argv.includes('--dry-run')
-  const counts = docs.reduce<Record<string, number>>((acc, d) => ((acc[d._type] = (acc[d._type] ?? 0) + 1), acc), {})
-  console.log(`${docs.length} documents`, counts)
+  const onlyArg = process.argv[process.argv.indexOf('--only') + 1]
+  const only = process.argv.includes('--only') ? new Set(onlyArg.split(',')) : null
+  const selected = only ? docs.filter((d) => only.has(d._id)) : docs
+  if (only && selected.length !== only.size) throw new Error(`Unknown ids: ${[...only].filter((id) => !docs.some((d) => d._id === id)).join(', ')}`)
+  const counts = selected.reduce<Record<string, number>>((acc, d) => ((acc[d._type] = (acc[d._type] ?? 0) + 1), acc), {})
+  console.log(`${selected.length} documents`, counts)
   if (dryRun) return
   // One transaction: countries and sources reference each other, and strong
   // references must resolve when the transaction commits.
   const tx = client.transaction()
-  for (const doc of docs) tx.createOrReplace(clean(doc))
-  const body = JSON.stringify(docs).length
-  console.log(`committing ${docs.length} documents (${Math.round(body / 1024)} KB)`)
+  for (const doc of selected) tx.createOrReplace(clean(doc))
+  const body = JSON.stringify(selected).length
+  console.log(`committing ${selected.length} documents (${Math.round(body / 1024)} KB)`)
   await tx.commit({visibility: 'sync'})
   console.log('done')
 }

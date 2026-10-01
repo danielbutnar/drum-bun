@@ -55,8 +55,8 @@ export const sources: Doc[] = [
     pageDate: '2025-08-29',
   }),
   source('ro-erovinieta', {
-    title: 'erovinieta.ro (CNAIR portal, sales until 30 Sep 2026)',
-    url: 'https://www.erovinieta.ro/vignettes-portal-web/',
+    title: 'erovinieta.ro (CNAIR portal, sales until 30 Sep 2026; now redirects to TollRo)',
+    url: 'https://www.erovinieta.ro/',
     publisher: 'CNAIR',
     language: 'ro',
     trust: 'official',
@@ -87,6 +87,24 @@ export const sources: Doc[] = [
     trust: 'press',
     country: 'ro',
     pageDate: '2026-09-23',
+  }),
+  source('ro-cnair-tollro-live', {
+    title: 'CNAIR: the TollRo platform (etoll.ro) is operational from 00:00 on 1 October 2026',
+    url: 'https://www.cnadnr.ro/ro/comunicare/comunicate-de-presa/interes-general/noua-platform%C4%83-oficial%C4%83-pentru-plata-toll-%C8%99i',
+    publisher: 'CNAIR',
+    language: 'ro',
+    trust: 'official',
+    country: 'ro',
+    pageDate: '2026-09-30',
+  }),
+  source('ro-senate-b517-2026', {
+    title: 'Senat: B517/2026, bill to postpone the Legea 226/2023 deadlines to 1 Apr 2027 (registered, not debated)',
+    url: 'https://www.senat.ro/legis/lista.aspx?nr_cls=b517&an_cls=2026',
+    publisher: 'Senatul României',
+    language: 'ro',
+    trust: 'official',
+    country: 'ro',
+    pageDate: '2026-10-01',
   }),
   source('ro-mai-winter-tyres', {
     title: 'MAI: precizări privind anvelopele de iarnă',
@@ -195,7 +213,7 @@ function rovinieta(
     validity: {
       ...validity,
       wording:
-        'Starts at 00:00 on the first day and ends at 24:00 on the last day. Bought for the same day, it starts at the moment of purchase, never earlier (Legea 226/2023 art. 6).',
+        'Starts at 00:00 on the first day and ends at 24:00 on the last day. Bought for the same day, it starts at the moment of purchase, never earlier (Legea 226/2023 art. 6). Exception: cars registered in Romania may pay for the current day until 24:00 on the next day (art. 5(2^1)); foreign-registered cars must buy before driving.',
     },
     prices: [
       price(olderEur, 'EUR', '2025-01-01', '2025-08-31', 'ro-cnair-increase-2025'),
@@ -205,7 +223,7 @@ function rovinieta(
     purchase: channels,
     plateBound: true,
     summary:
-      'Needed on every Romanian national road (from 1 Oct 2026 except national-road sections inside municipalities). From 1 Oct 2026 the price depends on the Euro class in the registration papers; a car whose Euro class cannot be shown pays the Euro 0 rate.',
+      'Needed on every Romanian national road (from 1 Oct 2026 except national-road sections inside municipalities). From 1 Oct 2026 the price depends on the Euro class in the registration papers; a car whose Euro class cannot be shown pays the Euro 0 rate. The new system went live at 00:00 on 1 Oct 2026 as planned; a Senate bill to postpone it (B517/2026) had not been debated by then.',
     penalty: penalty({
       min: 456,
       max: 1320,
@@ -213,17 +231,7 @@ function rovinieta(
       note: 'From 1 Oct 2026: two to four times the 12-month rovinietă for the car (456–1,320 lei by band, our arithmetic from art. 18). Until 30 Sep 2026: 500–1,000 lei. Checked by cameras.',
       source: 'ro-legea-226-2023',
     }),
-    pendingChanges: withKeys([
-      {
-        _type: 'pendingChange',
-        summary:
-          'A bill registered in the Senate on 21 Sep 2026 would postpone the new system to 1 Apr 2027. CNAIR confirmed the 1 Oct 2026 start on 25 Sep; the bill was not adopted when this was checked.',
-        wouldTakeEffect: '2027-04-01',
-        checkAgainBy: '2026-10-01',
-        source: ref(S('ro-senate-postpone-bill')),
-      },
-    ]),
-    sources: refs(S('ro-legea-226-2023'), S('ro-order-888-2026'), S('ro-cnair-tollro-announcement'), S('ro-cnair-prices-sep-2026')),
+    sources: refs(S('ro-legea-226-2023'), S('ro-order-888-2026'), S('ro-cnair-tollro-announcement'), S('ro-cnair-tollro-live'), S('ro-senate-b517-2026'), S('ro-cnair-prices-sep-2026')),
   }
 }
 

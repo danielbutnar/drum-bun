@@ -202,3 +202,9 @@ Official pages with stale or misleading wording (keep them, but give them lower 
 - **A 7 near Linz**: the 2019 parliament news listed "Mühlkreis Autobahn A7 bei Linz" among the new exemptions. Current official lists (Mautordnung v87, oesterreich.gv.at) do not include the A 7. Status and history not resolved; treat the A 7 as subject to vignette.
 - **§ 134 KFG amendment BGBl I Nr. 79/2026** (a new version in force from 1 Oct 2026): the €10,000 ceiling appears in both the current and the next version; other changes not checked.
 - **Motorcycle section-toll rate**: the Mautordnung tables show one tariff for all vehicles ≤ 3.5 t. No ASFINAG page was found that says in words that motorcycles pay the same as cars.
+
+## Update 1 Oct 2026
+
+- 2027 vignette prices: still not published (ASFINAG pages show 2026 prices only; no new price regulation in RIS; the shop sells no 2027 products).
+- § 11 BStMG: an annual vignette can be re-registered to another plate once during its validity, the registration holder must stay the same, and the fee may not exceed 20 euros (ASFINAG charges 18). [https://shop.asfinag.at/en/info-pages/license-plate/, EN, undated]
+- Digital-only from 1 Dec 2026, Ersatzmaut 200 euros (Mautordnung v87), the 18-day rule and the Walserberg exemption (§ 13(1a) BStMG) rechecked: unchanged.

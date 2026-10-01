@@ -433,11 +433,11 @@ export const rules: Doc[] = [
     topic: 'tollHandling',
     title: 'Enter the plate exactly: a typo counts as no vignette (Austria)',
     requirement:
-      'A digital vignette only counts for the plate and country registered. Correct typos for free before validity starts. After the start, only annual vignettes can be changed, for 18 euros; 1-day, 10-day and 2-month vignettes cannot.',
+      'A digital vignette only counts for the plate and country registered. Correct typos for free before validity starts. After the start, only annual vignettes can be changed: once, for 18 euros, and only if the registration holder stays the same; 1-day, 10-day and 2-month vignettes cannot.',
     vehicles: ['car', 'carTrailer', 'camper', 'motorcycle'],
     severity: 'critical',
     penalty: carPenalty,
-    sources: refs(S('at-mautordnung-v87-en'), S('at-plate-correction')),
+    sources: refs(S('at-mautordnung-v87-en'), S('at-plate-correction'), S('at-bstmg-11')),
   },
   {
     _id: 'rule-at-equipment',

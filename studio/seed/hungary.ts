@@ -311,7 +311,7 @@ export const m1Regional: Doc = {
   prices: [price(15000, 'HUF', Y26[0], Y26[1], 'hu-prices-2026-pdf')],
   purchase: channels,
   plateBound: true,
-  summary: 'Covers the same roads as four county vignettes (4 × 7,190 HUF) for 15,000 HUF. Whether it continues in 2027 is not confirmed.',
+  summary: 'Covers the same roads as four county vignettes (4 × 7,190 HUF) for 15,000 HUF. The decree sets no end date (first sold for 2026, §22/A(4)); the 2027 price is not published yet.',
   penalty: surcharge,
   sources: refs(S('hu-m1-regional'), S('hu-prices-2026-pdf'), S('hu-decree-45-2020')),
 }
@@ -361,7 +361,7 @@ export const sections: Doc[] = [
   tolled('m5-114-67', 'M5', 'Kiskunfélegyháza-dél (114)', 'Lajosmizse (67)', 50, 'bacs-kiskun'),
   tolled('m5-67-13', 'M5', 'Lajosmizse (67)', 'Budapest (13)', 55, 'pest'),
   tolled('m0-m5-m1', 'M0', 'M5 junction', 'M1 junction', 35, 'pest', 'The whole M0 ring is tolled and covered by the Pest county vignette.'),
-  tolled('m1-budapest-39', 'M1', 'Budapest city limit', 'Bicske (39)', 32, 'pest'),
+  tolled('m1-budapest-39', 'M1', 'Budapest city limit', 'Bicske (39)', 31, 'pest'),
   tolled(
     'm1-39-48',
     'M1',
