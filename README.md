@@ -27,7 +27,7 @@ Sanity dataset ── 20 routes · 22 road sections · 28 toll products with dat
         │         16 rules · 7 zones · 26 claims seen online · 85 sources
         ├──► GROQ ──► planner (web/lib/planner.ts): pure, unit-tested, no model
         │
-        ├──► Knowledge Base "Drum Bun road rules" (dataset + 23 web pages)
+        ├──► Knowledge Base "Drum Bun road rules" (dataset + 20 web pages)
         │      issues resolved and standing instructions written via @sanity/client context API
         ▼
 Sanity Context MCP: drum-bun-kb (Knowledge Base mode) + drum-bun-rules (GROQ mode, embeddings)
@@ -70,5 +70,5 @@ pnpm --filter studio exec sanity exec scripts/kb.ts --with-user-token -- issues
 ## Limits
 
 - Private cars, campers up to 3.5 t, cars with trailers and motorcycles; 4 Romanian start cities × 5 destinations via Hungary and Austria. No Czech/Slovak routes yet.
-- Facts were checked on 29 September 2026. Prices not published yet are shown as estimates; pending laws (a Senate bill could postpone Romania's new system) are shown as pending, never applied.
+- Facts were checked on 29 September 2026; the time-sensitive ones (Romania's switch on 1 October, which happened as planned, and Austria's and Hungary's 2027 prices, still unpublished) again on 1 October. Prices not published yet are shown as estimates; pending laws are shown as pending, never applied.
 - Distances are approximate. Not legal advice.
