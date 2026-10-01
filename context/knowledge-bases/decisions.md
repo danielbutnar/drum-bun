@@ -13,3 +13,14 @@ The first build of "Drum Bun road rules" (122 sources: 103 dataset documents, 19
 | Merge "No car toll: status and ECJ ruling" | merge | dismissed | "Does Germany charge cars?" is its own question. |
 
 Missed by the build, caught by reading entries: `winter_equipment/fact_checks` quoted the Romanian Interior Ministry page's fine (603–1,340 lei), computed with an old penalty-point value. Since 1 Jul 2026 the class IV fine is 1,946.25–4,325 lei. Fixed with a standing instruction scoped to that page and the dataset rule, and a rebuild of the two winter entries.
+
+## Refresh, 1 Oct 2026 (Romania's switch day)
+
+The dataset was updated for the switch (the rovinietă went live as planned, Senate bill B517/2026 not debated, next-day payment for Romanian-registered cars, Germany's new transport minister). `kb.ts refresh` re-checked every source (about 80 minutes) and filed 4 issues, none critical; `kb.ts rebuild` rewrote `tolls/romania/pricing` and `tolls/germany/toll_free_routes` from the new documents.
+
+| Issue | Kind | Decision | Why |
+| --- | --- | --- | --- |
+| CNAIR TollRo announcement not cited by the purchase entry | update | applied | An official source for the channels the entry already lists. |
+| Verivox: post offices and MAK as sellers, 16,220 HUF surcharge, keep the receipt 2 years | update | applied | Three more outdated claims; the operator says 27,790 HUF (2026) and 3 years from the end of validity. |
+| kfz-teile.at and InfoContact.ro quote the 120-euro substitute toll | update | applied | Further examples of the pre-2026 amount; 200 euros since 1 Jan 2026. |
+| Wall-Street.ro on a German car vignette | update | applied | An example of the claim the EU Court of Justice ended in 2019. |

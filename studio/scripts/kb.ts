@@ -35,6 +35,12 @@ const WHY: Record<string, string> = {
   'issue.M67EVP24NZQCBRYZHZA3MDTZAC':
     'Both were true, for different dates: 120 euros before 1 Jan 2026, 200 euros from then. An instruction makes entries always state the date.',
   'issue.RD5WCXPT972ETKRHV3FTYVJM1W': 'Dismissed: "Does Germany charge cars?" is a question of its own.',
+  // Filed by the refresh of 1 Oct 2026, after the dataset update for Romania's switch.
+  'issue.6N5JWNVJV2RZFRKBHXBNZDDYB0': 'Applied: CNAIR’s own TollRo announcement now backs the purchase entry.',
+  'issue.GR1YEGYMHAWFGHZ34BCCHG53MG':
+    'Applied: Verivox repeats three outdated claims (post offices and MAK as sellers, a 16,220 HUF surcharge, keeping the receipt 2 years); the operator says 27,790 HUF and 3 years.',
+  'issue.MPGN24BZ8GRFG2HY5RARRVDS4M': 'Applied: two more pages still quote the pre-2026 substitute toll (120 euros); it is 200 euros since 1 Jan 2026.',
+  'issue.T4MSJW8TQTEJTPQHF34T0V8TCC': 'Applied: the Romanian article about a German car vignette is cited as an example of the claim the EU Court of Justice ended in 2019.',
   'issue.PEJT0QM0H4HX1HFR4Y1AZT8GK8':
     'No source names post offices or an automobile club; the build had invented them. An instruction limits entries to the operator and its contracted resellers.',
 }
