@@ -73,6 +73,7 @@ About 71 Path One entries existed on 29 Sep; most are "an agent that refuses to 
 - 2026-10-01 afternoon: KB refresh finished (about 80 min), filed 4 update issues (uncited pages: CNAIR announcement, Verivox, kfz-teile.at + InfoContact.ro, Wall-Street.ro), all applied; snapshot 25 issues, 20 web pages. DEV post updated twice by the owner (13:21 and 13:32 UTC): TL;DR, sourced opening, four-system eval, second embed 332..351, 'keeps up' bullet; checked logged out (identical to post/drum-bun.md, 0 mentions, 515 session messages). MIT licence added. Open: whether a logged-in non-owner can open the standalone session page (embeds work for everyone).
 
 - 2026-10-03: full session embed (0..494) removed at the owner's request (it opened with the owner's typo-laden first prompt); the eval excerpt 332..351 stays and the Agent Session section is one sentence. Edited in the owner's Chrome, checked logged out: one embed, no owner messages shown, 0 mentions, video and 3 images.
+
 ## After publishing
 
 - Owner: optionally share once (LinkedIn, Sanity community); answer comments on the post.
