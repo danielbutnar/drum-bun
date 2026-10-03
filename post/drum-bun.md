@@ -119,6 +119,4 @@ Honest notes: the first run, on 29 September, scored the agent **6 / 16** agains
 
 ## Agent Session
 
-The whole build ran as one Claude Code session over two days: the research into four countries' toll rules, the schema, the planner and its tests, the Knowledge Base decisions, the eval run that lost to keyword search, and the video. Steps that touched my unrelated private notes are removed.
-
-{% agent_session building-drum-bun-with-claude-code-dlb6i2 0..494 %}
+I built Drum Bun with Claude Code. The excerpt in section 4 comes from that session: the first eval losing to keyword search, and the fixes that followed.
