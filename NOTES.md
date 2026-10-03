@@ -78,4 +78,4 @@ About 71 Path One entries existed on 29 Sep; most are "an agent that refuses to 
 
 - Owner: optionally share once (LinkedIn, Sanity community); answer comments on the post.
 - Keep the live site and Sanity project up until the winners are announced; the AI Gateway OIDC token only matters locally.
-- The old session upload `sgjo1z` is unused; the owner can delete it on DEV.
+- Session uploads: only `building-drum-bun-with-claude-code-dlb6i2` (id 288) is left; the owner deleted the unused `sgjo1z` (287) and `jizi4l` (286) on 3 Oct.
